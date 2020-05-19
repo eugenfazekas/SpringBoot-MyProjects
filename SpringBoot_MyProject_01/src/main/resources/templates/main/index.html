@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+	<head>
+		<title>Index</title>
+		 <meta name="description" content=""/>
+	     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />				
+		 <link rel="stylesheet" th:href="@{/css/main.css}" href="../static/css/main.css"/>
+	</head>
+	<body>
+	<div id="container">
+	<div th:insert="main/fragment/fragment :: top">
+	</div>
+		<div id="indexcontainer">
+		Index
+		</div>
+		<div th:insert="main/fragment/fragment :: bottom">
+	</div>
+	</div>
+	</body>
+</html>
