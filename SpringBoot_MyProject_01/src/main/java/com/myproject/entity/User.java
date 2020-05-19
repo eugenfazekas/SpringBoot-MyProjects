@@ -1,17 +1,9 @@
 package com.myproject.entity;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 public class User {
-		
-		private final Logger log = LoggerFactory.getLogger(this.getClass());
 	
-		private Long id;
-		
+		private int id; 
+	
 		private String firstName;
 			
 		private String lastName;
@@ -23,17 +15,28 @@ public class User {
 		private String activation;
 		
 		private Boolean enabled;
-			
-		private Set<Role> roles = new HashSet<Role>();
 		
+		private String authority;
+			
 		public User() {
 				}
 		
-		public Long getId() {
+		public User(String firstName, String lastName, String email, String password, String activation,
+				Boolean enabled, String authority) {
+			this.firstName = firstName;
+			this.lastName = lastName;
+			this.email = email;
+			this.password = password;
+			this.activation = activation;
+			this.enabled = enabled;
+			this.authority = authority;
+		}
+
+		public int getId() {
 			return id;
 		}
 
-		public void setId(Long id) {
+		public void setId(int id) {
 			this.id = id;
 		}
 
@@ -68,14 +71,6 @@ public class User {
 		public void setPassword(String password) {
 			this.password = password;
 		}
-
-		public Set<Role> getRoles() {
-			return roles;
-		}
-
-		public void setRoles(Set<Role> roles) {
-			this.roles = roles;
-		}
 		
 		public String getActivation() {
 			return activation;
@@ -92,16 +87,19 @@ public class User {
 		public void setEnabled(Boolean enabled) {
 			this.enabled = enabled;
 		}
-
-		public void addRoles(String roleName) {
-			if (this.roles == null || this.roles.isEmpty()) 
-				this.roles = new HashSet<>();
-			this.roles.add(new Role(roleName));
-			log.debug(roleName);
+				
+		public String getAuthority() {
+			return authority;
 		}
-		
+
+		public void setAuthority(String authority) {
+			this.authority = authority;
+		}
+
 		@Override
 		public String toString() {
-			return "User [id=" + id + ", email=" + email + ", password=" + password + "]";
+			return "User [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", password="
+					+ password + ", activation=" + activation + ", enabled=" + enabled + ", authority=" + authority
+					+ "]";
 		}
 }
