@@ -2,7 +2,7 @@ package com.myproject.entity;
 
 public class User {
 	
-		private int id; 
+		private Long id; 
 	
 		private String firstName;
 			
@@ -32,11 +32,11 @@ public class User {
 			this.authority = authority;
 		}
 
-		public int getId() {
+		public Long getId() {
 			return id;
 		}
 
-		public void setId(int id) {
+		public void setId(Long id) {
 			this.id = id;
 		}
 

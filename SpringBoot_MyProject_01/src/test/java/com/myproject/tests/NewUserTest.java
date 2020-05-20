@@ -21,7 +21,7 @@ private UserService userService;
 	
 	@Test
 	public void userRegistrationTest() {
-		userService.registration(new User("GYula","krisz","asdsa@sdfds.hu","sdfds","sdfasff",false,"User"));
+		userService.registerUser(new User("GYula","krisz","John@doe.hu","password","activationcode",false,"User"));
 	}
 
 }

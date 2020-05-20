@@ -469,5 +469,166 @@ div#indexcontainer{
 }
 
 
+/* Registration-------------------------------------------------------------------------------------*/
+div#registrationcontainer{
+	margin-top:10px;
+	margin-left:auto;
+	margin-right:auto;
+	width:940px;
+	height:600px;
+	background:linear-gradient(0deg ,#bbaaaa 0%,#a19c9c 100%);
+	-webkit-box-shadow:10px 10px 5px #222222;
+}
+div#regtitle {
+	
+	width:740px;
+	height:0px;
+	padding:50px 150px;
+	font-size:40px;
+	/*background-color:#888;*/
+}
 
+div#regfirstnametext{
+	padding-top:50px;
+	padding-left:50px;
+	font-size:30px;
+	width:150px;
+	height:50px;
+	/*background-color:#bbb;*/
+	float:left;
+}
+div#regfirstnameinput{
+	padding-top:40px ;
+	padding-left:10px;
+	width:200px;
+	height:60;
+	/*background-color:#aaa;*/
+	float:left;
+}
+div#regfirstnameerror{
+	padding-top:50px;
+	padding-left:50px;
+	width:450px;
+	height:50px;
+	float:left;
+	font-size:20px;
+	color:#44f;
+	/*background-color:#888;*/
+}
+div#reglastnametext{
+	padding-top:50px;
+	padding-left:50px;
+	font-size:30px;
+	width:150px;
+	height:50px;
+	/*background-color:#bbb;*/
+	float:left;
+}
+div#reglastnameinput{
+	padding-top:40px ;
+	padding-left:10px;
+	width:200px;
+	height:60;
+	/*background-color:#aaa;*/
+	float:left;
+}
+
+div#reglastnameerror{
+	padding-top:50px;
+	padding-left:50px;
+	width:450px;
+	height:50px;
+	float:left;
+	font-size:20px;
+	color:#44f;
+	/*background-color:#888;*/
+}
+
+div#regemailtext{
+	padding-top:50px;
+	padding-left:100px;
+	font-size:30px;
+	width:100px;
+	height:50px;
+	/*background-color:#bbb;*/
+	float:left;
+}
+div#regemailinput{
+	padding-top:40px ;
+	padding-left:10px;
+	width:200px;
+	height:60;
+	/*background-color:#aaa;*/
+	float:left;
+}
+div#clear{
+	clear: both;
+}
+input#email[type=text] {
+  width: 100%;
+  padding: 10px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-align:center;
+}
+div#regemailerror{
+	padding-top:50px;
+	padding-left:50px;
+	width:450px;
+	height:50px;
+	float:left;
+	font-size:20px;
+	color:#44f;
+	/*background-color:#888;*/
+}
+div#regpasswordtext{
+	padding-top:50px;
+	padding-left:60px;
+	font-size:30px;
+	width:140px;
+	height:50px;
+	/*background-color:#666;*/
+	float:left;
+}
+
+div#regpasswordinput{
+	padding-top:40px;
+	padding-left:10px;
+	width:200px;
+	height:60px;
+	/*background-color:#000;*/
+	float:left;
+}
+
+input#regpassword[type=password] {
+  width: 100%;
+  padding: 10px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-align:center;
+}
+div#regpassworderror{
+	padding-top:50px;
+	padding-left:50px;
+	width:450px;
+	height:50px;
+	float:left;
+	font-size:20px;
+	color:#44f;
+	/*background-color:#888;*/
+}
+div#regsubmit {
+	padding-top:20px;
+	padding-left:175px;
+	width:275px;
+	height:70px;
+	/*background-color:#444499;*/
+	float:left;
+}
 
