@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.myproject.entity.RegistrationForm;
 import com.myproject.entity.User;
 import com.myproject.service.UserService;
 
@@ -21,7 +22,7 @@ private UserService userService;
 	
 	@Test
 	public void userRegistrationTest() {
-		userService.registerUser(new User("GYula","krisz","John@doe.hu","password","activationcode",false,"User"));
+		userService.registerUser(new RegistrationForm("Eugen"," Fazekas","John@doe.hu","password"));
 	}
 
 }

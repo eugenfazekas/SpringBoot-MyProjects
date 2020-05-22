@@ -4,7 +4,7 @@ import com.myproject.entity.User;
 
 public interface UserRepository {
 
-	User findByEmail(String email);
+	User findByFullName(String email);
 	
 	void save(User user);
 

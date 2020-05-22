@@ -20,13 +20,12 @@ import com.myproject.service.Impl.UserServiceImpl;
 public class SecurityConf extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	private UserServiceImpl	userDetailsService;
+	private UserServiceImpl	userServiceImpl;
 
-	
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth)throws Exception {
 				
-		auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
+		auth.userDetailsService(userServiceImpl).passwordEncoder(new BCryptPasswordEncoder());
 		}
 	
 	@Override 

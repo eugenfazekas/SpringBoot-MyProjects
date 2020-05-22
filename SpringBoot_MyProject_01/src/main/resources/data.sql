@@ -1,1 +1,1 @@
-INSERT INTO USERS (firstname,lastname,email,password,activation,enabled,authority) VALUES('Eugen','Fazekas','a@a.hu','$2a$10$3Rxc1aQmckq71ghrvqjqjuxTm1kkoj2eduH8Q2boAyhLtU.lG/83O','testcode','true','USER');
+INSERT INTO USERS (fullname,email,password,activation,enabled,authority) VALUES('Eugen Fazekas','a@a.hu','$2a$10$3Rxc1aQmckq71ghrvqjqjuxTm1kkoj2eduH8Q2boAyhLtU.lG/83O','testcode','true','USER');

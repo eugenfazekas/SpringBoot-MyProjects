@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <body>
 	<div th:fragment="top">
 		<div id="header">
-			<form name="login" class="form-signin" th:action="@{/login}" method="post">
+			<form name="login" class="form-signin" th:action="@{/login}"
+				method="post">
 				<div id="belepes">Login:</div>
 				<div id="username1">
 					<input type="text" id="username" name="username"
@@ -34,13 +36,20 @@
 				</div>
 			</form>
 
-			<form>
-				<div id="welcometext" align="right">Welcome:</div>
-				<div id="welcomeuser" align="left">
-					<span id="welcomespan" align="left">Eugen Fazekas</span>
+			<form   >
+				<div id="welcometext" align="right">Welcome: </div>
+				<div id="welcomeuser" align="left" >
+				<span sec:authentication="name">Anonymous </span>
 				</div>
 			</form>
-			<div id="signout">Sign Out</div>
+			<div id="signout">
+				<form sec:authorize="isAuthenticated()" id="frmlogout"
+					th:action="@{/logout}" method="post">
+					<a id="signouttext" href="javascript:{}"
+						onclick="document.getElementById('frmlogout').submit(); return false;"
+						>Sign Out</a>
+				</form>
+			</div>
 		</div>
 		<div id="pic">
 			<img th:src="@{/img/it.png}" src="../../static/img/it.png" id="kep1"
@@ -108,6 +117,7 @@
 		</footer>
 
 	</div>
-</body>
-
+	<script th:inline="javascript"> var a = [[${fullname}]]  ; if(a!= null) { function username() {  document.getElementById("usernamecheck").submit(); } username();} </script>
+	
+	</body>
 </html>

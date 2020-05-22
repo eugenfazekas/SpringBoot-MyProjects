@@ -29,31 +29,28 @@ public class UserRepositoryImpl implements UserRepository {
 			User n = new User();
 			
 			n.setId(Long.valueOf(rs.getString("id")));
-			n.setFirstName(rs.getString("firstname"));
-			n.setLastName(rs.getString("lastname"));
+			n.setFullName(rs.getString("fullname"));
 			n.setEmail(rs.getString("email"));
 			n.setPassword(rs.getString("password"));
 			n.setActivation(rs.getString("activation"));
 			n.setEnabled(Boolean.valueOf(rs.getString("enabled")));
 			n.setAuthority(rs.getString("authority"));
 			
-			log.debug(n.toString());
 			return n;
 		}
 	};
 
 	@Override
-	public User findByEmail(String email) {
-		
-		final String  sql ="SELECT * FROM users WHERE email = ?";
-			return jdbc.queryForObject(sql, mapper, email);
+	public User findByFullName(String fullname) {
+		final String  sql ="SELECT * FROM users WHERE fullname = ?";
+		return jdbc.queryForObject(sql, mapper, fullname);
 	}
 
 	@Override
 	public void save(User user) {
 		
-		final String sql = "INSERT INTO users (firstname,lastname,email,password,activation,enabled,authority) VALUES (?,?,?,?,?,?,?)";
-		jdbc.update(sql,user.getFirstName(),user.getLastName(),user.getEmail(),user.getPassword(),
+		final String sql = "INSERT INTO users (fullname,email,password,activation,enabled,authority) VALUES (?,?,?,?,?,?)";
+		jdbc.update(sql,user.getFullName(),user.getEmail(),user.getPassword(),
 				user.getActivation(),user.getEnabled().toString(),user.getAuthority());
 	}
 }

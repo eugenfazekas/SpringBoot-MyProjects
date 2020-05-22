@@ -204,11 +204,12 @@ div#welcometext  {
 div#welcomeuser{
 
 	padding-top:14px;
-	padding-left:0px;
+	padding-left:5px;
 	font-size:20px;
-	width:260px;
+	width:250px;
 	height:36px;
 	float:left;
+	color:#0022bb;
 	/*background-color:#888888;*/
 }
 
