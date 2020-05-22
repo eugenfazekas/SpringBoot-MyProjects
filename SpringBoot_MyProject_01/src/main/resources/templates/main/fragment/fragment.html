@@ -1,123 +1,142 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html  lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+	<head>
+	    <title>Demo Project</title>
+	    <meta name="description" content=""/>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />				
+		<link rel="stylesheet"  type="text/css" th:href="@{/css/main.css}" href="../../../static/css/main.css"/>
+	</head>
 <body>
-	<div th:fragment="top">
-		<div id="header">
-			<form name="login" class="form-signin" th:action="@{/login}"
-				method="post">
-				<div id="belepes">Login:</div>
-				<div id="username1">
-					<input type="text" id="username" name="username"
-						onfocus="this.placeholder = ''" required="true" />
-				</div>
-				<div id="password1">
-					<input type="password" id="password" name="password"
-						onfocus="this.placeholder = ''" required="true" />
-				</div>
-				<div id="submit1">
-					<button class="button button1" type="submit">Sign IN</button>
-				</div>
-				<div id="regisztracio">
-					<a href="/registration" id="regtext">Registration </a>
-				</div>
-			</form>
-			<div id="searching">
-				<img th:src="@{/img/searchicon.png}"
-					src="../../static/img/searchicon.png" height="24" width="24" />
-			</div>
+	<div id = container>
+			<div id="header" th:fragment="top1" >
+						<form name="login" th:action="@{/login}" method="post" class="form-signin"> 
+								<div id="belepes" th:text="#{Belepes}">Belepes:
+								</div>
+								<div id="username1">
+									 <input type="text"  id="username" name="username" th:attr="placeholder=#{Felhasznalo}"  onfocus="this.placeholder = ''" required="true" />
+								</div>
+								<div id="password1">
+									 <input type="password" id="password" name="password" th:attr="placeholder=#{Jelszo}" onfocus="this.placeholder = ''" required="true" />
+								</div>
+								<div id="submit1">
+									<button class="button button1" type="submit" th:text="#{Bejelentkezes}">Bejelentkezes</button>
+								</div>
+								<div id="regisztracio">
+									<a href="/registration" id="regtext" th:text="#{Regisztracio}">Regisztracio      </a>
+								</div>
+						</form>
+							<div id="searching">
+								<img th:src="@{/img/searchicon.png}" src="../../../static/img/searchicon.png" height="24" width="24"/>
+							</div>
+					<form  action="/blog">		
+							<div id="kereses">
+								 <input type="text"  id="search1" name="search" th:attr="placeholder=#{Kereses}" onfocus="this.placeholder = ''" />
+							</div>
+							<div id="searchbutton">
+								<button class="button button2" value="Search" type="submit"th:text="#{Mehet}" >Mehet</button>
+							</div>
+					</form>	
 			<form>
-				<div id="kereses">
-					<input type="text" id="search1" name="search"
-						onfocus="this.placeholder = ''" />
-				</div>
-				<div id="searchbutton">
-					<button class="button button2" value="Search" type="submit">GO!</button>
-				</div>
-			</form>
-
-			<form   >
-				<div id="welcometext" align="right">Welcome: </div>
+				<div id="welcometext" th:text="#{Udvozlunk}" align="right">Welcome: </div>
 				<div id="welcomeuser" align="left" >
 				<span sec:authentication="name">Anonymous </span>
 				</div>
 			</form>
 			<div id="signout">
-				<form sec:authorize="isAuthenticated()" id="frmlogout"
-					th:action="@{/logout}" method="post">
-					<a id="signouttext" href="javascript:{}"
-						onclick="document.getElementById('frmlogout').submit(); return false;"
-						>Sign Out</a>
+				<form sec:authorize="isAuthenticated()" id="frmlogout" th:action="@{/logout}" method="post">
+					<a id="signouttext" href="javascript:{}" onclick="document.getElementById('frmlogout').submit(); return false;" th:text="#{Kijelentkezes}">Sign Out</a>
 				</form>
 			</div>
-		</div>
-		<div id="pic">
-			<img th:src="@{/img/it.png}" src="../../static/img/it.png" id="kep1"
-				alt="Nincs kep" title="IT" height="240" width="940" />
-		</div>
-
-		<div id="menutable">
-			<ul id="menu">
-				<li><div>
-						<div id="hirek">
-							<a href="/index">News </a>
-						</div>
-					</div></li>
-				<li><div>
-						<div id="blogok">
-							<a href="/blogs">Blogs </a>
-						</div>
-					</div></li>
-				<li><div>
-						<div id="videok">
-							<a href="/videos">Videos </a>
-						</div>
-					</div></li>
-				<li><div>
-						<div id="gyik">
-							<a href="/description">Page Info </a>
-						</div>
-					</div></li>
-				<li><div>
-						<div id="kapcsolat">
-							<a href="/contact">Contact</a>
-						</div>
-					</div></li>
-			</ul>
-		</div>
-	</div>
-	<div th:fragment="bottom">
-		<footer>
-			<div id="footer">
-				<ul id="menufooter">
-					<li><div>
-							<div id="fooldal">
-								<a href="/index">Index </a>
-							</div>
-						</div></li>
-					<li><div>
-							<div id="fblogok">
-								<a href="/blogs">Blogs </a>
-							</div>
-						</div></li>
-					<li><div>
-							<div id="fgyik">
-								<a href="/description">Server Description </a>
-							</div>
-						</div></li>
-					<li><div>
-							<div id="fkapcsolat">
-								<a href="/contact">Contact</a>
-							</div>
-						</div></li>
-				</ul>
-				<div id="copyright">CopyRight: Eugen Fazekas</div>
-
 			</div>
-		</footer>
+			<div id="pic" th:fragment="top2">
+					<img th:src="@{/img/it.png}" src="../../../static/img/it.png"  id="kep1" alt="Nincs kep" title="IT" height="240" width="940"/>
+			</div>
+			<div id="menutable" th:fragment="top3">
+						<ul id="menu">
+							<li><div><div id="hirek"><a href="/index" th:text="#{Hirek}">Hirek        </a></div></div></li>
+							<li><div><div id="blogok"><a href="blogs" th:text="#{Blogok}">Blogok      </a></div></div></li>
+							<li><div><div id="videok"><a href="/videos" th:text="#{Videok}">Videok      </a></div></div></li>
+							<li><div><div id="gyik"><a href="/description"th:text="#{Gyik}">Szerver Leiras  </a></div></div></li>
+							<li><div><div id="kapcsolat"><a href="/contact" th:text="#{Kapcsolat}">Kapcsolat</a></div></div></li>
+						</ul>
+					</div>
+	<div>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+	</div>
 
 	</div>
-	<script th:inline="javascript"> var a = [[${fullname}]]  ; if(a!= null) { function username() {  document.getElementById("usernamecheck").submit(); } username();} </script>
-	
+		<div th:fragment="bottom">
+			<footer>
+				<div id="footer">
+					<ul id="menufooter">
+						<li><div><div id="fooldal"><a href="/" th:text="#{Fooldal}">Fooldal             </a></div></div></li>
+						<li><div><div id="fblogok"><a href="/blogs" th:text="#{Blogok}">Blogok               </a></div></div></li>
+						<li><div><div id="fgyik"><a href="/description" th:text="#{Gyik}" >Szerver Leiras    </a></div></div></li>
+						<li><div><div id="fkapcsolat"><a href="/contact"th:text="#{Kapcsolat}" >Kapcsolat    </a></div></div></li>
+					</ul>
+					<div id="copyright" th:text="#{CopyRight}">CopyRight: Eugen Fazekas</div>
+				</div>
+			</footer>
+		</div>
+		</div>
+			</div>
 	</body>
 </html>
