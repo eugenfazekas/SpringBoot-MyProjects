@@ -1,6 +1,5 @@
 package com.myproject.service.Impl;
 
-import java.sql.SQLException;
 import java.util.UUID;
 
 import org.slf4j.Logger;
@@ -47,22 +46,22 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		user.setPassword(new BCryptPasswordEncoder().encode(userToTegister.getPassword()));
 		user.setEmail(userToTegister.getEmail());
 		user.setActivation(UUID.randomUUID().toString());
-		user.setEnabled(true);
+		user.setEnabled(false);
 		user.setAuthority("USER");
 		userRepositoryImpl.save(user);
 		log.debug("New User: "+user.toString());
 	}
 
 	@Override
-	public String ifUserExsitByEmail(String email)  {
-		String userExist = "Not Exist";
-			try {
-			userRepositoryImpl.ifUserExsitByEmail(email);
-			userExist = "Exist";
-			}catch(EmptyResultDataAccessException e){}
-				log.debug("UserRegistration User: "+userExist);
-				
-			return userExist;
+	public Integer emailExist(String email)  {
+			
+		return userRepositoryImpl.emailExist(email);
+	}
+
+	@Override
+	public String userActivation(String activationCode) {
+		
+		return userRepositoryImpl.findByActivation(activationCode);
 	}
 
 }

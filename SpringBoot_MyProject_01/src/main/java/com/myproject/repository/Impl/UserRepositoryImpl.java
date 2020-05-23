@@ -2,7 +2,6 @@ package com.myproject.repository.Impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,6 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
-
 import com.myproject.entity.User;
 import com.myproject.repository.UserRepository;
 
@@ -63,9 +61,27 @@ public class UserRepositoryImpl implements UserRepository {
 	}
 
 	@Override
-	public User ifUserExsitByEmail(String email) {
+	public Integer emailExist(String email) {
+	
+		final String  sql ="SELECT COUNT (email) FROM USERS WHERE email = ?";
+		int user = jdbc.queryForObject(sql, new Object[] {email}, Integer.class);
+	
+			return user;
+	}
+	
+	@Override
+	public String findByActivation(String activationCode) {
+		String activation = "NotOK!";
 		
-		final String  sql ="SELECT * FROM users WHERE email = ?";
-		return jdbc.queryForObject(sql, mapper, email);
+		final String  sql1 ="SELECT COUNT (activation) FROM USERS WHERE activation = ?";
+		int user = jdbc.queryForObject(sql1, new Object[] {activationCode}, Integer.class);
+	
+		if(user > 0) {
+		final String  sql2 ="UPDATE users SET activation = '' , enabled = 'true' where activation = ? ";
+		jdbc.update(sql2, activationCode);
+		activation = "Ok";
+			}
+		log.debug("Account activation: " + activation);
+			return activation;
 	}
 }

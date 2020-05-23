@@ -486,8 +486,34 @@ z-index:1;
 visibility:hidden;
 }
 
+
 /* Show the snackbar when clicking on a button (class added with JavaScript) */
 #mySnackbarregistration.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 1s, fadeout 1s 2.8s;
+  animation: fadein 1s, fadeout 1s 2.8s;
+}
+
+#mySnackbaractivation {
+color:#fff;
+background:#2b2;
+border-radius:2px;
+font-size:20px;
+font-family:"Arial";
+text-align:center;
+padding:16px;
+position:fixed;
+bottom:30px;
+left:80%;
+width:18%;
+z-index:1;
+visibility:hidden;
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#mySnackbaractivation.show {
   visibility: visible; /* Show the snackbar */
   /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
   However, delay the fade out process for 2.5 seconds */

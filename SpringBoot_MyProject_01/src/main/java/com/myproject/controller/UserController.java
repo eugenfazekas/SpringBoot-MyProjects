@@ -1,14 +1,14 @@
 package com.myproject.controller;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -36,7 +36,7 @@ public class UserController {
 		if(result.hasErrors()) {
 			return "user/registration";
 		}
-		if(userService.ifUserExsitByEmail(user.getEmail()).equals("Exist") ){
+		else if(userService.emailExist(user.getEmail()) > 0){
 			model.addAttribute("exist", " ");
 			return "user/registration";
 		}
@@ -46,5 +46,12 @@ public class UserController {
 		}
 		return "forward:/";
 	}
+	
+	 @RequestMapping(path = "/activation/{code}", method = RequestMethod.GET)
+	    public String activation(@PathVariable("code") String code, HttpServletResponse response,Model model) {
+	    	model.addAttribute("activation", userService.userActivation(code));
+	 		return "forward:/";
+	 }
+	
 
 }

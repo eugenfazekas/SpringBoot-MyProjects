@@ -144,11 +144,16 @@
 					<div id="copyright" th:text="#{CopyRight}">CopyRight: Eugen Fazekas</div>
 				</div>
 			</footer>
-			<div th:text="${message}">				</div>
-			<div id="mySnackbarregistration" th:text="#{registrationsucces}"></div>
-			
-				<script th:inline="javascript"> var a = [[${message}]] ; if(a!= null) { var o = document.getElementById("mySnackbarregistration"); 
-				o.className = "show"; setTimeout(function(){ o.className = o.className.replace("show","");},3700); } </script>
+				<div th:text="${message}">			</div>
+				<div th:text="${activation}">		</div>
+				
+				<div id="mySnackbarregistration" th:text="#{registrationsucces}"></div>
+				<div id="mySnackbaractivation" th:text="#{activationok}"></div>
+
+			<script th:inline="javascript"> var a = [[${message}]] ; if(a!= null) { var o = document.getElementById("mySnackbarregistration"); 
+				o.className = "show"; setTimeout(function(){ o.className = o.className.replace("show","");},3700); } </script>	
+			<script th:inline="javascript"> var a = [[${activation}]] ; if(a == 'Ok') { var o = document.getElementById("mySnackbaractivation"); 
+				o.className = "show"; setTimeout(function(){ o.className = o.className.replace("show","");},3700); } </script>	
 		</div>
 		
 	</body>

@@ -7,6 +7,8 @@ public interface UserService {
 
 	void registerUser(RegistrationForm userToRegister);
 
-	String ifUserExsitByEmail(String email);
+	Integer emailExist(String email);
+	
+	String userActivation(String activationCode);
 
 }
