@@ -1,5 +1,6 @@
 package com.myproject.service.Impl;
 
+import java.util.Locale;
 import java.util.UUID;
 
 import org.slf4j.Logger;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 import com.myproject.entity.RegistrationForm;
 import com.myproject.entity.User;
 import com.myproject.repository.Impl.UserRepositoryImpl;
+import com.myproject.service.EmailService;
 import com.myproject.service.UserService;
 
 @Service
@@ -23,10 +25,12 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 	
 	private UserRepositoryImpl userRepositoryImpl;
+	private EmailService emailService;
 
 	@Autowired
-	public UserServiceImpl(UserRepositoryImpl userRepositoryImpl) {
+	public UserServiceImpl(UserRepositoryImpl userRepositoryImpl, EmailService emailService) {
 		this.userRepositoryImpl = userRepositoryImpl;
+		this.emailService = emailService;
 	}
 	
 	@Override
@@ -39,8 +43,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		return new UserDetailsImpl(user);
 	}
 		
+	
+
 	@Override
-	public void registerUser (RegistrationForm userToTegister) {
+	public void registerUser (RegistrationForm userToTegister,Locale locale) {
 		User user = new User();
 		user.setFullName(userToTegister.getFirstName()+" " +userToTegister.getLastName());
 		user.setPassword(new BCryptPasswordEncoder().encode(userToTegister.getPassword()));
@@ -49,6 +55,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		user.setEnabled(false);
 		user.setAuthority("USER");
 		userRepositoryImpl.save(user);
+		emailService.sendUserMessage(user, userToTegister, locale);
 		log.debug("New User: "+user.toString());
 	}
 
@@ -63,6 +70,8 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		
 		return userRepositoryImpl.findByActivation(activationCode);
 	}
+
+	
 
 }
 

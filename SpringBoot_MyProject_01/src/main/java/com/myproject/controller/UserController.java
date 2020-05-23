@@ -1,5 +1,7 @@
 package com.myproject.controller;
 
+import java.util.Locale;
+
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
@@ -32,7 +34,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/reg", method = RequestMethod.POST)
-	public String reg(@Valid @ModelAttribute("user") RegistrationForm user, BindingResult result,Model model) {
+	public String reg(@Valid @ModelAttribute("user") RegistrationForm user, BindingResult result,Model model,Locale locale) {
 		if(result.hasErrors()) {
 			return "user/registration";
 		}
@@ -42,7 +44,7 @@ public class UserController {
 		}
 		else {
 			model.addAttribute("message"," ");
-			userService.registerUser(user);
+			userService.registerUser(user,locale);
 		}
 		return "forward:/";
 	}

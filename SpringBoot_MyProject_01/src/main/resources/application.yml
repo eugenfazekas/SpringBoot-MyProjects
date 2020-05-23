@@ -1,0 +1,16 @@
+emailservice:
+  validationLink : http://127.0.0.1:8080/activation/
+  subjecten : Demo Project account activation
+  text1en : Dear
+  text2en : Thanks for you're registration to our website
+  text3en : You can activate you're account by the followed link
+  
+  subjecthu : Demo Project Fiók aktiválás
+  text1hu : Kedves
+  text2hu : Köszönjuk hogy regisztráltal az oldalon
+  text3hu : A fiókodat a következő oldalról tudod aktiválni
+  
+  subjectro : Demo Project activare cont
+  text1ro : Drag client
+  text2ro : Multumim ca ai registrat pe pagina
+  text3ro : Po-ti activa contul pe linkul urmator
