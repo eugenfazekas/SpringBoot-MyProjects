@@ -44,19 +44,28 @@
 				<div id="welcomeuser" align="left" >
 				<span sec:authentication="name">Anonymous </span>
 				</div>
+				<div  th:if="${param.error}"  class="alert alert-danger"></div>
+				<div th:if="${param.logout}" class="alert alert-success" ></div>
 			</form>
 			<div id="signout">
 				<form sec:authorize="isAuthenticated()" id="frmlogout" th:action="@{/logout}" method="post">
 					<a id="signouttext" href="javascript:{}" onclick="document.getElementById('frmlogout').submit(); return false;" th:text="#{Kijelentkezes}">Sign Out</a>
 				</form>
 			</div>
+					<div id="mySnackbarloginerror" th:text="#{Loginerror}">Hibas felhasznaloi nev vagy jelszo</div>	
+					<div id="mySnackbarlogout" th:text="#{Logout}">Sikeresen Kijelentkeztel</div>	
+					<script th:inline="javascript"> var a = [[${param.error}]] ; if(a!= null) { var o = document.getElementById("mySnackbarloginerror"); 
+					o.className = "show"; setTimeout(function(){ o.className = o.className.replace("show","");},3700); } </script>
+					
+					<script th:inline="javascript"> var a = [[${param.logout}]] ; if(a!= null) { var o = document.getElementById("mySnackbarlogout"); 
+					o.className = "show"; setTimeout(function(){ o.className = o.className.replace("show","");},3700); } </script>	
 			</div>
 			<div id="pic" th:fragment="top2">
 					<img th:src="@{/img/it.png}" src="../../../static/img/it.png"  id="kep1" alt="Nincs kep" title="IT" height="240" width="940"/>
 			</div>
 			<div id="menutable" th:fragment="top3">
 						<ul id="menu">
-							<li><div><div id="hirek"><a href="/index" th:text="#{Hirek}">Hirek        </a></div></div></li>
+							<li><div><div id="hirek"><a href="/" th:text="#{Hirek}">Hirek        </a></div></div></li>
 							<li><div><div id="blogok"><a href="blogs" th:text="#{Blogok}">Blogok      </a></div></div></li>
 							<li><div><div id="videok"><a href="/videos" th:text="#{Videok}">Videok      </a></div></div></li>
 							<li><div><div id="gyik"><a href="/description"th:text="#{Gyik}">Szerver Leiras  </a></div></div></li>
@@ -135,8 +144,12 @@
 					<div id="copyright" th:text="#{CopyRight}">CopyRight: Eugen Fazekas</div>
 				</div>
 			</footer>
+			<div th:text="${message}">				</div>
+			<div id="mySnackbarregistration" th:text="#{registrationsucces}"></div>
+			
+				<script th:inline="javascript"> var a = [[${message}]] ; if(a!= null) { var o = document.getElementById("mySnackbarregistration"); 
+				o.className = "show"; setTimeout(function(){ o.className = o.className.replace("show","");},3700); } </script>
 		</div>
-		</div>
-			</div>
+		
 	</body>
 </html>

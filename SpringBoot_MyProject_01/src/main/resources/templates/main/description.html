@@ -9,52 +9,54 @@
 </head>
 <body>
 	<div id="container">
-		<div th:insert="main/fragment/fragment :: top"></div>
+			<div th:replace="main/fragment/fragment :: top1"></div>
+			<div th:replace="main/fragment/fragment :: top2"></div>
+			<div th:replace="main/fragment/fragment :: top3"></div>
 		<div id="indexcontainer">
 			<h1>Server Description:</h1>
-			</br> </br>
+			<br /> <br />
 			<h2>BackEnd</h2>
-			</br> </br>
+			<br /> <br />
 			<p>Authentication with Spring Security</p>
-			</br>
+			<br />
 			<p>Error controller</p>
-			</br>
+			<br />
 			<p>Exception general controller</p>
-			</br>
+			<br />
 			<p>Debugging with LoggerFactory slf4</p>
-			</br>
+			<br />
 			<p>PostGreSql-H2 Database with JDBC Queries</p>
-			</br>
+			<br />
 			<p>Regex input Validation</p>
-			</br>
+			<br />
 			<p>Email Sending Service:RO,EN,HU</p>
-			</br>
+			<br />
 			<p>User Activation Service</p>
-			</br>
+			<br />
 			<p>BCryptPasswordEncoding</p>
-			</br>
+			<br />
 			<p>Security Context holder For Auth user Deatails</p>
-			</br>
+			<br />
 			<p>User/ADMIN Privileges</p>
-			</br>
+			<br />
 			<p>Share Youtube Videos and Images with ADMIN Privileges</p>
-			</br>
+			<br />
 			<p>Set Content and delete content with Admin Privileges</p>
-			</br> </br>
+			<br />
 			<h2>FrontEnd</h2>
-			</br> </br>
+			<br /> <br />
 			<p>Multilanguage:RO,EN,HU</p>
-			</br>
+			<br />
 			<p>Blogging: Dianmic input in and out</p>
-			</br>
+			<br />
 			<p>Searching by Blogs</p>
-			</br>
+			<br />
 			<p>JavaScriptImplementations:Snackbar,Scrolling,TimeOut</p>
-			</br>
+			<br />
 			<p>Error page at /error/**</p>
-			</br> </br>
+			<br /> <br />
 		</div>
-		<div th:insert="main/fragment/fragment :: bottom"></div>
+		<div th:replace="main/fragment/fragment :: bottom"></div>
 	</div>
 </body>
 </html>

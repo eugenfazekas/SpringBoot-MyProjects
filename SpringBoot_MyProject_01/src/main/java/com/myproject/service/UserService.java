@@ -6,7 +6,7 @@ import com.myproject.entity.User;
 public interface UserService {
 
 	void registerUser(RegistrationForm userToRegister);
-	
-	User findByFullName(String fullname);
+
+	String ifUserExsitByEmail(String email);
 
 }

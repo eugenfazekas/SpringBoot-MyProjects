@@ -20,9 +20,9 @@ private UserService userService;
 		this.userService = userService;
 	}
 	
-	@Test
-	public void userRegistrationTest() {
-		userService.registerUser(new RegistrationForm("Eugen"," Fazekas","John@doe.hu","password"));
-	}
+//	@Test
+//	public void userRegistrationTest() {
+//		userService.registerUser(new RegistrationForm("Eugen"," Fazekas","John@doe.hu","password"));
+//	}
 
 }

@@ -1,10 +1,12 @@
 package com.myproject.service.Impl;
 
+import java.sql.SQLException;
 import java.util.UUID;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -52,10 +54,15 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 	}
 
 	@Override
-	public User findByFullName(String email) {
-		User user = userRepositoryImpl.findByFullName(email);
-		log.debug("findByEmail: "+user.toString());
-		return user;
+	public String ifUserExsitByEmail(String email)  {
+		String userExist = "Not Exist";
+			try {
+			userRepositoryImpl.ifUserExsitByEmail(email);
+			userExist = "Exist";
+			}catch(EmptyResultDataAccessException e){}
+				log.debug("UserRegistration User: "+userExist);
+				
+			return userExist;
 	}
 
 }

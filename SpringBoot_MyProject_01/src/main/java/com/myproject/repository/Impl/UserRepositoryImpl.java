@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -42,9 +43,16 @@ public class UserRepositoryImpl implements UserRepository {
 
 	@Override
 	public User findByFullName(String fullname) {
+
+		User user = null;
 		final String  sql ="SELECT * FROM users WHERE fullname = ?";
-		return jdbc.queryForObject(sql, mapper, fullname);
-	}
+		try {
+		user = jdbc.queryForObject(sql, mapper, fullname);
+		}catch(EmptyResultDataAccessException e) {
+			log.debug("Fullname: "+fullname+" Not Fonud!");
+			}
+		return user;
+		}
 
 	@Override
 	public void save(User user) {
@@ -52,5 +60,12 @@ public class UserRepositoryImpl implements UserRepository {
 		final String sql = "INSERT INTO users (fullname,email,password,activation,enabled,authority) VALUES (?,?,?,?,?,?)";
 		jdbc.update(sql,user.getFullName(),user.getEmail(),user.getPassword(),
 				user.getActivation(),user.getEnabled().toString(),user.getAuthority());
+	}
+
+	@Override
+	public User ifUserExsitByEmail(String email) {
+		
+		final String  sql ="SELECT * FROM users WHERE email = ?";
+		return jdbc.queryForObject(sql, mapper, email);
 	}
 }
