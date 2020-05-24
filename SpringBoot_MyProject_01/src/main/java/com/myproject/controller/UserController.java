@@ -38,7 +38,7 @@ public class UserController {
 		if(result.hasErrors()) {
 			return "user/registration";
 		}
-		else if(userService.emailExist(user.getEmail()) > 0){
+		else if(userService.userExist(user.getEmail(), user.getFirstName()+" "+user.getLastName()) > 0){
 			model.addAttribute("exist", " ");
 			return "user/registration";
 		}

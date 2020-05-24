@@ -9,7 +9,7 @@ public interface UserService {
 
 	void registerUser(RegistrationForm userToRegister,Locale locale);
 
-	Integer emailExist(String email);
+	Integer userExist(String email,String fullname);
 	
 	String userActivation(String activationCode);
 

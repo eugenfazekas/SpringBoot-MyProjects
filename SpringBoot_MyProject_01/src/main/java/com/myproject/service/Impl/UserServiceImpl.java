@@ -60,9 +60,9 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 	}
 
 	@Override
-	public Integer emailExist(String email)  {
+	public Integer userExist(String email, String fullname)  {
 			
-		return userRepositoryImpl.emailExist(email);
+		return userRepositoryImpl.userExist(email,fullname);
 	}
 
 	@Override

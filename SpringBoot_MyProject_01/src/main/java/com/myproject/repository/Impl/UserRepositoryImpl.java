@@ -61,10 +61,10 @@ public class UserRepositoryImpl implements UserRepository {
 	}
 
 	@Override
-	public Integer emailExist(String email) {
+	public Integer userExist(String email, String fullname ) {
 	
-		final String  sql ="SELECT COUNT (email) FROM USERS WHERE email = ?";
-		int user = jdbc.queryForObject(sql, new Object[] {email}, Integer.class);
+		final String  sql = "SELECT COUNT (*)  from users where email = ? or fullname = ? ";
+		int user = jdbc.queryForObject(sql, new Object[] {email,fullname}, Integer.class); 
 	
 			return user;
 	}

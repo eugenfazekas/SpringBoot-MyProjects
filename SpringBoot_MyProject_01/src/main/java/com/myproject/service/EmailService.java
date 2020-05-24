@@ -10,6 +10,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+import org.w3c.dom.html.HTMLDocument;
 
 import com.myproject.entity.RegistrationForm;
 import com.myproject.entity.User;
@@ -39,15 +40,26 @@ public class EmailService {
 	}
 	
 public void sendUserMessage(User user ,RegistrationForm registrationForm, Locale locale) {
-	if(String.valueOf(locale.getLanguage()).equals("en")) {
-		sendMessageen(user.getEmail(),registrationForm.getFirstName(),registrationForm.getLastName(),user.getActivation());
+	
+	String email,firstName,lastName,key,language;
+	
+	language = locale.getLanguage();
+	email = user.getEmail(); firstName = registrationForm.getFirstName(); lastName = registrationForm.getLastName(); key = user.getActivation();
+	
+	if(language.equals("en")) {
+		sendMessageen(email,firstName,lastName,key);
 	}
-	if(String.valueOf(locale.getLanguage()).equals("hu")) {
-		sendMessagehu(user.getEmail(),registrationForm.getFirstName(),registrationForm.getLastName(),user.getActivation());
+	if(language.equals("hu")) {
+		sendMessagehu(email,firstName,lastName,key);
 	}
-	if(String.valueOf(locale.getLanguage()).equals("ro")) {
-		sendMessagero(user.getEmail(),registrationForm.getFirstName(),registrationForm.getLastName(),user.getActivation());
+	if(language.equals("ro")) {
+		sendMessagero(email,firstName,lastName,key);
 	}
+	if(!language.equals("en") && !language.equals("hu") && !language.equals("ro"))
+	 {
+		sendMessageen(email,firstName,lastName,key);
+	}
+	
 }	
 	
 public void sendMessageen(String email ,String firstName, String lastName,String key) {
@@ -59,7 +71,7 @@ public void sendMessageen(String email ,String firstName, String lastName,String
 			messageen.setFrom(MESSAGE_FROM);
 			messageen.setTo(email);
 			messageen.setSubject(subjecten);
-			messageen.setText(text1en+" "+ lastName+" " + firstName + "!  \n" +text2en
+			messageen.setText(text1en+" "+ firstName+" " + lastName + "!  \n" +text2en +firstName +"  " +lastName
 				+",\n"	+text3en+":\n" + ValidationLink+key);
 			javaMailSender.send(messageen);
 			
@@ -77,7 +89,7 @@ public void sendMessagehu(String email ,String firstName, String lastName,String
 		messagehu.setFrom(MESSAGE_FROM);
 		messagehu.setTo(email);
 		messagehu.setSubject(subjecthu);
-		messagehu.setText(text1hu+" "+ lastName+" " + firstName + "!  \n" +text2hu
+		messagehu.setText(text1hu+" "+ firstName+" " + lastName + "!  \n" +text2hu +firstName +"  " +lastName
 			+",\n"	+text3hu+":\n" + ValidationLink+key);
 		javaMailSender.send(messagehu);
 		
@@ -95,7 +107,7 @@ public void sendMessagero(String email ,String firstName, String lastName,String
 		messagero.setFrom(MESSAGE_FROM);
 		messagero.setTo(email);
 		messagero.setSubject(subjectro);
-		messagero.setText(text1ro+" "+ lastName+" " + firstName + "!  \n" +text2ro
+		messagero.setText(text1ro+" "+ firstName+" " + lastName+ "!  \n" +text2ro +firstName +"  " +lastName
 			+",\n"	+text3ro+":\n" + ValidationLink+key);
 		javaMailSender.send(messagero);
 		

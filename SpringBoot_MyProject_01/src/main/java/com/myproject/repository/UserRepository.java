@@ -8,7 +8,7 @@ public interface UserRepository {
 
 	User findByFullName(String fullname);
 	
-	Integer emailExist(String email);
+	Integer userExist(String email,String fullname);
 	
 	String findByActivation(String activationCode);
 }
