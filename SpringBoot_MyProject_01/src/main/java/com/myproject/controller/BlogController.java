@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.myproject.entity.Blog;
+import com.myproject.entity.RegistrationForm;
 import com.myproject.service.BlogService;
 
 @Controller
@@ -21,24 +22,24 @@ public class BlogController {
 		this.blogService = blogService;
 	}
 
-	@RequestMapping(value="/mainBlogs",method = RequestMethod.GET)
+	@RequestMapping(value="/blogs",method = RequestMethod.GET)
 	public String mainBlogs(Model model) {
 		
 		model.addAttribute("blog", new Blog());
 		model.addAttribute("blogs", blogService.findByOrderByIdDesc());
+		
 		return "blog/mainBlogs";
 	}
 	
 	@RequestMapping(value="/blogreg",method = RequestMethod.POST)
-	public String regsiterBlog (@ModelAttribute Blog blog ,Model model) {
+	public String regsiterBlog (@ModelAttribute("blog") Blog blog) {
 		blogService.save(blog);
-		
-		return"forward:/blog/mainBlogs";
+		return"redirect:/blogs";
 	}
 	
 	@RequestMapping("/blogsearch")
 	public String videos1 (Model model ,@RequestParam(defaultValue="")String search ) {
 		model.addAttribute("blogsearch", blogService.findByTiltleIgnoreCaseOrContentOrderByIdDesc(search));
-			return "searchedblogs";
+			return "/blog/searchedblogs";
 	}
 }

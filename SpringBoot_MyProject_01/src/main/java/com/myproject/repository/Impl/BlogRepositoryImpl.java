@@ -33,7 +33,7 @@ private final Logger log = LoggerFactory.getLogger(this.getClass());
 			n.setBlogger(rs.getString("blogger"));
 			n.setTitle(rs.getString("title"));
 			n.setContent(rs.getString("content"));
-			n.setPosted(rs.getDate("posted"));
+			n.setPosted(rs.getTimestamp("posted"));
 	
 			return n;
 		}
@@ -55,8 +55,9 @@ private final Logger log = LoggerFactory.getLogger(this.getClass());
 
 
 	@Override
-	public List<Blog> findByTiltleIgnoreCaseOrContentOrderByIdDesc(String search) {
-		final String sql = "SELECT * FROM blogs WHERE title LIKE ? OR content LIKE ? ORDER BY id DESC";
+	public List<Blog> findByTiltleIgnoreCaseOrContentOrderByIdDesc(String inputSearch) {
+		String search = "%"+inputSearch+"%";
+		final String sql = "SELECT * FROM blogs WHERE title like ? OR content like ? ORDER BY id DESC";
 		return jdbc.query(sql,mapper,search,search);
 	}
 

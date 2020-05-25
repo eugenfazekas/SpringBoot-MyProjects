@@ -55,7 +55,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		user.setEnabled(false);
 		user.setAuthority("USER");
 		userRepositoryImpl.save(user);
-		emailService.sendUserMessage(user, userToTegister, locale);
+		//emailService.sendUserMessage(user, userToTegister, locale);
 		log.debug("New User: "+user.toString());
 	}
 

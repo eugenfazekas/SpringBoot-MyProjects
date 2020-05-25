@@ -1,5 +1,6 @@
 package com.myproject.service.Impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,27 +26,14 @@ public class BlogServiceImpl implements BlogService {
 		this.blogRepositoryImpl = blogRepositoryImpl;
 		this.userRepository = userRepository;
 	}
-	
-	
 
 	@Override
 	public void save(Blog blog) {
-		
-		String authName = "Anonymous";
- 		 	Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();{
- 		 		if (principal instanceof UserDetails) {
-		    	  String fullname = ((UserDetails)principal).getUsername();
-		    	  User user = userRepository.findByFullName(fullname);
-		    	  if(user.getFullName() != null) {
-		    	  authName = user.getFullName() ;
-		    	  	}
- 		 		}  
- 		 	}
- 		 		blog.setBlogger(authName);
- 		 			blogRepositoryImpl.save(blog);
+
+ 		blog.setBlogger(bloggerNameCreator());
+ 		blog.setPosted(new Date());
+ 		blogRepositoryImpl.save(blog);
 		}
-
-
 
 	@Override
 	public List<Blog> findByOrderByIdDesc() {
@@ -57,6 +45,21 @@ public class BlogServiceImpl implements BlogService {
 	public List<Blog> findByTiltleIgnoreCaseOrContentOrderByIdDesc(String search) {
 		
 		return blogRepositoryImpl.findByTiltleIgnoreCaseOrContentOrderByIdDesc(search);
+	}
+
+	@Override
+	public String bloggerNameCreator() {
+		String authName = "Anonymous";
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();{
+		 		if (principal instanceof UserDetails) {
+	    	  String fullname = ((UserDetails)principal).getUsername();
+	    	  User user = userRepository.findByFullName(fullname);
+	    	  if(user.getFullName() != null) {
+	    	  authName = user.getFullName() ;
+	    	  	}
+		 	}  
+		 }
+		return authName;
 	}
 
 	

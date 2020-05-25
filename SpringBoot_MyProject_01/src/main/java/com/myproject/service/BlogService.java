@@ -8,6 +8,8 @@ public interface BlogService {
 	
 	void save(Blog blog);
 	
+	String bloggerNameCreator();
+	
 	List<Blog> findByOrderByIdDesc();
 
 	List<Blog> findByTiltleIgnoreCaseOrContentOrderByIdDesc(String search);
