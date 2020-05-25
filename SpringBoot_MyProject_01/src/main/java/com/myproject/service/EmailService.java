@@ -44,7 +44,8 @@ public void sendUserMessage(User user ,RegistrationForm registrationForm, Locale
 	String email,firstName,lastName,key,language;
 	
 	language = locale.getLanguage();
-	email = user.getEmail(); firstName = registrationForm.getFirstName(); lastName = registrationForm.getLastName(); key = user.getActivation();
+	email = user.getEmail(); firstName = registrationForm.getFirstName();
+	lastName = registrationForm.getLastName(); key = user.getActivation();
 	
 	if(language.equals("en")) {
 		sendMessageen(email,firstName,lastName,key);

@@ -28,6 +28,19 @@ public class RegistrationForm {
 
 	}
 
+	
+	public RegistrationForm(
+			@NotNull @Size(min = 2, max = 20, message = "firstName length shoud betwenn 1 to 10") @Pattern(regexp = "\\b([^'\"/\\\\]+[A-Za-z0-9_.-])\\b") String firstName,
+			@NotNull @Size(min = 2, max = 20, message = "LastName length shoud betwenn 1 to 10") @Pattern(regexp = "\\b([^'\"/\\\\]+[A-Za-z0-9_.-])\\b") String lastName,
+			@NotNull(message = "Email field should not be empty") @Pattern(regexp = "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}\\b", message = "Invalid email address") @Size(min = 5, max = 40, message = "Email length shoud betwenn 6 to 10") String email,
+			@Size(min = 2, max = 20, message = "The field must be at least 5 characters") String password) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.password = password;
+	}
+
+
 	public String getFirstName() {
 		return firstName;
 	}
