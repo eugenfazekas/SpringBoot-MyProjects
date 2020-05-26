@@ -8,7 +8,6 @@
 	     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />				
 		 <link rel="stylesheet" th:href="@{/css/error.css}" href="../static/css/error.css"/>
 	</head>
-	
 			<body>
 			<div id="pic">
 					<img th:src="@{/img/error.jpg}" src="../static/img/error.jpg"  id="kep" alt="Nincs kep" title="ErrorPage" height="1098" width="1800"/>
@@ -29,14 +28,11 @@
 				<div id="pagemobil">Page Not Found
 				</div>
 				
-			</div>
-			<div id="indexlink">
-				<a href="/index" id="derra" th:text="#{derr}">Vissza a fooldalra       </a>
-			</div>
-				
-		
 			
-						
+			<div id="indexlink">
+				<a href="/" id="derra" th:text="#{derr}">Vissza a fooldalra       </a>
+			</div>
+			</div>
 		<script>
 				                  function initialSetup() {
             if (document.getElementById("statusfix") !== null) {

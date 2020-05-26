@@ -47,19 +47,34 @@ public class StoryServiceImpl implements StoryService {
 	@Override
 	public Story StoryForIndex() {
 		Story story = new Story();
-		String storytitle = getTitle();
-		if(!storytitle.equals(null))
-			story = storyRepositoryImpl.findByTitle(storytitle);
-		
+	
+		if(getTitle() != null)
+			try {
+			 Story storyFromRepo = storyRepositoryImpl.findByTitle(getTitle());
+			story = storyFromRepo;
+			}catch (Exception e) {}
 		return story;
 	}
-
+	
+	@Override
+	public Integer storyExist(String title) {
+		
+		return storyRepositoryImpl.storyExist(title);
+		
+	}
+	
+	@Override
 	public String getTitle() {
+		System.out.println("Get: "+title);
 		return title;
 	}
 	
+	@Override
 	public void setTitle(String title) {
 		this.title = title;
+		System.out.println("Set: "+title);
 	}
+
+	
 
 }

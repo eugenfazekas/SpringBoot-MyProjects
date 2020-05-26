@@ -18,4 +18,8 @@ public interface StoryService {
 	
 	void setTitle(String title);
 	
+	String getTitle();
+	
+	Integer storyExist(String title);
+	
 }

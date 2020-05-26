@@ -13,5 +13,7 @@ public interface StoryRepository {
 	Story findByTitle(String title);
 	
 	void deleteByTitle(String title);
+	
+	Integer storyExist(String title);
 
 }

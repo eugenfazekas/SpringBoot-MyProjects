@@ -67,4 +67,14 @@ private final Logger log = LoggerFactory.getLogger(this.getClass());
 		jdbc.update(sql,title);
 	}
 
-}
+	@Override
+	public Integer storyExist(String title) {
+			
+		final String  sql = "SELECT COUNT (*)  FROM stories WHERE title = ? ";
+		int stories = jdbc.queryForObject(sql, new Object[] {title}, Integer.class); 
+		
+				return stories ;
+		}
+	}
+
+

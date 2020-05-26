@@ -956,3 +956,377 @@ color:#222;
 text-decoration: underline;
 background-color:#adf;
 }	
+
+
+/*AddStory----------------------------------------------------------------------------*/	
+div#IndexReg{
+margin-top:10px;
+margin-left:auto;
+margin-right:auto;
+height:auto;
+min-height:670px;
+width:940px;
+background:linear-gradient(90deg ,#445 0%,#889 70%, #445 100%);
+-webkit-box-shadow:10px 10px 5px #222222;
+}
+div#indextitletext{
+	font-size:28px;
+	padding-top:15px ;
+	padding-left:50px;
+	width:150px;
+	height:40px;
+	float:left;
+	color:#bbb;
+	/*background-color:#faa;*/
+}
+div#indextitleinput{
+padding-left:10px;
+width:300px;
+height:55px;
+float:left;
+/*background-color:#aaf;*/
+}
+
+input#indextitleinput{
+	font-size:18px;
+	width:300px;
+	height:40px;
+}
+div#indexcontenttext1{
+	font-size:20px;
+	padding-top:15px ;
+	padding-left:30px;
+	width:170px;
+	height:20px;
+	color:#bbb;
+	/*background-color:#ffa;*/
+}
+div#indexcontentinput1{
+	padding-top:10px ;
+	padding-left:80px;
+width:500px;
+height:100px;
+/*background-color:#afa;*/
+}
+textarea#blogcontentinput1{
+font-size:15px;
+}
+
+div#indexcontenttext2{
+	font-size:20px;
+	padding-top:15px ;
+	padding-left:30px;
+	width:170px;
+	height:20px;
+	color:#bbb;
+	/*background-color:#ffa;*/
+}
+div#indexcontentinput2{
+	padding-top:10px ;
+	padding-left:80px;
+width:500px;
+height:100px;
+/*background-color:#afa;*/
+}
+textarea#indexcontentinput2{
+font-size:15px;
+}
+
+div#indexcontenttext3{
+	font-size:20px;
+	padding-top:15px ;
+	padding-left:30px;
+	width:170px;
+	height:20px;
+	color:#bbb;
+	/*background-color:#ffa;*/
+}
+div#indexcontentinput3{
+	padding-top:10px ;
+	padding-left:80px;
+width:500px;
+height:100px;
+/*background-color:#afa;*/
+}
+textarea#indexcontentinput3{
+font-size:15px;
+}
+
+div#indexvideo{
+	font-size:20px;
+	padding-top:15px ;
+	padding-left:50px;
+	width:150px;
+	height:40px;
+	float:left;
+	color:#bbb;
+	/*background-color:#faa;*/
+}
+div#indexvideoinput{
+padding-left:10px;
+width:300px;
+height:55px;
+float:left;
+/*background-color:#aaf;*/
+}
+
+input#indexvideoinput{
+	font-size:18px;
+	width:300px;
+	height:40px;
+}
+
+div#indeximage{
+	font-size:20px;
+	padding-top:15px ;
+	padding-left:50px;
+	width:150px;
+	height:40px;
+	float:left;
+	color:#bbb;
+	/*background-color:#faa;*/
+}
+div#indeximageinput{
+padding-left:10px;
+width:300px;
+height:55px;
+float:left;
+/*background-color:#aaf;*/
+}
+
+input#indeximageinput{
+	font-size:18px;
+	width:300px;
+	height:40px;
+}
+
+/*Stories--------------------------------------------------------------------------------*/
+
+div#storiesfragment{
+margin-top:10px;
+margin-left:auto;
+margin-right:auto;
+height:auto;
+min-height:670px;
+width:940px;
+background:linear-gradient(90deg ,#445 0%,#889 70%, #445 100%);
+-webkit-box-shadow:10px 10px 5px #222222;
+}
+
+div#storiesarticle{
+/*border:2px solid #00f;*/
+}
+
+div#storiesecim{
+	color:#88e;
+	width:200px;
+	height:40px;
+	padding:40px 100px;
+	font-size:50px;
+	border-bottom:5px solid #8888ff;
+	animation-name: example;
+animation-duration: 4s;
+animation-iteration-count: infinite;
+float:left;
+	/*border:2px solid #a44;*/
+}
+
+div#storykereses{
+	
+	width:140px;
+	height:30px;
+	float:left;
+	font-size:25px;
+	padding:10px 50px;
+	float:left;
+	/*border:2px solid #444;*/
+}
+
+input#storysearchinput[type=text] {
+  width: 120px;
+ /* box-sizing: border-box;*/
+  height:30px;
+  border-right: 2px solid #ccc;
+  border-top: 2px solid #ccc;
+  border-bottom: 2px solid #ccc;
+  -webkit-border-radius:0px 5px 5px 0px;
+  background-color: white;
+  background-repeat: no-repeat;
+  padding:0px  10px 0px 0px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  
+}
+
+input#storysearchinput[type=text]:focus {
+  width: 120%;
+}
+
+div#storysearchbutton{
+	padding:15px 10px;
+	width:80px;
+	height:30px;
+	font-size:20px;
+	
+	/*border:2px solid #000;*/
+	float:left;
+}
+.storysearch {
+width:100px;
+height:25px;
+}
+
+.storysearch:hover {
+  background-color: #0000ff;
+}
+
+div#storytorles{
+	
+	width:140px;
+	height:40px;
+	float:left;
+	font-size:25px;
+	padding:10px 50px;
+	float:left;
+	/*border:2px solid #444;*/
+	border-bottom:5px solid #8888ff;
+	animation-name: example;
+animation-duration: 4s;
+animation-iteration-count: infinite;
+}
+
+input#storysearchinput[type=text] {
+  width: 120px;
+ /* box-sizing: border-box;*/
+  height:30px;
+  border-right: 2px solid #ccc;
+  border-top: 2px solid #ccc;
+  border-bottom: 2px solid #ccc;
+  -webkit-border-radius:0px 5px 5px 0px;
+  background-color: white;
+  background-repeat: no-repeat;
+  padding:0px  10px 0px 0px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  
+}
+
+input#storysearchinput[type=text]:focus {
+  width: 120%;
+}
+
+div#storydeletebutton{
+	padding:15px 10px;
+	width:280px;
+	height:30px;
+	font-size:20px;
+	/*border:2px solid #000;*/
+	float:left;
+	border-bottom:5px solid #8888ff;
+	animation-name: example;
+animation-duration: 4s;
+animation-iteration-count: infinite;
+}
+.storydelete {
+width:100px;
+height:25px;
+}
+
+.storydelete:hover {
+  background-color: #0000ff;
+}
+
+div#toaddstory{
+	padding:20px 60px;
+float:left;	
+height:auto;
+width:auto;
+}
+a#addstory:hover{
+text-decoration:underline;
+color:#222;
+}
+
+h1#storiescim{
+padding-top:10px;
+padding-left:50px;
+font-size:30px;
+color:#fff;
+/*border:2px solid #4f4;*/
+}
+div#storiesarticle{
+height:auto;
+width:860px;
+padding-left:80px;
+padding-top:50px;
+padding-bottom:20px;
+/*border:2px solid #222;*/
+}
+
+article#article1{
+/*border:2px solid #777;*/
+}
+
+section#storiessection1{
+padding-top:30px;	
+padding-left:20px;	
+font-size:20px;
+width:750px;
+color:#bbb;
+/*border:2px solid #f00;*/
+}
+section#storiessection1:empty{
+display:none;
+}
+
+section#storiessection2{
+padding-top:30px;	
+padding-left:20px;	
+font-size:20px;
+width:750px;
+color:#bbb;
+/*border:2px solid #f00;*/
+}
+
+section#storiessection2:empty{
+display:none;
+}
+
+section#storiessection3{
+padding-top:30px;	
+padding-left:20px;	
+font-size:20px;
+width:750px;
+color:#bbb;
+/*border:2px solid #f00;*/
+}
+
+section#storiessection3:empty{
+display:none;
+}
+
+.video2 {
+padding-top:30px;	
+padding-left:60px;
+}
+
+.video2 iframe[src=""] {
+    display: none;
+}
+
+.image2 {
+padding-left:60px;
+padding-top:30px;
+}
+
+.image2 img[src=""] {
+    display: none;
+}
+
+p#storiesdate{
+padding-top:30px;
+}
+
+hr#hrstory{
+	margin-left:-10px;
+	width:90%;

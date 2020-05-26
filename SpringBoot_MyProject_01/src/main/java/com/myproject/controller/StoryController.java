@@ -36,7 +36,7 @@ public class StoryController {
 
 	 @PostMapping("/storyreg")
 	 public String indexreg(@ModelAttribute(STORY_ATTRIBUTE) Story story, Model model){
-		 if(storyService.findByTitle(story.getTitle()) != null ){
+		 if(storyService.storyExist(story.getTitle()) > 0){
 				model.addAttribute("exist", " ");
 				return "admin/addstory";
 			}else {
@@ -47,24 +47,22 @@ public class StoryController {
 	
 	 @RequestMapping("admin/stories")
 	 public String stories(Model model) {
-		
 		 model.addAttribute("stories", storyService.findByOrderByIdDesc());
-		 return "admin/stories";
+		 	return "admin/stories";
 				}
 	 
 	 
 	 @RequestMapping("admin/setstory")
 		public String story (Model model ,@RequestParam(defaultValue="")String setStory ) {
+		 System.out.println("Controller: "+ setStory);
 			 storyService.setTitle(setStory);
 				return "forward:/admin/stories";
 		}
 	 
 	 @RequestMapping("admin/storydelete")
 		public String storydelete (Model model ,@RequestParam(defaultValue="")String storydelete ) {
-					
-		 storyService.deleteByTitle(storydelete);
-		
-			return "forward:/admin/stories";
+			 storyService.deleteByTitle(storydelete);
+				return "forward:/admin/stories";
 		}
 	
 }
