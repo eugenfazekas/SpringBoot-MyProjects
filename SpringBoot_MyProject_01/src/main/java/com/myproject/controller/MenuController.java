@@ -6,10 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MenuController {
 		
-	@RequestMapping("/")
-	public String index() {
-		return "main/index";
-	}
 	@RequestMapping("/description")
 	public String desription() {
 		return"main/description";
