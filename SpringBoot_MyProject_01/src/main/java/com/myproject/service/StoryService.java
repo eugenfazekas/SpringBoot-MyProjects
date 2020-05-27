@@ -10,16 +10,16 @@ public interface StoryService {
 	
 	List<Story> findByOrderByIdDesc();
 	
-	Story findByTitle(String title);
-	
 	void deleteByTitle(String title);
 		
 	Story StoryForIndex();
 	
-	void setTitle(String title);
+	void setStoryActive(String title);
 	
-	String getTitle();
+	void setStoryInactive();
 	
 	Integer storyExist(String title);
+	
+	Integer activeStoryExsit();
 	
 }

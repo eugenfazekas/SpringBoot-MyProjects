@@ -32,12 +32,7 @@ public class StoryTests {
 	public void storyListTest() {
 		storyService.findByOrderByIdDesc();
 	}
-	
-	@Test 
-	public void storyFindByTitleTest() {
-		storyService.findByTitle("Story Title");
-	}
-	
+			
 	@Test
 	public void storyDeleteTest() {
 		storyService.deleteByTitle("Story Title");

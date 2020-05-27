@@ -19,6 +19,8 @@ public class Story {
 	private String image1;
 
 	private Date created;
+	
+	private String active;
 
 	public Story() {
 		
@@ -96,6 +98,15 @@ public class Story {
 
 	public void setCreated(Date created) {
 		this.created = created;
+	}
+
+	
+	public String getActive() {
+		return active;
+	}
+
+	public void setActive(String active) {
+		this.active = active;
 	}
 
 	@Override

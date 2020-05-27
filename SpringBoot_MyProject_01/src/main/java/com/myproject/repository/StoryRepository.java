@@ -8,12 +8,18 @@ public interface StoryRepository {
 	
 	void save(Story story);
 	
+	void setStoryActive(String title);
+	
+	void setStoryInactive();
+	
 	List<Story> findByOrderByIdDesc();
 	
-	Story findByTitle(String title);
+	Story findByActivation();
 	
 	void deleteByTitle(String title);
 	
 	Integer storyExist(String title);
+	
+	Integer activeStoryExsit();
 
 }

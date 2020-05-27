@@ -37,6 +37,7 @@ private final Logger log = LoggerFactory.getLogger(this.getClass());
 			n.setImage1(rs.getString("image1"));
 			n.setVideo1(rs.getString("video1"));
 			n.setCreated(rs.getTimestamp("created"));
+			n.setActive(rs.getString("active"));
 			
 			return n;
 		}
@@ -56,9 +57,9 @@ private final Logger log = LoggerFactory.getLogger(this.getClass());
 	}
 
 	@Override
-	public Story findByTitle(String title) {
-		final String sql = "SELECT * FROM stories WHERE title = ? ";
-		return jdbc.queryForObject(sql,mapper,title);
+	public Story findByActivation() {
+		final String sql = "SELECT * FROM stories WHERE active = 'ACTIVE' ";
+		return jdbc.queryForObject(sql,mapper);
 	}
 
 	@Override
@@ -75,6 +76,29 @@ private final Logger log = LoggerFactory.getLogger(this.getClass());
 		
 				return stories ;
 		}
+
+	@Override
+	public void setStoryActive(String title) {
+		final String  sql ="UPDATE stories SET active = 'ACTIVE' where title = ? ";
+		jdbc.update(sql, title);
+		
+	}
+
+	@Override
+	public void setStoryInactive() {
+		final String  sql ="UPDATE stories SET active = 'INACTIVE' where active = 'ACTIVE' ";
+		jdbc.update(sql);
+	}
+
+	@Override
+	public Integer activeStoryExsit() {
+		final String  sql = "SELECT COUNT (*)  FROM stories WHERE active = 'ACTIVE' ";
+		int activestory = jdbc.queryForObject(sql, new Object[] {}, Integer.class); 
+		
+		return activestory;
+	}
+	
+	
 	}
 
 

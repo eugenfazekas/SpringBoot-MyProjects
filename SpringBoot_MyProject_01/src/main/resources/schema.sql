@@ -24,6 +24,7 @@ content2 CLOB ,
 content3 CLOB ,
 image1 VARCHAR(128),
 video1 VARCHAR(128),
-created TIMESTAMP WITH TIME ZONE 
+created TIMESTAMP WITH TIME ZONE,
+active VARCHAR(28)
 );
 

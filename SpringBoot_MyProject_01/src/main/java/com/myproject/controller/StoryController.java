@@ -54,7 +54,12 @@ public class StoryController {
 	 
 	 @RequestMapping("admin/setstory")
 		public String story (Model model ,@RequestParam(defaultValue="")String setStory ) {
-			 storyService.setTitle(setStory);
+			if(storyService.activeStoryExsit()>0 && storyService.storyExist(setStory)>0) {
+				storyService.setStoryInactive();
+			}
+			if(storyService.storyExist(setStory)>0) {
+				storyService.setStoryActive(setStory);
+			}
 				return "forward:/admin/stories";
 		}
 	 

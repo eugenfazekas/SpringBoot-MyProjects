@@ -13,8 +13,6 @@ import com.myproject.service.StoryService;
 @Service
 public class StoryServiceImpl implements StoryService {
 
-	private String title;
-	
 	private StoryRepository storyRepository;
 
 	@Autowired
@@ -34,12 +32,7 @@ public class StoryServiceImpl implements StoryService {
 		return storyRepository.findByOrderByIdDesc();
 	}
 
-	@Override
-	public Story findByTitle(String title) {
-		
-		return storyRepository.findByTitle(title);
-	}
-
+	
 	@Override
 	public void deleteByTitle(String title) {
 		
@@ -49,11 +42,8 @@ public class StoryServiceImpl implements StoryService {
 	@Override
 	public Story StoryForIndex() {
 		Story story = new Story();
-		if(getTitle() != null)
-			try {
-			 Story storyFromRepo = storyRepository.findByTitle(getTitle());
-			story = storyFromRepo;
-			}catch (Exception e) {}
+		if(storyRepository.activeStoryExsit()>0)
+		story = storyRepository.findByActivation();
 		return story;
 	}
 	
@@ -62,14 +52,24 @@ public class StoryServiceImpl implements StoryService {
 		
 		return storyRepository.storyExist(title);
 			}
-	
+
 	@Override
-	public String getTitle() {
-		return title;
+	public void setStoryActive(String title) {
+		
+		storyRepository.setStoryActive(title);
+		
+	}
+
+	@Override
+	public void setStoryInactive() {
+		
+		storyRepository.setStoryInactive();
+	}
+
+	@Override
+	public Integer activeStoryExsit() {
+		
+		return storyRepository.activeStoryExsit();
 	}
 	
-	@Override
-	public void setTitle(String title) {
-		this.title = title;
-		}
 }
