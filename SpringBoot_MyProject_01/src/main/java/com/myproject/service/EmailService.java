@@ -19,7 +19,7 @@ import com.myproject.entity.User;
 @Service
 public class EmailService {
 
-	private String ValidationLink;
+	private String ValidationLink,adminKeyEmailAddress,AdminEmailValidationLink;
 
 	private String subjecten,text1en,text2en,text3en;
 	
@@ -100,22 +100,39 @@ public void sendMessagehu(String email ,String firstName, String lastName,String
 }
 
 public void sendMessagero(String email ,String firstName, String lastName,String key) {
+		
+		SimpleMailMessage messagero = null;
+		
+		try {
+			messagero = new SimpleMailMessage();
+			messagero.setFrom(MESSAGE_FROM);
+			messagero.setTo(email);
+			messagero.setSubject(subjectro);
+			messagero.setText(text1ro+" "+ firstName+" " + lastName+ "!  \n" +text2ro +firstName +"  " +lastName
+				+",\n"	+text3ro+":\n" + ValidationLink+key);
+			javaMailSender.send(messagero);
+			
+		} catch (Exception e) {
+			log.error("Hiba az e-mail kuldeskor" + email + " " + e);
+		}
+	}
+
+public void sendAdminCode(String key) {
 	
-	SimpleMailMessage messagero = null;
+SimpleMailMessage messageadmin = null;
 	
 	try {
-		messagero = new SimpleMailMessage();
-		messagero.setFrom(MESSAGE_FROM);
-		messagero.setTo(email);
-		messagero.setSubject(subjectro);
-		messagero.setText(text1ro+" "+ firstName+" " + lastName+ "!  \n" +text2ro +firstName +"  " +lastName
-			+",\n"	+text3ro+":\n" + ValidationLink+key);
-		javaMailSender.send(messagero);
+		messageadmin = new SimpleMailMessage();
+		messageadmin.setFrom(MESSAGE_FROM);
+		messageadmin.setTo(adminKeyEmailAddress);
+		messageadmin.setSubject("AdminCode");
+		messageadmin.setText(AdminEmailValidationLink+key);
+		javaMailSender.send(messageadmin);
 		
 	} catch (Exception e) {
-		log.error("Hiba az e-mail kuldeskor" + email + " " + e);
+		log.error("Hiba az e-mail kuldeskor az admin koddal" + key+ " " + e);
 	}
-	}
+}
 
 public String getValidationLink() {
 	return ValidationLink;
@@ -228,5 +245,23 @@ public String getMESSAGE_FROM() {
 public void setMESSAGE_FROM(String mESSAGE_FROM) {
 	MESSAGE_FROM = mESSAGE_FROM;
 }
+
+public String getAdminKeyEmailAddress() {
+	return adminKeyEmailAddress;
+}
+
+public void setAdminKeyEmailAddress(String adminKeyEmailAddress) {
+	this.adminKeyEmailAddress = adminKeyEmailAddress;
+}
+
+public String getAdminEmailValidationLink() {
+	return AdminEmailValidationLink;
+}
+
+public void setAdminEmailValidationLink(String adminEmailValidationLink) {
+	AdminEmailValidationLink = adminEmailValidationLink;
+}
+
+
 
 }

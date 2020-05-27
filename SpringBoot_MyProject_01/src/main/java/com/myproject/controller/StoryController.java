@@ -54,7 +54,6 @@ public class StoryController {
 	 
 	 @RequestMapping("admin/setstory")
 		public String story (Model model ,@RequestParam(defaultValue="")String setStory ) {
-		 System.out.println("Controller: "+ setStory);
 			 storyService.setTitle(setStory);
 				return "forward:/admin/stories";
 		}

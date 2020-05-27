@@ -10,5 +10,9 @@ public interface UserRepository {
 	
 	Integer userExist(String email,String fullname);
 	
-	String findByActivation(String activationCode);
+	Integer activationExist(String activationCode); 
+	
+	void enableUser(String ActivationCode);
+	
+	void deleteAdminActivation(String code);
 }

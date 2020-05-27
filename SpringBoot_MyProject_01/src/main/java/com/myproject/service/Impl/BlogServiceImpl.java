@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.myproject.entity.User;
 import com.myproject.entity.Blog;
+import com.myproject.repository.BlogRepository;
 import com.myproject.repository.UserRepository;
 import com.myproject.repository.Impl.BlogRepositoryImpl;
 import com.myproject.service.BlogService;
@@ -17,13 +18,13 @@ import com.myproject.service.BlogService;
 @Service
 public class BlogServiceImpl implements BlogService {
 
-	private BlogRepositoryImpl blogRepositoryImpl;
-	
+	private BlogRepository blogRepository;
+
 	private UserRepository userRepository;
-		
+	
 	@Autowired
-	public BlogServiceImpl(BlogRepositoryImpl blogRepositoryImpl, UserRepository userRepository) {
-		this.blogRepositoryImpl = blogRepositoryImpl;
+	public BlogServiceImpl(BlogRepository blogRepository, UserRepository userRepository) {
+		this.blogRepository = blogRepository;
 		this.userRepository = userRepository;
 	}
 
@@ -32,19 +33,19 @@ public class BlogServiceImpl implements BlogService {
 
  		blog.setBlogger(bloggerNameCreator());
  		blog.setPosted(new Date());
- 		blogRepositoryImpl.save(blog);
+ 		blogRepository.save(blog);
 		}
 
 	@Override
 	public List<Blog> findByOrderByIdDesc() {
 		
-		return blogRepositoryImpl.findByOrderByIdDesc();
+		return blogRepository.findByOrderByIdDesc();
 	}
 
 	@Override
 	public List<Blog> findByTiltleIgnoreCaseOrContentOrderByIdDesc(String search) {
 		
-		return blogRepositoryImpl.findByTiltleIgnoreCaseOrContentOrderByIdDesc(search);
+		return blogRepository.findByTiltleIgnoreCaseOrContentOrderByIdDesc(search);
 	}
 
 	@Override
@@ -61,9 +62,4 @@ public class BlogServiceImpl implements BlogService {
 		 }
 		return authName;
 	}
-
-	
-
-
-
 }

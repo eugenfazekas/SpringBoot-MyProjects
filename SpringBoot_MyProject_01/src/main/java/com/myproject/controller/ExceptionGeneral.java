@@ -11,5 +11,4 @@ public class ExceptionGeneral {
 		
 		return "error/detailederror";
 	}
-	
 }

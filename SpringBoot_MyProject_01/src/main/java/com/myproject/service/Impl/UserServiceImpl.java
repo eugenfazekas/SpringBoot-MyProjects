@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import com.myproject.entity.RegistrationForm;
 import com.myproject.entity.User;
+import com.myproject.repository.UserRepository;
 import com.myproject.repository.Impl.UserRepositoryImpl;
 import com.myproject.service.EmailService;
 import com.myproject.service.UserService;
@@ -24,26 +25,24 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 	
-	private UserRepositoryImpl userRepositoryImpl;
+	private UserRepository userRepository;
 	private EmailService emailService;
 
 	@Autowired
-	public UserServiceImpl(UserRepositoryImpl userRepositoryImpl, EmailService emailService) {
-		this.userRepositoryImpl = userRepositoryImpl;
+	public UserServiceImpl(UserRepository userRepository, EmailService emailService) {
+		this.userRepository = userRepository;
 		this.emailService = emailService;
 	}
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user = userRepositoryImpl.findByFullName(username);
+		User user = userRepository.findByFullName(username);
 		if(user == null) {
 			throw new UsernameNotFoundException(username);
 			}	
 		log.debug("Authenticating: "+user.toString());
 		return new UserDetailsImpl(user);
 	}
-		
-	
 
 	@Override
 	public void registerUser (RegistrationForm userToTegister,Locale locale) {
@@ -54,7 +53,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		user.setActivation(UUID.randomUUID().toString());
 		user.setEnabled(false);
 		user.setAuthority("USER");
-		userRepositoryImpl.save(user);
+		userRepository.save(user);
 		//emailService.sendUserMessage(user, userToTegister, locale);
 		log.debug("New User: "+user.toString());
 	}
@@ -62,17 +61,20 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 	@Override
 	public Integer userExist(String email, String fullname)  {
 			
-		return userRepositoryImpl.userExist(email,fullname);
+		return userRepository.userExist(email,fullname);
 	}
 
 	@Override
 	public String userActivation(String activationCode) {
 		
-		return userRepositoryImpl.findByActivation(activationCode);
+		String result = "Not Ok!";
+		int userExist = userRepository.activationExist(activationCode);
+		if(userExist>0) {
+		userRepository.enableUser(activationCode);
+		result = "Ok";
+		}
+		return result;
 	}
-
-	
-
 }
 
 

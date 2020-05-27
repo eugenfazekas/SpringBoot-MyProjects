@@ -1,5 +1,7 @@
 emailservice:
   validationLink : http://127.0.0.1:8080/activation/
+  AdminEmailValidationLink : http://127.0.0.1:8080/admincheck/
+  adminKeyEmailAddress : eugen.fazekas@gmail.com
   subjecten : Demo Project account activation
   text1en : Dear
   text2en : "Thanks for you're registration to our website, and you can sign is with the followed username: "
@@ -14,3 +16,4 @@ emailservice:
   text1ro : Drag client
   text2ro : "Multumim ca ai registrat pe pagina, si cu urmatoaru nume utlizator poti loga pe site: "
   text3ro : Po-ti activa contul pe linkul urmator
+  

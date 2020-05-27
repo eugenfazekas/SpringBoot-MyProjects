@@ -70,18 +70,27 @@ public class UserRepositoryImpl implements UserRepository {
 	}
 	
 	@Override
-	public String findByActivation(String activationCode) {
-		String activation = "NotOK!";
+	public Integer activationExist(String activationCode) {
 		
-		final String  sql1 ="SELECT COUNT (activation) FROM USERS WHERE activation = ?";
-		int user = jdbc.queryForObject(sql1, new Object[] {activationCode}, Integer.class);
-	
-		if(user > 0) {
-		final String  sql2 ="UPDATE users SET activation = '' , enabled = 'true' where activation = ? ";
-		jdbc.update(sql2, activationCode);
-		activation = "Ok";
-			}
-		log.debug("Account activation: " + activation);
-			return activation;
+		final String  sql ="SELECT COUNT (activation) FROM USERS WHERE activation = ?";
+		int user = jdbc.queryForObject(sql, new Object[] {activationCode}, Integer.class);
+			
+		return user;
 	}
+
+		@Override
+		public void enableUser(String activationCode ) {
+			
+			final String  sql ="UPDATE users SET activation = '' , enabled = 'true' where activation = ? ";
+			jdbc.update(sql, activationCode);
+	}
+
+		@Override
+		public void deleteAdminActivation(String code) {
+			
+			final String  sql ="DELETE FROM users where activation = ? ";
+			jdbc.update(sql, code);
+		}
+		
 }
+

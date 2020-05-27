@@ -7,7 +7,7 @@ import com.myproject.entity.User;
 
 public interface UserService {
 
-	void registerUser(RegistrationForm userToRegister,Locale locale);
+	void registerUser(RegistrationForm ToRegister,Locale locale);
 
 	Integer userExist(String email,String fullname);
 	
