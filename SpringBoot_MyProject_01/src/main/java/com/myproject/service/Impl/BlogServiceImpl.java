@@ -62,4 +62,10 @@ public class BlogServiceImpl implements BlogService {
 		 }
 		return authName;
 	}
+
+	@Override
+	public void deleteBlog(String title) {
+
+		blogRepository.deleteBlog(title);
+	}
 }

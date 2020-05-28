@@ -61,6 +61,14 @@ private final Logger log = LoggerFactory.getLogger(this.getClass());
 		return jdbc.query(sql,mapper,search,search);
 	}
 
+	@Override
+	public void deleteBlog(String title) {
+		
+		final String sql = "DELETE FROM blogs WHERE title = ? ";
+		jdbc.update(sql,title);
+			
+	}
+
 
 
 }

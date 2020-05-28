@@ -16,28 +16,35 @@
 						<div id="contentblog">	
 								<div id="maintitle" th:text="#{bfocim}">Blogs:</div>
 									<div id="article">
-										<article th:each="blogs1 : ${blogs}">
+										<article th:each="blog1 : ${blogs}">
+										
 												<header>
 													<h1 id="blogcimtext" th:text="#{bcim}">Cim:</h1> 
-													<h1 id="blogcimtartalom"th:text="${blogs1.title}">Blog cim</h1> 
+													<h1 id="blogcimtartalom" th:text="${blog1.title}" >Blog cim</h1> 
+													<form  th:action="@{/blogdelete}" method="post">
+														 <input type="hidden" name="delete" th:value="${blog1.title}" />
+								                   		 <button class="button bsubmitdelete" sec:authorize="hasAuthority('ADMIN')" type="submit" th:text="#{bdeleteblog}">Hozzaszolas torlese</button>
+													</form>
 													<p id="clearparagraph"></p>
 												</header>
 											
-												<section id="bsection" th:utext="${blogs1.content}">
+												<section id="bsection" th:utext="${blog1.content}">
 												   asdas.khtb, kjyafukyrgcykawret  snkhtnkrtyhbkrhtg  snkhtnkrtyhbkrhtg  snkhtnkrtyhbkrhtg  snkhtnkrtyhbkrhtg
 												 
 												</section>
 												
-
+											
 													<address>
 														<p id="blogdatumtext" th:text="#{bdatum}">Datum:</p>
-														<p id="blogdatumtartalom" th:text="${#dates.format(blogs1.posted, 'yyyy.MM.dd HH:mm')}">Posted on September 31, 2015 at 10:00 PM</p>
+														<p id="blogdatumtartalom" th:text="${#dates.format(blog1.posted, 'yyyy.MM.dd HH:mm')}">Posted on September 31, 2015 at 10:00 PM</p>
 														<p id="clearparagraph"></p>
 														<p id="bbekuldte" th:text="#{bbekuldte}">Bekuldte:</p>
-													  <span id="bspan" th:text="${blogs1.blogger}">Anonymous</span>
+													  <span id="bspan" th:text="${blog1.blogger}">Anonymous</span>
+													 
 													  <p id="clearparagraph"></p>
 													</address>
 													<hr/>
+												
 										</article>
 									</div>			
 				

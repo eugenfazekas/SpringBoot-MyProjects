@@ -8,6 +8,8 @@ public interface BlogService {
 	
 	void save(Blog blog);
 	
+	void deleteBlog(String title);
+	
 	String bloggerNameCreator();
 	
 	List<Blog> findByOrderByIdDesc();

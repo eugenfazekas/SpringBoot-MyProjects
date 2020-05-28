@@ -41,6 +41,7 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
 			.antMatchers("/activation/**").permitAll()
 			.antMatchers("/blogs").permitAll()
 			.antMatchers("/blogreg").permitAll()
+			.antMatchers("/blogdelete").hasAuthority("ADMIN")
 			.antMatchers("/blogsearch").permitAll()
 			.antMatchers("/storyreg").permitAll()
 			.antMatchers("/adminreg").permitAll()
