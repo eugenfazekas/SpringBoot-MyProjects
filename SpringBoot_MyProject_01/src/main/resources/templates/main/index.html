@@ -3,7 +3,6 @@
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
-<head>
 	<title>Index</title>
 	<meta name="description" content="" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -39,9 +38,7 @@
 									</section>
 									
 									<p id="storiesdate" th:text="${#dates.format(story.created, 'yyyy.MM.dd HH:mm')}">Posted on September 31, 2015 at 10:00 PM</p>
-									
-									<hr id="hrstory"/> 
-					</article>
+						</article>
 				</div>	
 			</div>
 			<div th:replace="main/fragment/fragment :: bottom"></div>

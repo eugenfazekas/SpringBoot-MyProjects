@@ -47,7 +47,7 @@ public class BlogController {
 	}
 	
 	@RequestMapping(value = "/blogdelete", method = RequestMethod.POST)
-	private String deleteStudent(@RequestParam String delete){
+	private String deleteBlog(@RequestParam String delete){
 		blogService.deleteBlog(delete);
 		 return "redirect:/blogs";
 	 }

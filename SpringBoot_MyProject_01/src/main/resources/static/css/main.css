@@ -350,7 +350,7 @@ background-color:#0000ff;
 
 div#footer {
 		width:940px;
-		height:70px;
+		height:80px;
 		background:linear-gradient(0deg ,#505050 0%,#566b81 100%);
 		margin-left:auto;
 		margin-right:auto;
@@ -383,7 +383,17 @@ ul#menufooter div div#fgyik {
 ul#menufooter div div#fkapcsolat{
 	margin-top:12px;
 }
+a#adminlink{
+	margin-left:95px;
+}
+
+a#adminlink:hover {
+ text-decoration: underline;
+  color:#ddd
+}
+
 div#copyright {
+	margin-top:-20px;
 	margin-left:500px;
 }
 
@@ -765,9 +775,11 @@ div#descriptioncontainer{
 margin-left:auto;
 margin-right:auto;
 margin-top:10px;
-width:940px;
+padding-left:50px;
+padding-top:50px;
+width:890px;
 height:auto;
-min-height:670px;
+min-height:620px;
 background:linear-gradient(90deg ,#505055 0%,#808085 70%, #505055 100%);
 -webkit-box-shadow:10px 10px 5px #222222;
 }
@@ -1336,3 +1348,129 @@ padding-top:30px;
 hr#hrstory{
 	margin-left:-10px;
 	width:90%;
+}
+
+/*#Videos ------------------------------------------------------------------------------------------------------------------------*/
+
+div#vfragment{
+	margin-top:10px;
+	margin-left:auto;
+	margin-right:auto;
+width:940px;
+height:640px;
+/*border:5px solid #0f0;*/
+background:linear-gradient(90deg ,#303035 0%,#404045 40%,#505055 85%, #303035 100%);
+-webkit-box-shadow:10px 10px 5px #222222;
+}
+
+div#vcontent {
+margin-top:0px;
+margin-left:auto;
+margin-right:auto;
+width:940px;
+height:120px;
+}
+
+div#vtitle{
+	color:#88e;
+	width:740px;
+	height:40px;
+	padding:40px 100px;
+	font-size:50px;
+	border-bottom:5px solid #8888ff;
+	animation-name: example;
+animation-duration: 4s;
+animation-iteration-count: infinite;
+
+}
+
+div#vbuttonleft{
+margin-top:100px;
+margin-left:0px;
+padding-top:120px;
+width:50px;
+height:210px;
+/*background-color:#a77;*/
+font-size:30px;
+float:left;
+}
+.button4:hover {
+  background-color: #ddd;
+  color:#228;
+}
+
+.button4 {
+margin-left:15px;
+width:25px;
+height:100px;
+font-size:30px;
+}
+
+div#videoborder{
+margin-top:20px;
+margin-left:20px;
+width:800px;
+height:470px;	
+border: 2px solid #ccc;
+overflow-x: hidden;
+scroll-behavior: smooth;
+float:left;
+
+}
+
+div#videocontainer{
+margin-top:20px;
+margin-left:0px;
+width:6330px;
+height:450px;
+/*background-color:#bbb;*/
+float:left;
+}
+
+div#video0{
+padding-top:0px;
+width:750px;
+height:422px;
+margin-left:20px;
+-webkit-box-shadow:10px 10px 5px #222222;
+/*border:5px solid #f22;*/
+float:left;
+/*background-color:#f88;*/
+vertical-align:center;
+}
+
+.video {
+padding-top:0px;
+width:750px;
+height:422px;
+margin-left:40px;
+-webkit-box-shadow:10px 10px 5px #222222;
+/*border:5px solid #f22;*/
+float:left;
+/*background-color:#f88;*/
+vertical-align:center;
+}
+
+div#vbuttonright{
+margin-top:-390px;
+padding-top:120px;
+margin-left:890px;
+width:50px;
+height:210px;
+/*background-color:#a77;*/
+font-size:30px;
+float:left;
+}
+.button5:hover {
+ background-color: #ddd;
+  color:#228;
+}
+.button5 {
+margin-left:10px;
+width:25px;
+height:100px;
+font-size:30px;
+}
+
+/* Contact   -----------------------------------------------------------------------------------------------------------*/
+

@@ -14,4 +14,15 @@ public class MenuController {
 	public String login() {
 		return "main/index";
 	}
+	
+	@RequestMapping("/videos")
+	public String videos() {
+		return"main/videos";
+	}
+	@RequestMapping("/contact")
+	public String contact() {
+		
+		return"main/contact";
+	}
 }
+

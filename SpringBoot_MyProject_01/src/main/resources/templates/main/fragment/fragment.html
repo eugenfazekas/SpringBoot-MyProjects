@@ -141,6 +141,9 @@
 						<li><div><div id="fgyik"><a href="/description" th:text="#{Gyik}" >Szerver Leiras    </a></div></div></li>
 						<li><div><div id="fkapcsolat"><a href="/contact"th:text="#{Kapcsolat}" >Kapcsolat    </a></div></div></li>
 					</ul>
+					<div id="clear">
+						</div>
+					<a href="/admin/stories" id="adminlink" sec:authorize="hasAuthority('ADMIN')">Admin</a>
 					<div id="copyright" th:text="#{CopyRight}">CopyRight: Eugen Fazekas</div>
 				</div>
 			</footer>
