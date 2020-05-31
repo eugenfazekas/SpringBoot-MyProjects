@@ -1,6 +1,6 @@
 emailservice:
-  validationLink : http://127.0.0.1:8080/activation/
-  AdminEmailValidationLink : http://127.0.0.1:8080/admincheck/
+  validationLink : http://127.0.0.1:8080/index/activation/
+  AdminEmailValidationLink : http://127.0.0.1:8080/index/admincheck/
   adminKeyEmailAddress : eugen.fazekas@gmail.com
   subjecten : Demo Project account activation
   text1en : Dear

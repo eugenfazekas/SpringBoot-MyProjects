@@ -27,13 +27,13 @@ public class UserController {
 		this.userService = userService;
 	}
 
-	@RequestMapping(value="/registration",method = RequestMethod.GET)
+	@RequestMapping(value="/index/registration",method = RequestMethod.GET)
 	public String registration(Model model) {
 		model.addAttribute("user", new RegistrationForm());
 		return "user/registration";
 	}
 
-	@RequestMapping(value = "/reg", method = RequestMethod.POST)
+	@RequestMapping(value = "/index/reg", method = RequestMethod.POST)
 	public String reg(@Valid @ModelAttribute("user") RegistrationForm user, BindingResult result,Model model,Locale locale) {
 		if(result.hasErrors()) {
 			return "user/registration";
@@ -49,7 +49,7 @@ public class UserController {
 		return "forward:/";
 	}
 	
-	 @RequestMapping(path = "/activation/{code}", method = RequestMethod.GET)
+	 @RequestMapping(path = "/index/activation/{code}", method = RequestMethod.GET)
 	    public String activation(@PathVariable("code") String code, HttpServletResponse response,Model model) {
 	    	model.addAttribute("activation", userService.userActivation(code));
 	 		return "forward:/";

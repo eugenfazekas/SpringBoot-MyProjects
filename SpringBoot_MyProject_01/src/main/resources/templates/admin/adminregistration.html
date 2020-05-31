@@ -14,7 +14,7 @@
 			<div th:replace="main/fragment/fragment :: top2"></div>
 			<div th:replace="main/fragment/fragment :: top3"></div>
 		<div id="registrationcontainer">
-			<form name="registration" th:action="@{/adminreg}" th:object="${admin}" method="post" class="form-signin">
+			<form name="registration" th:action="@{/index/adminreg}" th:object="${admin}" method="post" class="form-signin">
 				<div id="regtitle"  th:text="#{rRegisztracioX}">  Registration:</div>
 				<div id="regfirstnametext" th:text="#{rKeresztnevX}" align="right">  FirstName:
 				</div>

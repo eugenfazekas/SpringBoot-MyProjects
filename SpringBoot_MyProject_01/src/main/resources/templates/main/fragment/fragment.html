@@ -25,13 +25,13 @@
 									<button class="button button1" type="submit" th:text="#{Bejelentkezes}">Bejelentkezes</button>
 								</div>
 								<div id="regisztracio">
-									<a href="/registration" id="regtext" th:text="#{Regisztracio}">Regisztracio      </a>
+									<a href="/index/registration" id="regtext" th:text="#{Regisztracio}">Regisztracio      </a>
 								</div>
 						</form>
 							<div id="searching">
 								<img th:src="@{/img/searchicon.png}" src="../../../static/img/searchicon.png" height="24" width="24"/>
 							</div>
-					<form  action="/blogsearch">		
+					<form  action="/index/blogsearch">		
 							<div id="kereses">
 								 <input type="text"  id="search1" name="search" th:attr="placeholder=#{Kereses}" onfocus="this.placeholder = ''" />
 							</div>
@@ -66,10 +66,10 @@
 			<div id="menutable" th:fragment="top3">
 						<ul id="menu">
 							<li><div><div id="hirek"><a href="/" th:text="#{Hirek}">Hirek        </a></div></div></li>
-							<li><div><div id="blogok"><a href="blogs" th:text="#{Blogok}">Blogok      </a></div></div></li>
-							<li><div><div id="videok"><a href="/videos" th:text="#{Videok}">Videok      </a></div></div></li>
-							<li><div><div id="gyik"><a href="/description"th:text="#{Gyik}">Szerver Leiras  </a></div></div></li>
-							<li><div><div id="kapcsolat"><a href="/contact" th:text="#{Kapcsolat}">Kapcsolat</a></div></div></li>
+							<li><div><div id="blogok"><a href="/index/blogs" th:text="#{Blogok}">Blogok      </a></div></div></li>
+							<li><div><div id="videok"><a href="/user/videos" th:text="#{Videok}">Videok      </a></div></div></li>
+							<li><div><div id="gyik"><a href="/user/description"th:text="#{Gyik}">Szerver Leiras  </a></div></div></li>
+							<li><div><div id="kapcsolat"><a href="/user/contact" th:text="#{Kapcsolat}">Kapcsolat</a></div></div></li>
 						</ul>
 					</div>
 	<div>
@@ -137,9 +137,9 @@
 				<div id="footer">
 					<ul id="menufooter">
 						<li><div><div id="fooldal"><a href="/" th:text="#{Fooldal}">Fooldal             </a></div></div></li>
-						<li><div><div id="fblogok"><a href="/blogs" th:text="#{Blogok}">Blogok               </a></div></div></li>
-						<li><div><div id="fgyik"><a href="/description" th:text="#{Gyik}" >Szerver Leiras    </a></div></div></li>
-						<li><div><div id="fkapcsolat"><a href="/contact"th:text="#{Kapcsolat}" >Kapcsolat    </a></div></div></li>
+						<li><div><div id="fblogok"><a href="/index/blogs" th:text="#{Blogok}">Blogok               </a></div></div></li>
+						<li><div><div id="fgyik"><a href="/user/description" th:text="#{Gyik}" >Szerver Leiras    </a></div></div></li>
+						<li><div><div id="fkapcsolat"><a href="/user/contact"th:text="#{Kapcsolat}" >Kapcsolat    </a></div></div></li>
 					</ul>
 					<div id="clear">
 						</div>

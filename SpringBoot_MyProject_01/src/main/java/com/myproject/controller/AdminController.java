@@ -25,13 +25,13 @@ public class AdminController {
 		this.adminService = adminService;
 	}
 
-	@RequestMapping(path = "/getadminkey", method = RequestMethod.GET)
+	@RequestMapping(path = "/index/getadminkey", method = RequestMethod.GET)
 	public String adminKeyGenerator() {
 		adminService.AdminInit();
 		return "error/detailederror";
 	}
 
-	@RequestMapping(path = "/admincheck/{code}", method = RequestMethod.GET)
+	@RequestMapping(path = "/index/admincheck/{code}", method = RequestMethod.GET)
     public String codeCheckAdmin(@PathVariable("code") String code, HttpServletResponse response,Model model) {
 		if(adminService.findByActivation(code) > 0) {
        	model.addAttribute("admin", new RegistrationForm());
@@ -41,7 +41,7 @@ public class AdminController {
 			return "main/index";
  }
 
-	@RequestMapping(value = "/adminreg", method = RequestMethod.POST)
+	@RequestMapping(value = "/index/adminreg", method = RequestMethod.POST)
 	public String adminreg(@Valid @ModelAttribute("admin") RegistrationForm admin, BindingResult result,Model model) {
 		if(result.hasErrors()) {
 			return "admin/adminregistration";

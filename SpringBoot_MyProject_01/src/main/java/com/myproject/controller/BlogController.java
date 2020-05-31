@@ -24,7 +24,7 @@ public class BlogController {
 		this.blogService = blogService;
 	}
 
-	@RequestMapping(value="/blogs",method = RequestMethod.GET)
+	@RequestMapping(value="/index/blogs",method = RequestMethod.GET)
 	public String mainBlogs(Model model) {
 		
 		model.addAttribute("blog", new Blog());
@@ -34,19 +34,19 @@ public class BlogController {
 		return "blog/mainBlogs";
 	}
 	
-	@RequestMapping(value="/blogreg",method = RequestMethod.POST)
+	@RequestMapping(value="/index/blogreg",method = RequestMethod.POST)
 	public String regsiterBlog (@ModelAttribute("blog") Blog blog) {
 		blogService.save(blog);
-		return"redirect:/blogs";
+		return"redirect:/index/blogs";
 	}
 	
-	@RequestMapping("/blogsearch")
+	@RequestMapping("/index/blogsearch")
 	public String videos1 (Model model ,@RequestParam(defaultValue="")String search ) {
 		model.addAttribute("blogsearch", blogService.findByTiltleIgnoreCaseOrContentOrderByIdDesc(search));
 			return "/blog/searchedblogs";
 	}
 	
-	@RequestMapping(value = "/blogdelete", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/blogdelete", method = RequestMethod.POST)
 	private String deleteBlog(@RequestParam String delete){
 		blogService.deleteBlog(delete);
 		 return "redirect:/blogs";

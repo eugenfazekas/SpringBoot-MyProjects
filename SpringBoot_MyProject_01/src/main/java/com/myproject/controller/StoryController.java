@@ -34,7 +34,7 @@ public class StoryController {
 		return "admin/addstory";
 	}
 
-	 @PostMapping("/storyreg")
+	 @PostMapping("/admin/storyreg")
 	 public String indexreg(@ModelAttribute(STORY_ATTRIBUTE) Story story, Model model){
 		 if(storyService.storyExist(story.getTitle()) > 0){
 				model.addAttribute("exist", " ");

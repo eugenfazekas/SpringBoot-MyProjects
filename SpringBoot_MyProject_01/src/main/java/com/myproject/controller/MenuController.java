@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MenuController {
 			
-	@RequestMapping("/description")
+	@RequestMapping("/user/description")
 	public String desription() {
 		return"main/description";
 	}
@@ -15,11 +15,11 @@ public class MenuController {
 		return "main/index";
 	}
 	
-	@RequestMapping("/videos")
+	@RequestMapping("/user/videos")
 	public String videos() {
 		return"main/videos";
 	}
-	@RequestMapping("/contact")
+	@RequestMapping("/user/contact")
 	public String contact() {
 		
 		return"main/contact";
