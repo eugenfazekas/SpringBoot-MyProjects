@@ -8971,5 +8971,17 @@ a.text-dark:hover, a.text-dark:focus {
   .table-bordered td {
     border: 1px solid #ddd !important;
   }
+  
+}
+.fa_custom {
+color: #0099CC
+}
+
+.ml-n1 {
+	margin-left: -14px;
+}
+
+.ml-n2 {
+	margin-left: -20px;
 }
 /*# sourceMappingURL=bootstrap.css.map */
