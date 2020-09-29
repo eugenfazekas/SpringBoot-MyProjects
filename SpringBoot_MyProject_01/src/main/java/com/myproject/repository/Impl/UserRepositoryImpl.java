@@ -2,6 +2,7 @@ package com.myproject.repository.Impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+
 import com.myproject.entity.User;
 import com.myproject.repository.UserRepository;
 
@@ -17,8 +19,11 @@ public class UserRepositoryImpl implements UserRepository {
 	
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 	
+	
 	@Autowired
-	JdbcTemplate jdbc;
+    JdbcTemplate jdbc;
+	
+	
 	
 	final RowMapper<User> mapper = new RowMapper<User>() {
 

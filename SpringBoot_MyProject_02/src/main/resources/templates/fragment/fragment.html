@@ -1,80 +1,99 @@
 <!DOCTYPE html>
-<html  lang="en"
-	xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Cronoweb</title>
+	<title>Cronoweb Webdesign</title>
 	<meta name="description" content="" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" href="../../static/css/bootstrap.css" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/cronoweb.css}" href="../../static/css/cronoweb.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
 		<div th:fragment="top" class="">
 				<div style="width: 1200px; height: 100px">
-					<div class=" float-left " style="width: 700px; height: 100px">
+					<div class=" float-left " style="width: 680px; height: 100px">
 						<img class="float-left" th:src="@{/img/logo.png}"
 							src="../../static/img/logo.png" height="85" width="244" />
 					</div>
 					<i class="fa fa-phone fa_custom fa-2x float-left mt-4"></i>
-					<div class=" float-left mt-4" style="width: 150px">Tel:0771-326-745</div>
+					<div class=" float-left mt-4" style="width: 160px">Tel: +40-771-326-745</div>
 					<i class="fa fa-envelope ml-4 mt-4 float-left fa_custom"
 						aria-hidden="true"></i>
 					<div class="ml-1 float-left mt-4" style="width: 250px">Email:
 						info@cronoweb.ro</div>
 				</div>
-				<div class="" style="min-width:500px ; min-height:100px ">
+				<div class="cronoweb_nav" style="min-width:500px ; min-height:100px ">
 					<ul class="nav nav-pills float-left " role="tablist">
-					
 						<li class="nav-item  float-left ml-2 ">
-							<a class="nav-link" data-toggle="pill" href="/" th:text="#{fooldal}">Fooldal</a>
+							<a class="nav-link" id="home" href="/" th:text="#{fooldal}">Fooldal</a>
 						</li>
 						
 						<li class="nav-item float-left ml-2 ">
-							<a class="nav-link" data-toggle="pill" href="#ajanlat" th:text="#{ajanlatkeres}">Ajanlatkeres</a>
+							<a  class="nav-link" href="/menu/contact" th:text="#{ajanlatkeres}">Ajanlatkeres</a>
 						</li>
 						
 						<li>
 							<div class="cdropdown float-left " style="margin: 8px 0px 0px 10px " >
 								<div class="cdropdown-button float-left " style="min-width:100px" th:text="#{szolgaltatasok}">Szolgáltatások
 								</div>
+								
 									<ul>
-										<li><a href="#" >Blog</a></li>
-										<li><a href="#">WebDesign</a></li>
-										<li><a href="#"  >WebShop</a></li>
-										<li><a href="#"  >3D Logo</a></li>
+										<li><a  href="/menu/blog" >Blog</a></li>
+										<li><div class="webdesign">WebDesign
+												<div id="drop-webdesign" class="">  
+													<div id="drop-webdesign_ul">
+														<ul> 
+															<li>
+																<div th:text="#{packages}">Basic</div>
+															</li>
+															<li>
+																<a href="/menu/packages/basic" th:text="#{packages_basic_menu}">Basic</a>
+															</li>
+															<li>
+																<a href="/menu/packages/start" th:text="#{packages_start_menu}">Start</a>
+															</li>
+															<li>
+																<a href="/menu/packages/dynamic" th:text="#{packages_dynamic_menu}">Dinamic</a>
+															</li>
+															<li>
+																<a href="/menu/packages/premium" th:text="#{packages_premium_menu}">Advance</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</li>
+										<li><a href="/menu/webshop"  >WebShop</a></li>
+										<li><a href="/menu/logo"  >3D Logo</a></li>
 									</ul>
 							</div>	
 						</li>
 						
-						<li class="nav-item float-left ml-2 ">
-							<a  class="nav-link" data-toggle="pill" href="/menu/contact" th:text="#{kapcsolat}">Kapcsolat</a>
+						<li class="nav-item float-left ml-4 ">
+							<a  class="nav-link" id="contact" href="/menu/contact" th:text="#{kapcsolat}">Kapcsolat</a>
 						</li>
 					</ul>
 				</div>
-				<div class="image_container mt-n50 border ">
-					<div class="inner_image border">
+				<div class="image_container mt-n50 border">
+					<div class="inner_image">
 						<img th:src="@{/img/coding2.png}" id="imageload1" src="../../static/img/coding2.png" height="280" width="1100" />
 					</div>	
 				</div>	
-				<div class="image_container mt-n50  ">
+				<div class="image_container mt-n50  border">
 					<div class="inner_image">
 						<img th:src="@{/img/coding3.png}" id="imageload2" src="../../static/img/coding3.png" height="280" width="1100" />
 					</div>	
 				</div>	
 
-				<div class="image_container mt-n50  ">
+				<div class="image_container mt-n50  border">
 					<div class="inner_image">
 						<img th:src="@{/img/coding4.png}" id="imageload3" src="../../static/img/coding4.png" height="280" width="1100" />
 					</div>	
 				</div>	
+				<script th:src="@{/js/cronoweb_menu.js}" src="../../static/js/cronoweb_menu.js"></script>
 			</div>
 			
-		<div th:fragment="footer" style="width:1100px; height:300px" class="footer border">
+		<div th:fragment="footer" style="width:1100px; height:200px" class="footer border mt-3">
 			<div class="ajanlat">
 				<ul class=" ml-4 float-left">
 					<li >
@@ -92,37 +111,36 @@
 					</li>
 				</ul>
 			</div>
-			<div>
-				<ul class=" ml-200 float-left">
-					<li >
+			<div class="ml-200 float-left">
+				<ul >
+					<li>
 						<p><b  th:text="#{szolgaltatasok}" style="color:#333">Blog</b></p>
 					</li>
 					
-					<li >
-						<p><b  style="color:#007bff"><a href="#">Blog</a></b></p>
+					<li>
+						<p><b  style="color:#007bff"><a href="/menu/blog">Blog</a></b></p>
 					</li>
 					
-					<li >
-						<p><b  style="color:#007bff"><a href="#">WebDesign</a></b></p>
+					<li>
+						<p><b  style="color:#007bff"><a href="/">WebDesign</a></b></p>
 					</li>
 					
-					<li >
-						<p><b  style="color:#007bff"><a href="#">WebShop</a></b></p>
+					<li>
+						<p><b  style="color:#007bff"><a href="/menu/webshop">WebShop</a></b></p>
 					</li>
 					
-					<li >
-						<p><b  style="color:#007bff"><a href="#">3D Logo</a></b></p>
+					<li>
+						<p><b  style="color:#007bff"><a href="/menu/logo">3D Logo</a></b></p>
 					</li>
 				</ul>
 			</div>
 			<div class="ajanlat">
 				<ul class=" ml-200 float-left">
-					<li >
-						<p><b ><a  th:text="#{kapcsolat}" href="#kapcsolat">Kapcsolat</a></b></p>
+					<li>
+						<p><b><a  th:text="#{kapcsolat}" href="/menu/contact">Kapcsolat</a></b></p>
 					</li>
 				</ul>
 			</div>
 		</div>
-	
-</body>
+	</body>
 </html>

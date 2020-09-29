@@ -5,44 +5,53 @@
 	<meta name="description" content="" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" href="../../static/css/bootstrap.css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" th:href="@{/css/cronoweb.css}" href="../../static/css/cronoweb.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 	<div class="container border ">
 		<div th:replace="fragment/fragment :: top"></div>
-			<div class=" mt-275 ml-25">
+			<div class=" mt-285 ml-25">
 				
-				  <form action="/action_page.php" class="was-validated">
+				  <form  class="was-validated">
 				  	 <div class="form-group mt-50  font-weight-bold" >
 					      <label class="float-left mt-1 mr-4" th:text="#{contact_name}" for="uname">Name:</label>
 					      <input type="text" style="width:500px;"class="form-control" id="uname" th:attr="placeholder=#{contact_user}"name="name" onfocus="this.placeholder = ''" required>
 					      <div class="invalid-feedback  ml-75 " align=left th:text="#{contact_field}">Please fill out this field.</div>
 				     </div>
 				    
-				    <div class="form-group mt-50 border">
+				    <div class="form-group mt-50">
 					      <label class="float-left mt-1 mr-4 font-weight-bold" th:text="#{contact_email}"  for="email">Email:</label>
 					      <input type="email" style="width:500px;" class="form-control" id="email" th:attr="placeholder=#{contact_emailp}" onfocus="this.placeholder = ''" name="email" required>
 					      <div class="invalid-feedback  ml-75" align=left th:text="#{contact_field}">Please fill out this field.</div>
 				    </div>
 				    
-				    <div style="max-width:80%" class="form-group border" >
+				    <div style="width:600px" class="form-group float-left" >
 					      <label class="font-weight-bold"  for="comment" th:text="#{contact_comment}" >Comment:</label>
-					  	  <textarea  style="max-width:80%;max-heght80%" class="form-control"  name="comment" id="comment" required></textarea>
+					  	  <textarea  style="max-width:100%;max-heght80%" rows="5" class="form-control"  name="comment" id="comment" required></textarea>
 					      <div class="invalid-feedback" th:text="#{contact_field}">Please fill out this field.</div>
 				  	  </div>
+				  	  
+				  	  <div class=" ml-700 float-none" style="width:300px;height:220px;"> 
+				  	  	<h3 th:text="#{contact}"></h3>
+				  	  	<br>
+				  	  	<p th:text="#{contact_address}"></p>
+				  	  	<p> Tel: +40-771-326-745</p>
+				  	  </div>
 				    	
-				     <div class="form-group form-check " style="min-height:75px" >
-				    	  <input class="form-check-input float-left"  type="checkbox" name="remember" required > 
+				     <div class="form-group form-check" style="min-height:75px" >
+				    	  <input class="form-check-input float-left"  id="message_check" type="checkbox" name="remember" required > 
 					      <label  class="form-check-label font-weight-bold " th:text="#{contact_checkbor_approved}" ></label>
 						  <div class="invalid-feedback ml-25 " th:text="#{contact_checkbox}">Check this checkbox to continue.</div>
 				    </div>
-				    <button type="submit"class="btn btn-primary ml-75 mt-n50" th:text="#{contact_submit}">Submit</button>
+				    <button type="submit"class="btn btn-primary ml-75 mt-n50" onclick="sendEmail(); return false;" th:text="#{contact_submit}">Submit</button>
 				  </form>
 			</div>
 		<br/>
 		<br/>
 		<div th:replace="fragment/fragment :: footer"></div>
 	</div>
+	<script src="https://smtpjs.com/v3/smtp.js"></script>
+	<script th:src="@{/js/cronoweb_contact.js}" src="../../static/js/cronoweb_contact.js"></script>
 </body>
 </html>

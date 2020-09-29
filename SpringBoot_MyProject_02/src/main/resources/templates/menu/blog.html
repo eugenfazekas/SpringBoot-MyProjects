@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html  lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Cronoweb Basic Package</title>
+	<meta name="description" content="web készités árak, web fejlesztés árak, webdesign, honlap készités árak, preturi creare pagini web, preturi gazduire web" />
+    <meta name="keywords" content="web készités árak, web fejlesztés árak, webdesign, honlap készités árak, preturi creare pagini web, preturi gazduire web" >
+	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" href="../../static/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/cronoweb.css}" href="../../static/css/cronoweb.css" />
+	<link rel="stylesheet" type="text/javascript" th:href="@{/js/cronoweb.js}" href="../../static/js/cronoweb.js" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+	<body>
+		<div class="container border ">
+			<div th:replace="fragment/fragment :: top"></div>
+				<div class=" mt-285 ml-25">
+					<h1 class="h1" th:text="#{blog_title}"></h1>
+					<div class="ml-50">
+						<br/>
+							<ul>
+							<li>
+								<p th:text="#{packages_page_domain}"></p>
+							</li>
+							<li>
+								<p th:text="#{packages_page_domainspace}"></p>
+							</li>
+							<li>
+								<p th:text="#{packages_page_emailaddress}"></p>
+							</li>
+							<li>
+								<p th:text="#{packages_page_emailsend}"></p>
+							</li>
+							<li>
+								<p th:text="#{packages_page_htmlone}"></p>
+							</li>
+							<li>
+								<p th:text="#{packages_page_elementsone}"></p>
+							</li>
+							<li>
+								<p th:text="#{packages_page_ssl}"></p>
+							</li>
+							<li>
+								<p th:text="#{packages_page_PostGRESqldb}"></p>
+							</li>
+
+							<li>
+								<p th:text="#{packages_page_blogging}"></p>
+							</li>
+							<li>
+								<p th:text="#{packages_page_search}"></p>
+							</li>
+					
+						</ul>
+						<br>
+						<h3 class="price_animation" th:text="#{packages_page_price_start}"></h3>
+						<small class="ml-4" th:text="#{packages_page_price_vat}"></small>
+					</div>	
+				</div>	
+			<div th:replace="fragment/fragment :: footer"></div>
+		</div>
+	</body>
+</html>

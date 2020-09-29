@@ -2,10 +2,14 @@ package com.myproject.config;
 
 import java.util.List;
 
+import javax.sql.DataSource;
+
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.validation.MessageCodesResolver;
 import org.springframework.validation.Validator;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
@@ -24,6 +28,16 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
+	
+    @Bean
+    public DataSource dataSource(){
+       DriverManagerDataSource dataSource = new DriverManagerDataSource();
+       dataSource.setDriverClassName("org.h2.Driver");
+       dataSource.setUrl("jdbc:h2:file:./src/cronoweb.db");
+       dataSource.setUsername( "sa" );
+       dataSource.setPassword( "" );
+       return dataSource;
+    }
 
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {

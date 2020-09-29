@@ -63,20 +63,11 @@ z-index:1;
 visibility:hidden;
 }
 
-div#pagefix{
-	margin-top:50px;
-	margin-left:450px;
-	
-	font-family:"Arial";
-font-size:100px;
-color:#444;
-height:150px;
-width:800px;
-background-color:#fff;
-/*text-shadow:5px 5px 15px #000;*/
-  animation-name: example;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
+@keyframes example {
+    0%   {color: #fff;}
+	33%  {color: #ccc;}
+    66%  {color: #bbb;}
+    100% {color: #eee;}
 }
 div#pagemobil {
 width:auto;	
