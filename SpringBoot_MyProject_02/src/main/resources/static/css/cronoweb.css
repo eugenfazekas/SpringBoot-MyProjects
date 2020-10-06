@@ -8,6 +8,20 @@ body{
 	font-family: sans-serif;
 }
 
+.clear_both {
+	clear: both;
+}
+
+.crono_container {
+  width:1160px;
+  height:auto;
+  padding-top:20px;
+  padding-right:30px;
+  padding-left:30px;
+  margin-right:auto;
+  margin-left: auto;
+}
+
 textarea {
     resize: none;
 }
@@ -382,6 +396,10 @@ li:first-child a:hover
 	color:#007bff;
 }
 
+.ajanlat ul li p b a:hover {
+	color:#007bff;
+}
+
 .price_animation {
 font-size:30px;	
 animation-name:example;
@@ -395,4 +413,72 @@ animation-iteration-count: infinite;
 	33%  {color: #011ffd}
     66%  {color: #8a2be2;}
     100% {color: #33135c;}
+}
+
+#article_main_container {
+  width:1100px;
+  height:1450px;
+  //border: 1px red solid;
+}
+
+article#article_index {
+	    border: 1px #007bff solid;
+		float: left;
+		width: 330px;
+		height:700px;
+		margin-left:30px;
+		margin-top:20px;
+}
+
+article#article_index  h2 {
+	padding-top:20px;
+	padding-bottom:20px;
+}
+
+article#article_index  p {
+	padding-left:20px;
+}
+
+article#article_index  h5 {
+	padding-left:20px;
+}
+
+.service_main_container{
+	  width:1100px;
+ 	  height:720px;
+ 	 // border:1px red solid;
+}
+
+#service_form{
+     padding-top:20px;
+	 padding-left:20px;
+	 width:300px;
+ 	 height:740px;
+ 	// border:1px #007bff solid;
+	 float:left;
+}
+
+#service_article_main_container {
+  width:760px;
+  height:740px;
+ // border:1px #007bff solid;
+  margin-left:40px;
+  float:left;
+}
+
+article#article_service {
+	    border: 1px #007bff solid;
+		float: left;
+		width: 330px;
+		height:700px;
+		margin-left:30px;
+		margin-top:20px;
+}
+
+article#article_service  p {
+	padding-left:20px;
+}
+
+article#article_service  h5 {
+	padding-left:20px;
 }

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="hu" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<title>Cronoweb Webdesign</title>
-	<meta name="description" content="web készités, web fejlesztés, webdesign, honlap készités, creare pagini web, gazduire web" />
-    <meta name="keywords" content="weboldal készités, weboldal fejlesztés, honlap készités, webdesign, creare pagini web, gazduire web">
+	<meta name="description" th:attr="content=#{index_description_content}"/>
+    <meta name="keywords" th:attr="content=#{index_keywords_content}" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="google-site-verification" content="EkHAyOI1CpFE5jhuaNBI0wTlMJSQ5UOJuntwArdojQ0" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" href="../../static/css/bootstrap.css" />
@@ -11,12 +11,11 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script type="application/ld+json">
     {
-      "@context": "https://www.cronoweb.ro/",
       "@type": "WebDesign",
       "name": "Cronoweb",
       "author": {
-        "@type": "Eugen",
-        "name": "Fazekas"
+        "@type": "Person",
+        "name": "Eugen Fazekas"
       },
       "datePublished": "2020-090-28",
       "description": "WebPage Development.",
@@ -25,22 +24,37 @@
     </script>
 </head>
 <body>
-	<div class="container border">
+	<div class="crono_container border">
 		<div th:replace="fragment/fragment :: top"></div>
-
 			<br/>
-			<br/>
-			<br/>
-			<h1 class="mt-250" th:text="#{index_h1}" align="center"></h1>
-			<br/>
-			<br/>
-			<div align="center">
-				<img class="" th:src="@{/img/under_contruction.jpg}" src="../../static/img/under_contruction.jpg" height="492" width="728"  />
-			</div>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
+				<div id="article_main_container" class="mt-250">
+								<article id="article_index" th:each="package : ${packages}">
+												<header>
+													<h2 th:text="#{${package.title}}" align="center">Blog cim</h2> 
+												</header>
+													<section>
+													  <p th:utext="#{${package.description1}}"></p>
+													  <p th:utext="#{${package.description2}}"></p>
+													  <p th:utext="#{${package.description3}}"></p>
+													  <p th:utext="#{${package.description4}}"></p> 
+													  <p th:utext="#{${package.description5}}"></p>
+													  <p th:utext="#{${package.description6}}"></p>
+													  <p th:utext="#{${package.description7}}"></p>
+													  <p th:utext="#{${package.description8}}"></p>
+													  <p th:utext="#{${package.description9}}"></p>
+													  <p th:utext="#{${package.description10}}"></p>
+													  <p th:utext="#{${package.description11}}"></p>
+													  <p th:utext="#{${package.description12}}"></p>
+													  <p th:utext="#{${package.description13}}"></p>
+													  <p th:utext="#{${package.description14}}"></p>
+													  <p th:utext="#{${package.description15}}"></p>
+													</section>
+												<footer>
+													<h5><b th:text="#{index_price} + ' ' + ${package.price}+ ' ' + #{index_price_euro}"></b></h5>
+												</footer>
+									</article>
+				</div>				
+			<br>
 		<div th:replace="fragment/fragment :: footer"></div>
 	</div>
 </body>

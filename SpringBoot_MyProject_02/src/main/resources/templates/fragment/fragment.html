@@ -32,11 +32,9 @@
 							<a  class="nav-link" href="/menu/contact" th:text="#{ajanlatkeres}">Ajanlatkeres</a>
 						</li>
 						
-						<li>
-							<div class="cdropdown float-left " style="margin: 8px 0px 0px 10px " >
-								<div class="cdropdown-button float-left " style="min-width:100px" th:text="#{szolgaltatasok}">Szolgáltatások
-								</div>
-								
+						<li class="nav-item float-left mr-2">
+							<div class="cdropdown"  >
+								<a class="nav-link" id="service_nav_link"  href="/menu/services" style="min-width:130px;text-decoration:none;" th:text="#{szolgaltatasok}">Szolgáltatások</a>
 									<ul>
 										<li><a  href="/menu/blog" >Blog</a></li>
 										<li><div class="webdesign">WebDesign
@@ -69,7 +67,7 @@
 							</div>	
 						</li>
 						
-						<li class="nav-item float-left ml-4 ">
+						<li class="nav-item ml-4 ">
 							<a  class="nav-link" id="contact" href="/menu/contact" th:text="#{kapcsolat}">Kapcsolat</a>
 						</li>
 					</ul>
@@ -93,7 +91,7 @@
 				<script th:src="@{/js/cronoweb_menu.js}" src="../../static/js/cronoweb_menu.js"></script>
 			</div>
 			
-		<div th:fragment="footer" style="width:1100px; height:200px" class="footer border mt-3">
+		<div th:fragment="footer" style="width:1100px; height:200px" class="footer border mt-3 clear_both">
 			<div class="ajanlat">
 				<ul class=" ml-4 float-left">
 					<li >
@@ -107,14 +105,14 @@
 			<div class="ajanlat">
 				<ul class="ml-200 float-left">
 					<li >
-						<p><b ><a  th:text="#{ajanlatkeres}" href="#kapcsolat">Ajanlatkeres</a></b></p>
+						<p><b ><a  th:text="#{ajanlatkeres}" href="/menu/contact">Ajanlatkeres</a></b></p>
 					</li>
 				</ul>
 			</div>
-			<div class="ml-200 float-left">
+			<div class="ml-200 float-left ajanlat">
 				<ul >
 					<li>
-						<p><b  th:text="#{szolgaltatasok}" style="color:#333">Blog</b></p>
+						<p><b><a th:text="#{szolgaltatasok}" href="/menu/services"></a></b></p>
 					</li>
 					
 					<li>
