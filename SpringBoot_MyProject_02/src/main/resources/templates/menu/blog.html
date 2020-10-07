@@ -14,48 +14,101 @@
 	<body>
 		<div class="crono_container border ">
 			<div th:replace="fragment/fragment :: top"></div>
-				<div class=" mt-285 ml-25">
-					<h1 class="h1" th:text="#{blog_title}"></h1>
-					<div class="ml-50">
-						<br/>
-							<ul>
-							<li>
-								<p th:text="#{packages_page_domain}"></p>
-							</li>
-							<li>
-								<p th:text="#{packages_page_domainspace}"></p>
-							</li>
-							<li>
-								<p th:text="#{packages_page_emailaddress}"></p>
-							</li>
-							<li>
-								<p th:text="#{packages_page_emailsend}"></p>
-							</li>
-							<li>
-								<p th:text="#{packages_page_htmlone}"></p>
-							</li>
-							<li>
-								<p th:text="#{packages_page_elementsone}"></p>
-							</li>
-							<li>
-								<p th:text="#{packages_page_ssl}"></p>
-							</li>
-							<li>
-								<p th:text="#{packages_page_PostGRESqldb}"></p>
-							</li>
-
-							<li>
-								<p th:text="#{packages_page_blogging}"></p>
-							</li>
-							<li>
-								<p th:text="#{packages_page_search}"></p>
-							</li>
-					
-						</ul>
-						<br>
-						<h3 class="price_animation" th:text="#{packages_page_price_start}"></h3>
-						<small class="ml-4" th:text="#{packages_page_price_vat}"></small>
+				<div id="main_blog" class="clear_both  mt-285 ">
+					<div id="blog_description"class="float-left border" style="width:420px">
+						<h1 class="h1" th:text="#{blog_title}"></h1>
+						<div class="ml-50">
+							<br/>
+								<ul>
+								<li>
+									<p th:text="#{packages_page_domain}"></p>
+								</li>
+								<li>
+									<p th:text="#{packages_page_domainspace}"></p>
+								</li>
+								<li>
+									<p th:text="#{packages_page_emailaddress}"></p>
+								</li>
+								<li>
+									<p th:text="#{packages_page_emailsend}"></p>
+								</li>
+								<li>
+									<p th:text="#{packages_page_htmlone}"></p>
+								</li>
+								<li>
+									<p th:text="#{packages_page_elementsone}"></p>
+								</li>
+								<li>
+									<p th:text="#{packages_page_ssl}"></p>
+								</li>
+								<li>
+									<p th:text="#{packages_page_PostGRESqldb}"></p>
+								</li>
+	
+								<li>
+									<p th:text="#{packages_page_blogging}"></p>
+								</li>
+								<li>
+									<p th:text="#{packages_page_search}"></p>
+								</li>
+						
+							</ul>
+							<br>
+							<h3 class="price_animation" th:text="#{packages_page_price_start}"></h3>
+							<small class="ml-4" th:text="#{packages_page_price_vat}"></small>
+						</div>	
+								<br>
+																	
 					</div>	
+					<div id="blog_container" class="border mb-5 float-left">
+						<div class="" >
+							<h4><label class="crono_label_info float-left p-1 rounded ml-100" th:text="#{blog_search_title}"> Search Blogs:</label></h4>
+							<input type="text" style="width:45%" class="ml-3 float-left form-control .input-lg ">
+						</div>
+						<div id="blogs" class="border clear_both">
+							<article th:each="blog1 : ${blogs}">
+											
+													<header>
+														<h1 id="blogcimtext" class="clear_both" th:text="#{blog_article_title}">Cim:</h1> 
+														<h1 id="blogcimtartalom" th:text="${blog1.title}" >Blog cim</h1> 
+														
+														<div class="clear_both"></div>
+													</header>
+												
+													<section id="bsection" class="" th:text="${blog1.blog}">
+													   asdas.khtb, kjyafukyrgcykawret  snkhtnkrtyhbkrhtg  snkhtnkrtyhbkrhtg  snkhtnkrtyhbkrhtg  snkhtnkrtyhbkrhtg
+													 <p class="clear_both"></p>
+													</section>
+																									
+													<address class="">
+														<p id="blogdatumtext" class="float-left"th:text="#{blog_article_date}">Datum:</p>
+														<p id="blogdatumtartalom" class="float-left" th:text="${#dates.format(blog1.posted, 'yyyy MM dd HH:mm')}">Posted on September 31, 2015 at 10:00 PM</p>
+													</address>
+													
+													<div class="float-right clear-both">
+													<form  action="/blogdelete" method="post">
+														 <input type="hidden" name="delete" th:value="${blog1.title}" />
+								                   		 <button class=" border btn-danger"  type="submit" th:text="#{blog_article_delete}">Hozzaszolas torlese</button>
+													</form>
+													</div>
+														<hr/>
+													
+											</article>
+						</div>
+							<h4><label th:text="#{blog_send}" class="crono_label_info  p-1 rounded ml-100"> Send Blogs:</label></h4>
+						<div id="send_blogs" class="border">
+							<form action="/blogreg" method="post">
+								<h5><label th:text="#{blog_article_title}" class="crono_label float-left mr-2 mt-2 p-1 rounded ml-50">Title:</label></h5> 
+								<input type="text" name="title" style="width:50%" class="ml-100 form-control">
+								
+								<div class="clear_both"></div>
+								
+								<h6><label th:text="#{blog_comment}" class="crono_label p-1  mt-3 mb-0 ml-25 rounded"> Text:</label></h6>
+								<textarea  style="max-width:90%;" rows="4" class=" ml-4 form-control "  name="blog" ></textarea>
+								<button type="submit" th:text="#{contact_submit}" class="btn btn-primary ml-50 mt-1 btn-sm" >Submit</button>
+							</form>	
+						</div>
+					</div>
 				</div>	
 			<div th:replace="fragment/fragment :: footer"></div>
 		</div>

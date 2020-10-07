@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.myproject.entity.ServiceEntity;
+import com.myproject.service.BlogService;
 import com.myproject.service.PackageService;
 
 @Controller
@@ -15,11 +16,16 @@ import com.myproject.service.PackageService;
 public class main_Controller {
 	
 	private PackageService packageService;
-
+	private BlogService blogservice;
 	
 	@Autowired
 	public void setPackageService(PackageService packageService) {
 		this.packageService = packageService;
+	}
+	
+	@Autowired
+	public void setBlogservice(BlogService blogservice) {
+		this.blogservice = blogservice;
 	}
 
 	@GetMapping("/")
@@ -29,7 +35,8 @@ public class main_Controller {
 		
 		return "menu/index";
 	}
-	
+
+
 	@GetMapping("index")
 	public String index2 () {
 		return "menu/index";
@@ -51,7 +58,10 @@ public class main_Controller {
 	}
 	
 	@GetMapping("menu/blog")
-	public String blog () {
+	public String blog (Model model) {
+		
+		model.addAttribute("blogs", blogservice.findBlogs());
+		System.out.println(blogservice.findBlogs().toString());
 		return "menu/blog";
 	}
 	

@@ -1,9 +1,0 @@
-2020-10-05 22:36:13 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM PACKAGES WHERE DESCRIPTION4 = ? AND DESCRIPTION5 = ? AND DESCRIPTION8 = ? AND DESCRIPTION9 = ? AND DESCRIPTION10 = ? DESCRIPTION12[*] = ? AND DESCRIPTION13 = ? AND DESCRIPTION14 = ? "; SQL statement:
-SELECT * FROM PACKAGES WHERE description4 = ? AND description5 = ? AND description8 = ? AND description9 = ? AND description10 = ? description12 = ? AND description13 = ? AND description14 = ?  [42000-200]
-2020-10-05 23:05:18 jdbc[13]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM PACKAGES WHERE DESCRIPTION4 = 'packages_page_htmlone' AND DESCRIPTION5 = 'packages_page_htmlone' AND DESCRIPTION8 = 'n' AND DESCRIPTION9 = 'n' AND DESCRIPTION10 = 'n' DESCRIPTION12[*] = 'n' AND DESCRIPTION13 = 'n' AND DESCRIPTION14 = 'n'"; SQL statement:
-SELECT * FROM PACKAGES WHERE description4 = 'packages_page_htmlone' AND description5 = 'packages_page_htmlone' AND description8 = 'n' AND description9 = 'n' AND description10 = 'n' description12 = 'n' AND description13 = 'n' AND description14 = 'n' [42000-200]
-2020-10-05 23:05:39 jdbc[13]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM PACKAGES WHERE DESCRIPTION4 = 'packages_page_htmlone' AND DESCRIPTION5 = 'packages_page_htmlone' AND DESCRIPTION8 = 'n' AND DESCRIPTION9 = 'n' AND DESCRIPTION10 = 'n' DESCRIPTION12[*] = 'n' AND DESCRIPTION13 = 'n' AND DESCRIPTION14 = 'n'"; SQL statement:
-SELECT * FROM PACKAGES WHERE description4 = 'packages_page_htmlone' AND description5 = 'packages_page_htmlone' AND description8 = 'n' AND description9 = 'n' AND description10 = 'n' description12 = 'n' AND description13 = 'n' AND description14 = 'n' [42000-200]

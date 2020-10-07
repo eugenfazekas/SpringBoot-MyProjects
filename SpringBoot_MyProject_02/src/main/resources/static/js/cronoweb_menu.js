@@ -1,4 +1,3 @@
-
 var o = window.location.pathname;
 var slice = o.slice(0, 14);
 
@@ -19,6 +18,11 @@ if (o == '/menu/services'){
 }
 
 if (slice == '/menu/services'){
+	document.getElementById('service_nav_link').style.background="#007bff";
+	document.getElementById('service_nav_link').style.color="#fff";
+}
+
+if (o == '/menu/blog'){
 	document.getElementById('service_nav_link').style.background="#007bff";
 	document.getElementById('service_nav_link').style.color="#fff";
 }
