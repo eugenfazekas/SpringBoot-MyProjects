@@ -1,5 +1,6 @@
 package com.myproject.service.impl;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -20,11 +21,14 @@ public class BlogServiceImpl implements BlogService{
 
 	@Override
 	public void insertBlog(String title, String blog) {
-		
+
+        String pattern = "yyyy.MM.dd HH:mm:ss";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+			
 		BlogEntity newBlog = new BlogEntity();
 		newBlog.setTitle(title);
 		newBlog.setBlog(blog);
-		newBlog.setPosted(new Date());
+		newBlog.setPosted(simpleDateFormat.format(new Date()));
 		blogRepository.insertBlog(newBlog);
 	}
 
@@ -35,15 +39,8 @@ public class BlogServiceImpl implements BlogService{
 	}
 
 	@Override
-	public List<BlogEntity> findByTiltleIgnoreCaseOrContentOrderByIdDesc(String inputSearch) {
-
-		return null;
-	}
-
-	@Override
 	public void deleteBlog(String delete) {
 	
 		blogRepository.deleteBlog(delete);
 	}
-
 }

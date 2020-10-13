@@ -15,7 +15,7 @@ import com.myproject.entity.BlogEntity;
 import com.myproject.repository.BlogRepository;
 
 @Repository
-public class BlogReepositoryImpl implements BlogRepository{
+public class BlogRepositoryImpl implements BlogRepository{
 	
 private final Logger log = LoggerFactory.getLogger(this.getClass());
 	
@@ -27,12 +27,12 @@ private final Logger log = LoggerFactory.getLogger(this.getClass());
 
 		@Override
 		public BlogEntity mapRow(ResultSet rs ,int rowNum) throws SQLException {
-			
+
 			BlogEntity n = new BlogEntity();
-			
+			n.setId(rs.getInt("Id"));
 			n.setTitle(rs.getString("title"));
 			n.setBlog(rs.getString("blog"));
-			n.setPosted(rs.getTimestamp("posted"));
+			n.setPosted(rs.getString("posted"));
 			
 			return n;
 		}
@@ -53,13 +53,6 @@ private final Logger log = LoggerFactory.getLogger(this.getClass());
 		
 		return jdbc.query(sql,mapper);
 		}
-
-	@Override
-	public List<BlogEntity> findByTiltleIgnoreCaseOrContentOrderByIdDesc(String inputSearch) {
-		String search = "%"+inputSearch+"%";
-		final String sql = "SELECT * FROM blogs WHERE title like ? OR content like ? ORDER BY id DESC";
-		return jdbc.query(sql,mapper,search,search);
-	}
 
 	@Override
 	public void deleteBlog(String title) {

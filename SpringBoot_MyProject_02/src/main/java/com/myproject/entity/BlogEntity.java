@@ -1,7 +1,5 @@
 package com.myproject.entity;
 
-import java.util.Date;
-
 public class BlogEntity {
 
 	private int Id ;
@@ -10,7 +8,7 @@ public class BlogEntity {
 	
 	private String blog;
 	
-	private Date posted;
+	private String posted;
 
 	public int getId() {
 		return Id;
@@ -36,11 +34,11 @@ public class BlogEntity {
 		this.blog = blog;
 	}
 
-	public Date getPosted() {
+	public String getPosted() {
 		return posted;
 	}
 
-	public void setPosted(Date date) {
+	public void setPosted(String date) {
 		this.posted = date;
 	}
 

@@ -26,12 +26,24 @@ textarea {
     resize: none;
 }
 
+.mb-n10 {
+		margin-bottom:-10px;	
+}
+
 .mt-28 {
 		margin-top:28px;	
 }
 
 .mt-n250 {
 	margin-top:-250px;
+}
+
+.mt-n10 {
+	margin-top:-10px;
+}
+
+.mt-n25 {
+	margin-top:-25px;
 }
 
 .mt-n50 {
@@ -58,6 +70,10 @@ textarea {
 	margin-left:25px;
 }
 
+.ml-35 {
+	margin-left:35px;
+}
+
 .ml-50 {
 	margin-left:50px;
 }
@@ -76,6 +92,14 @@ textarea {
 
 .ml-270 {
 	margin-left:270px;
+}
+
+.ml-300 {
+	margin-left:300px;
+}
+
+.ml-400 {
+	margin-left:400px;
 }
 
 .ml-700 {
@@ -602,38 +626,36 @@ article#article_service  h5 {
 }
 
 .crono_label {
-	background-color:#007bff;
+	background-color:#17a2b8;
 	color:white;
 }
 
 .crono_label_info{
-	background-color:#aaa;
+	background-color:#17a2b8;
 	color:white;
 }
 
 #blog_description {
 	
 	margin-bottom:10px;
-	height:890px;
+	height:960px;
 }
 
-h1#blogcimtext{
-padding-top:10px;
+h1#blogcimtext1,h1#blogcimtext2{
 padding-left:50px;
 font-size:30px;
 float:left;
 color:#888;
 }
 
-h1#blogcimtartalom{
-padding-top:10px;
+h1#blogcimtartalom1,h1#blogcimtartalom2 {
 float:left;
 font-size:30px;
 padding-left:5px;
 color:#888;
 }
 
-section#bsection{
+section#bsection1,section#bsection2{
 padding-top:10px;	
 padding-left:20px;	
 font-size:20px;
@@ -641,7 +663,7 @@ width:600px;
 color:#444;
 }
 
-p#blogdatumtext{
+p#blogdatumtext1,p#blogdatumtext2{
 padding-top:15px;
 padding-left:25px;	
 font-size:20px;
@@ -649,7 +671,7 @@ float:left;
 color:#888;
 }
 
-p#blogdatumtartalom{
+p#blogdatumtartalom1,p#blogdatumtartalom2{
 padding-top:15px;
 padding-left:10px;	
 font-size:20px;
@@ -657,19 +679,35 @@ color:#888;
 }
 
 #blogs hr {
-	margin-top:40px;
+	margin-top:-10px;
 	margin-left:20px;
+	margin-bottom:0px;
 	width:90%;
 }
 #blogs{
 	margin:20px;
 	width:auto;
-	min-height:460px;
+	min-height:395px;
 	height:auto;
 }
 
 #send_blogs{
-	margin:10px 20px auto 20px;
+	margin:10px 20px 20px 20px;
 	width:auto;
 	height:280px;
 }
+
+.searchbox {
+	width:40%;
+}
+.autocomplete{
+	visibility:hidden;
+	width:100%;
+	height:30px;
+
+}
+
+#blogs_array_input{
+	display:none;
+}
+

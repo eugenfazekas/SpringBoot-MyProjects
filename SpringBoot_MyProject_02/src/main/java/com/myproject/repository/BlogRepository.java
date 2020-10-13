@@ -10,8 +10,6 @@ public interface BlogRepository {
 
 	List<BlogEntity> findBlogs();
 	
-	public List<BlogEntity> findByTiltleIgnoreCaseOrContentOrderByIdDesc(String inputSearch);
-	
 	public void deleteBlog(String title);
 
 }

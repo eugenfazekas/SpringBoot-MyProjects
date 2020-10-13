@@ -3,7 +3,7 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Cronoweb Basic Package</title>
+	<title>Cronoweb Blog WebdesignS</title>
 	<meta name="description" th:attr="content=#{index_description_content}"/>
     <meta name="keywords" th:attr="content=#{index_keywords_content}" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" href="../../static/css/bootstrap.css" />
@@ -62,40 +62,85 @@
 					</div>	
 					<div id="blog_container" class="border mb-5 float-left">
 						<div class="" >
-							<h4><label class="crono_label_info float-left p-1 rounded ml-100" th:text="#{blog_search_title}"> Search Blogs:</label></h4>
-							<input type="text" style="width:45%" class="ml-3 float-left form-control .input-lg ">
+						<br>
+								<h4><label class="mt-3 crono_label_info float-left p-1 rounded ml-35" th:text="#{blog_search_title}"> Search Blogs:</label></h4>
+								<div class="searchbox float-left ml-4">
+									<div><input type="text" id="main_search" onclick="createBlogTitles()" onkeyup="preSearch()" name="search" autocomplete="off" class="form-control .input-lg mt-1"> </div><div class="clear_both"></div>
+									<div align="center" onclick="autoComplete1()" id="autocomplete1" class="border autocomplete"></div>
+									<div align="center" onclick="autoComplete2()" id="autocomplete2" class="border autocomplete"></div>
+									<div align="center" onclick="autoComplete3()" id="autocomplete3" class="border autocomplete"></div>
+								</div>	
+								<button class="btn btn-primary ml-3 mt-1" onclick="submit_blog()" th:text="#{blog_search_button}"></button>
+								<div class=" clear_both">	
+								</div>
 						</div>
 						<div id="blogs" class="border clear_both">
-							<article th:each="blog1 : ${blogs}">
-											
-													<header>
-														<h1 id="blogcimtext" class="clear_both" th:text="#{blog_article_title}">Cim:</h1> 
-														<h1 id="blogcimtartalom" th:text="${blog1.title}" >Blog cim</h1> 
+													<div class="pt-3">
+														<header>
+															<h1 id="blogcimtext1" class="clear_both" th:text="#{blog_article_title}">Cim:</h1> 
+															<h1 id="blogcimtartalom1"></h1> 
+															
+															<div class="clear_both"></div>
+														</header>
+													
+														<section id="bsection1" class="">
+														   
+														 <p class="clear_both"></p>
+														</section>
+																										
+														<address class="">
+															<p id="blogdatumtext1" class="float-left"th:text="#{blog_article_date}">Datum:</p>
+															<p id="blogdatumtartalom1" class="float-left" ></p>
+														</address>
 														
+														<div class="float-right clear-both">
+														<form  action="/blogdelete" method="post">
+															 <input type="hidden" id="delete1" name="delete"/>
+									                   		 <button class=" border btn-danger"  type="submit" th:text="#{blog_article_delete}">Hozzaszolas torlese</button>
+														</form>
+														</div>
 														<div class="clear_both"></div>
-													</header>
-												
-													<section id="bsection" class="" th:text="${blog1.blog}">
-													   asdas.khtb, kjyafukyrgcykawret  snkhtnkrtyhbkrhtg  snkhtnkrtyhbkrhtg  snkhtnkrtyhbkrhtg  snkhtnkrtyhbkrhtg
-													 <p class="clear_both"></p>
-													</section>
-																									
-													<address class="">
-														<p id="blogdatumtext" class="float-left"th:text="#{blog_article_date}">Datum:</p>
-														<p id="blogdatumtartalom" class="float-left" th:text="${#dates.format(blog1.posted, 'yyyy MM dd HH:mm')}">Posted on September 31, 2015 at 10:00 PM</p>
-													</address>
+															<hr/>
+													</div>	
+													<div class="clear_both d-none"></div>
+													<div id="article2" class="mt-4">
+														<header class="">
+															<h1 id="blogcimtext2" class="" th:text="#{blog_article_title}">Cim:</h1> 
+															<h1 id="blogcimtartalom2"></h1> 
+															
+															<div class="clear_both"></div>
+														</header>
 													
-													<div class="float-right clear-both">
-													<form  action="/blogdelete" method="post">
-														 <input type="hidden" name="delete" th:value="${blog1.title}" />
-								                   		 <button class=" border btn-danger"  type="submit" th:text="#{blog_article_delete}">Hozzaszolas torlese</button>
-													</form>
-													</div>
-														<hr/>
-													
-											</article>
+														<section id="bsection2" class="">
+														   
+														 <p class="clear_both"></p>
+														</section>
+																										
+														<address class="">
+															<p id="blogdatumtext2" class="float-left"th:text="#{blog_article_date}">Datum:</p>
+															<p id="blogdatumtartalom2" class="float-left" ></p>
+														</address>
+														
+														<div class="float-right clear-both">
+														<form  action="/blogdelete" method="post">
+															 <input type="hidden" id="delete2" name="delete"/>
+									                   		 <button class=" border btn-danger" id="delete_button" type="submit" th:text="#{blog_article_delete}">Hozzaszolas torlese</button>
+														</form>
+														</div>
+														<div class="clear_both"></div>
+															<hr id="hr2"/>	
+													</div>	
 						</div>
-							<h4><label th:text="#{blog_send}" class="crono_label_info  p-1 rounded ml-100"> Send Blogs:</label></h4>
+						<div class="clear_both mt-n10 ">
+								<button type="submit" onclick="prevoiusBlog()" class="float-left ml-300 btn btn-primary btn-sm" value="back"><</button>
+								<button type="submit" onclick="firstBlog()" class=" ml-4 btn btn-primary btn-sm" value="1">1</button>
+								<button type="submit" onclick="secondBlog()" class=" ml-3 btn btn-primary btn-sm" value="2">2</button>
+								<button type="submit" onclick="thirdBlog()" class=" ml-3 btn btn-primary btn-sm" value="3">3</button>
+								<button type="submit" onclick="nextBlog()" class=" ml-3 btn btn-primary btn-sm" value="next">></button>
+								<button type="submit"  class=" ml-3 btn btn-primary btn-sm" value="last">>></button>
+							<div class="clear_both"></div>
+						</div>
+							<h4><label th:text="#{blog_send}" class="crono_label_info  p-1 rounded ml-50 mb-n10"> Send Blogs:</label></h4>
 						<div id="send_blogs" class="border">
 							<form action="/blogreg" method="post">
 								<h5><label th:text="#{blog_article_title}" class="crono_label float-left mr-2 mt-2 p-1 rounded ml-50">Title:</label></h5> 
@@ -105,12 +150,17 @@
 								
 								<h6><label th:text="#{blog_comment}" class="crono_label p-1  mt-3 mb-0 ml-25 rounded"> Text:</label></h6>
 								<textarea  style="max-width:90%;" rows="4" class=" ml-4 form-control "  name="blog" ></textarea>
-								<button type="submit" th:text="#{contact_submit}" class="btn btn-primary ml-50 mt-1 btn-sm" >Submit</button>
+								<button type="submit" th:text="#{contact_submit}" class="btn btn-success ml-50 mt-1 btn-sm" >Submit</button>
 							</form>	
 						</div>
+					</div>
+					<div>
+						<p id="blogs_array_input" th:text="${blogs_json}"></p>
+					<br>
 					</div>
 				</div>	
 			<div th:replace="fragment/fragment :: footer"></div>
 		</div>
+		<script th:src="@{/js/cronoweb_blogs.js}" src="../../static/js/cronoweb_blogs.js"></script>
 	</body>
 </html>
