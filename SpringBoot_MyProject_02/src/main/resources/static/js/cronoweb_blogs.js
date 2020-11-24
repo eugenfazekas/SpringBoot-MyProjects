@@ -115,7 +115,7 @@ function createBlogTitles() {
 
 function preSearch() {
     var  a = document.getElementById("main_search").value.toUpperCase()
-	const result = blog_titles_toUpper.filter(word => word.startsWith(a));
+	const result = blog_titles_toUpper.filter(word => word.startsWith(a)); // includes
 	if(result.length == blog_titles_toUpper.length ) {result.length = 0}
 	console.log(result);
 	findIndexOfTitle(result); 

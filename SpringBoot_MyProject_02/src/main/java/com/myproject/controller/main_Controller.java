@@ -1,5 +1,10 @@
 package com.myproject.controller;
 
+import java.util.Date;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +21,8 @@ public class main_Controller {
 	
 	private PackageService packageService;
 	
+	private int counter;
+	
 	@Autowired
 	public void setPackageService(PackageService packageService) {
 		this.packageService = packageService;
@@ -23,7 +30,18 @@ public class main_Controller {
 
 
 	@GetMapping("/")
-	public String index (Model model) {
+	public String index (Model model,HttpServletRequest request, HttpServletResponse response, Object handler) {
+
+	        String ipAddress = request.getHeader("X-Forward-For");
+	 
+	        if(ipAddress== null){
+	 
+	            ipAddress = request.getRemoteAddr();
+	            
+	            counter++;
+	 
+	        System.out.println("IpAddress: "+ipAddress+",\nVisitators: "+ counter+" Date: "+ new Date());
+	        }
 		
 		model.addAttribute("packages", packageService.findPackages());
 		
