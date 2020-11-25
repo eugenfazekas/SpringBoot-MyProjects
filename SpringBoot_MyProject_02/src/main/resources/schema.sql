@@ -29,5 +29,14 @@ blog  CLOB NOT NULL,
 posted VARCHAR(64)
 );
 
+DROP TABLE IF EXISTS images;
+
+CREATE TABLE IF NOT EXISTS images (
+id INT AUTO_INCREMENT PRIMARY KEY, 
+name VARCHAR(64),
+data BLOB,
+posted VARCHAR(64)
+);
+
 
 

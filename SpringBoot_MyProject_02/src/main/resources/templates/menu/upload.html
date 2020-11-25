@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html  lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Cronoweb Webdesign 3D logo</title>
+	<meta name="description" th:attr="content=#{index_description_content}"/>
+    <meta name="keywords" th:attr="content=#{index_keywords_content}" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" href="../../static/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/cronoweb.css}" href="../../static/css/cronoweb.css" />
+	<link rel="stylesheet" type="text/javascript" th:href="@{/js/cronoweb.js}" href="../../static/js/cronoweb.js" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+	<body>
+		<div class="container border ">
+			<div th:replace="fragment/fragment :: top"></div>
+				<div class=" mt-320 ml-25">
+				
+					<form method="POST" action="/uploadImage" enctype="multipart/form-data">
+						<input type="file" name="file" /><br /> <br /> <input type="submit"
+							value="Submit" />
+					</form>
+					<div th:if="messageError">
+						<h2 th:text="${messageError}" /></h2>
+					</div>
+					
+					<article th:each="image : ${images}">
+									
+									<div id="image_container" class="border mt-3">	
+										<h3 th:text="#{image_article_title}" class="float-left pr-2"></h3>		
+										<h3 class="" th:text="${image.name}"></h3>	
+										<p class="clear_both"></p>							
+									<br>
+										<img class="ml-3" th:src="@{'data:image/jpg;base64,' + ${image.encodedData}}"  height="auto" width="500"/>
+									<br>
+										<p th:text="#{image_article_date}" class="float-left pr-2 mt-2"></p>
+										<p th:text="${image.posted}" class="mt-2"></p>
+										<p class="clear_both"></p>	
+									</div>	
+						</article>
+					
+				</div>	
+			<div th:replace="fragment/fragment :: footer"></div>
+		</div>
+	</body>
+</html>
