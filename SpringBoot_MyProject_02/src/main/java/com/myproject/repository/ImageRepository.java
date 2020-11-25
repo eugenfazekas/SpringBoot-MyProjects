@@ -8,7 +8,10 @@ public interface ImageRepository {
 
 	public void save (ImageEntity image);
 	
-	public ImageEntity findByName(String name);
+	List <ImageEntity> findImagesByName(String name);
 	
 	List<ImageEntity> findAllImages();
+	
+	void deleteImage(String name);
+	
 }

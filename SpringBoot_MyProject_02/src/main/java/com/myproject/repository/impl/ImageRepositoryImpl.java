@@ -39,11 +39,14 @@ public class ImageRepositoryImpl implements ImageRepository {
 		String sql = " INSERT INTO images (name,data,posted) VALUES (?,?,?)";
 		jdbc.update(sql,image.getName(),image.getData(),image.getPosted());
 	}
+	
+	@Override
 
-	public ImageEntity findByName(String name) {
+	public List <ImageEntity> findImagesByName(String name) {
 		
-		String sql = "SELECT * FROM images where name = ?";
-		return jdbc.queryForObject(sql,mapper,name);
+		String search = "%"+name+"%";
+		final String sql = "SELECT * FROM images WHERE name like ?";
+		return jdbc.query(sql,mapper,search);
 		
 	}
 
@@ -52,5 +55,15 @@ public class ImageRepositoryImpl implements ImageRepository {
 		
 		String sql = "SELECT * FROM images ";
 		return jdbc.query(sql,mapper);
+	}
+
+
+
+	@Override
+	public void deleteImage(String name) {
+		
+		final String sql = "DELETE FROM images WHERE name = ? ";
+		jdbc.update(sql,name);
+		
 	}
 }

@@ -567,6 +567,12 @@ pre code {
        max-width: 740px;
        font-size: 27px;
   }
+  .cdropdown{
+  width:200px;
+  }
+  .cronoweb_nav > ul li {
+  margin-left:15px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -574,6 +580,13 @@ pre code {
     //max-width: 720px;
        max-width: 960px;
         font-size: 27px;
+  }
+  .cdropdown{
+  width:200px;
+  }
+  
+  .cronoweb_nav > ul li {
+  margin-left:15px;
   }
 }
 
@@ -583,13 +596,27 @@ pre code {
        max-width: 1200px;
         font-size: 16px;
   }
+  .cdropdown{
+  width:130px;
+  }
+  
+  .cronoweb_nav > ul li {
+  margin-left:5px;
+  }
 }
 
 @media (min-width: 1200px) {
   .container {
     max-width: 1140px;
-    //max-width: 1300px;
+    //max-width: 1140px;
    font-size: 16px;
+  }
+   .cdropdown{
+  width:130px;
+     }
+     
+  .cronoweb_nav > ul li {
+  margin-left:5px;
   }
 }
 

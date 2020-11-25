@@ -115,12 +115,12 @@ textarea {
 }
 
 .cronoweb_nav{
-	margin:20px 0px 10px 50px;
+	margin:20px 0px 10px 20px;
 
 }
 
 .cronoweb_nav > ul li {
-	margin-left:15px;
+	//margin-left:5px;
 	height:40px;
 	padding-left:0px;
 	float:left;
@@ -128,7 +128,7 @@ textarea {
 }
 
 .cdropdown{
-	width:200px;
+	//width:200px;
 	text-align:center;
 	position: relative; 
 	z-index: 1;
@@ -738,3 +738,10 @@ background:#007bff;
 	display:none;
 }
 
+#upload_image_container{
+	width:80%;
+}
+
+#upload_image{
+		width:30%;
+}

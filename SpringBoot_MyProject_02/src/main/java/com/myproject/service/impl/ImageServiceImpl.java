@@ -41,12 +41,29 @@ public class ImageServiceImpl implements ImageService{
 		
 		}
 
-	public String showImage(String name) throws Exception {
-		ImageEntity  image = imageRepository.findByName(name);
-		byte[] encodeBase64 = Base64.encodeBase64(image.getData());
-		String base64Encoded = new String(encodeBase64, "UTF-8");
-		return base64Encoded;
+	public List <EncodedImageEntity> findImagesByName(String name) {
+	
+		List<ImageEntity> entitys = imageRepository.findImagesByName(name);
+		List<EncodedImageEntity> images = new ArrayList<EncodedImageEntity>();
+		
+		for(ImageEntity image : entitys) {
+			
+			EncodedImageEntity encodedImage = new EncodedImageEntity();
+			byte[] encodeBase64 = Base64.encodeBase64(image.getData());
+			try {
+					encodedImage.setName(image.getName());	
+					encodedImage.setEncodedData(new String(encodeBase64, "UTF-8"));
+					encodedImage.setPosted(image.getPosted());
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			images.add(encodedImage);
+		}
+		return images;
 	}
+		
+	
 
 	@Override
 	public List<EncodedImageEntity> findAllImages() {
@@ -69,6 +86,13 @@ public class ImageServiceImpl implements ImageService{
 			images.add(encodedImage);
 		}
 		return images;
+	}
+
+	@Override
+	public void deleteImage(String name) {
+		
+		imageRepository.deleteImage(name);
+		
 	}
 
 	

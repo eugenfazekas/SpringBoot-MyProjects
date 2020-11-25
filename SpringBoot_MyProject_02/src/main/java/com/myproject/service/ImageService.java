@@ -10,8 +10,10 @@ public interface ImageService {
 
 	public void  saveFile(MultipartFile file) throws Exception;
 	
-	public String showImage(String name) throws Exception;
+	public List <EncodedImageEntity> findImagesByName(String name) throws Exception;
 	
 	public List<EncodedImageEntity> findAllImages();
+	
+	public void deleteImage(String name);
 	
 }

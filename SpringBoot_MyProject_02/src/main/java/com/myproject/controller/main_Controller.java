@@ -1,6 +1,5 @@
 package com.myproject.controller;
 
-import java.io.IOException;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,25 +11,23 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.myproject.entity.ServiceEntity;
-import com.myproject.service.PackageService;
 import com.myproject.service.ImageService;
+import com.myproject.service.PackageService;
 
 @Controller
 @RequestMapping("/")
 public class main_Controller {
 	
 	private PackageService packageService;
-	private ImageService saveImageService;
+	private ImageService imageService;
 	private int counter;
 	
 	@Autowired
 	public main_Controller(PackageService packageService, ImageService imageService) {
 		this.packageService = packageService;
-		this.saveImageService = imageService;
+		this.imageService = imageService;
 	}
 
 	@GetMapping("/")
@@ -51,10 +48,6 @@ public class main_Controller {
 		
 		return "menu/index";
 	}
-
-
-	
-
 
 	@GetMapping("index")
 	public String index2 () {
@@ -79,29 +72,11 @@ public class main_Controller {
 	@GetMapping("menu/upload")
 	public String upload (Model model) {
 				
-		model.addAttribute("images", saveImageService.findAllImages());
+		model.addAttribute("images", imageService.findAllImages());
 		
 		return "menu/upload";
 	}
-	
-	@PostMapping("/uploadImage") 
-	 public String singleFileUpload(@RequestParam("file") MultipartFile file,Model model) throws Exception {
-			
-	 if (file.isEmpty()) {
-		 model.addAttribute("messageError", "Please select a file to upload");
-	 		return "redirect:/";
-	 }
-	 	try {
-		  		saveImageService.saveFile(file);
-		  		model.addAttribute("message", "You successfully uploaded '" + file.getOriginalFilename() + "'");
-				model.addAttribute("image", saveImageService.showImage(file.getOriginalFilename()));
-					  		
-	 	} catch (IOException e) {
-	 			e.printStackTrace();
-	 	}
-	 			 	
-	 		return "redirect:/menu/upload";
-	 }
+
 	
 	@GetMapping("menu/webshop")
 	public String webshop () {
