@@ -1,6 +1,12 @@
 package com.myproject.controller;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.UUID;
+
+import javax.imageio.ImageIO;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,17 +27,31 @@ public class imageservice_Controller {
 	}
 
 	@PostMapping("/uploadImage") 
-	 public String singleFileUpload(@RequestParam("file") MultipartFile file,Model model) throws Exception {
+	 public String singleFileUpload(@RequestParam("fileInput") MultipartFile file,Model model) throws Exception {
 			
 	 if (file.isEmpty()) {
 		 model.addAttribute("messageError", "Please select a file to upload");
-	 		return "redirect:/";
+		 System.out.println("Controller file empty:"+file.getSize());
+	 		return "/menu/upload";
 	 }
 	 	try {
 		  		imageService.saveFile(file);		  		
 	 	} catch (IOException e) {
 	 			e.printStackTrace();
 	 	}
+	 			 	
+	 		return "redirect:/menu/upload";
+	 }
+	
+	@PostMapping("/uploadImage2") 
+	 public String singleFileUpload2(@RequestParam("fileOutput") MultipartFile file,Model model) throws Exception {
+		
+		System.out.println(file.getOriginalFilename());
+			  UUID uuid = UUID.randomUUID();
+		      InputStream bis = file.getInputStream();
+		      BufferedImage bImage2 = ImageIO.read(bis);
+		      ImageIO.write(bImage2, "png", new File("src/main/resources/static/img/upload/"+ uuid+".jpg") );
+		      System.out.println("image created");
 	 			 	
 	 		return "redirect:/menu/upload";
 	 }
@@ -46,7 +66,6 @@ public class imageservice_Controller {
 	
 	@PostMapping("/imageDelete")
 	public String blogreg (@RequestParam String name) {
-		
 		imageService.deleteImage(name);
 		
 		return "redirect:/menu/upload";

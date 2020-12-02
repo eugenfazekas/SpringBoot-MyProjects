@@ -38,7 +38,7 @@ public class ImageServiceImpl implements ImageService{
 		image.setData(file.getBytes());
 		image.setPosted(simpleDateFormat.format(new Date()));
 		imageRepository.save(image);
-		
+		System.out.println(file.getOriginalFilename());
 		}
 
 	public List <EncodedImageEntity> findImagesByName(String name) {
@@ -90,7 +90,6 @@ public class ImageServiceImpl implements ImageService{
 
 	@Override
 	public void deleteImage(String name) {
-		
 		imageRepository.deleteImage(name);
 		
 	}
