@@ -40,8 +40,8 @@
 						
 						
 						<div class="border float-right" style="width:50%;" >
-							<form method="POST" action="/uploadImage2" id="form_upload" name="form_upload" enctype="multipart/form-data">
-								<input type="file" onchange="resize()" name="fileInput" id="fileInput"/>
+							<form method="POST" action="/uploadImage" id="form_upload" name="form_upload" enctype="multipart/form-data">
+								<input type="file" onclick="declare_global_variables()" onchange="resize()" name="fileInput" id="fileInput"/>
 									<br />
 								    <br />
 							</form>
@@ -49,28 +49,28 @@
 							<img id="image_test"/>
 						</div>
 						<p class="clear_both"></p>				
-					<img id="" src="../../static/img/upload/4914b645-27fd-4cc2-b3ce-d77cf445e26c.jpg" th:src="@{/img/upload/bf1ab70f-87e1-4c0f-b076-04e83375bbeb.jpg}"  >
-					<article th:each="image : ${images}">
-									
-									<div id="upload_image_container" class="border mt-3 ml-3">	
-										<h3 th:text="#{image_article_title}" class="float-left pr-2"></h3>		
-										<h3 th:text="${image.name}" class="float-left"></h3>	
-										<div class="float-right mt-2 mr-2">
-											<form  action="/imageDelete" method="post">
-													 <input type="hidden" id="delete1" name="name" th:value="${image.name}"/>
-							                   		<button class=" border btn-danger"  type="submit" th:text="#{image_article_delete}"></button> 
-											</form>
-											
-										</div>				
-										<p class="clear_both"></p>							
-									<br>
-										<img class="ml-3 border" th:src="@{'data:image/jpg;base64,' + ${image.encodedData}}"  height="auto" width="500"/>
-									<br>
-										<p th:text="#{image_article_date}" class="float-left pr-2 mt-2"></p>
-										<p th:text="${image.posted}" class="mt-2"></p>
-										<p class="clear_both"></p>	
-								</div>	
-						</article><br>
+								
+							<article th:each="image : ${images}">
+											<div id="upload_image_container" class="border mt-3 ml-3">	
+													<h3 th:text="#{image_article_title}" class="float-left pr-2"></h3>		
+													<h3 th:text="${image.name}" class="float-left"></h3>	
+													<div class="float-right mt-2 mr-2">
+														<form  action="/imageDelete" method="post">
+																 <input type="hidden" id="delete1" name="id" th:value="${image.id}"/>
+										                   		<button class=" border btn-danger"  type="submit" th:text="#{image_article_delete}"></button> 
+														</form>
+														
+													</div>				
+													<p class="clear_both"></p>							
+												<br>
+													<img class="ml-3 border" th:src="@{/img/upload/} + ${image.id}+ '.png'"  height="auto" width="500"/>
+												<br>
+													<p th:text="#{image_article_date}" class="float-left pr-2 mt-2"></p>
+													<p th:text="${image.posted}" class="mt-2"></p>
+													<p class="clear_both"></p>	
+											</div>	
+							</article>				
+		<!-- 					<img id="" src="../../static/img/upload/472aa5eb-029e-4d75-90fd-5fa4e4ac4348.png" th:src="@{/img/upload/2704af35-03cf-4577-905d-32bffa35aa16.png}"  > -->
 					</div>
 				</div>	<br>
 			<div th:replace="fragment/fragment :: footer"></div>

@@ -25,9 +25,8 @@ public class ImageRepositoryImpl implements ImageRepository {
 			
 			ImageEntity n = new ImageEntity();
 			
-			n.setId(Long.valueOf(rs.getString("id")));
+			n.setId(rs.getString("id"));
 			n.setName(rs.getString("name"));
-			n.setData(rs.getBytes("data"));
 			n.setPosted(rs.getString("posted"));
 	
 			return n;
@@ -36,8 +35,8 @@ public class ImageRepositoryImpl implements ImageRepository {
 	
 	public void save (ImageEntity image) {
 		
-		String sql = " INSERT INTO images (name,data,posted) VALUES (?,?,?)";
-		jdbc.update(sql,image.getName(),image.getData(),image.getPosted());
+		String sql = " INSERT INTO images (id,name,posted) VALUES (?,?,?)";
+		jdbc.update(sql,image.getId(),image.getName(),image.getPosted());
 	}
 	
 	@Override
@@ -60,10 +59,10 @@ public class ImageRepositoryImpl implements ImageRepository {
 
 
 	@Override
-	public void deleteImage(String name) {
+	public void deleteImage(String id) {
 		
-		final String sql = "DELETE FROM images WHERE name = ? ";
-		jdbc.update(sql,name);
+		final String sql = "DELETE FROM images WHERE id = ? ";
+		jdbc.update(sql,id);
 		
 	}
 }

@@ -12,6 +12,6 @@ public interface ImageRepository {
 	
 	List<ImageEntity> findAllImages();
 	
-	void deleteImage(String name);
+	void deleteImage(String id);
 	
 }

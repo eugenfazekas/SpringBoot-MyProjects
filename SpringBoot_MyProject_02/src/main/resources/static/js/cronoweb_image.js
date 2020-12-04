@@ -1,25 +1,22 @@
-var OUTPUT = document.createElement("INPUT");
+function declare_global_variables(){
 
-function SET_OUTPUT_ATTRIBUTES(){
-	OUTPUT.setAttribute("type", "file");
-	OUTPUT.setAttribute("name", "fileOutput");
-	OUTPUT.setAttribute("id", "fileOutput");
-	OUTPUT.setAttribute("form", "form_upload");
-	document.getElementById("form_upload").appendChild(OUTPUT);
+	 window.resize_image;
+	 window.image_name;
 }
 
-var resize_image;
 
 function resize(){
 	//define the width to resize e.g 600px
-	  var resize_width = 500;//without px
+	  var resize_width = 400;//without px
 
 	  //get the image selected
 	  var item = document.querySelector('#fileInput').files[0];
-
+	  
+	  image_name = image_name_slice(item.name);
+	  
 	  //create a FileReader
 	  var reader = new FileReader();
-
+	  
 	  //image turned to base64-encoded Data URI.
 	  reader.readAsDataURL(item);
 	  reader.name = item.name;//get the image's name
@@ -63,6 +60,13 @@ function resize(){
 	  }
 }
 
+function image_name_slice(input_name) {
+	let name = input_name;
+	let length = name.length;
+	let outPutName = name.slice(0 , length - 4);
+	return outPutName;
+}
+
 function b64toBlob(dataURI) {
 	
 	console.log('b64toBlob Input',dataURI);
@@ -78,20 +82,23 @@ function b64toBlob(dataURI) {
 }
 
 function append_data(inputBlob){
-    
-	SET_OUTPUT_ATTRIBUTES();
-	console.log(OUTPUT);
+
 	console.log('Append InputBlob',inputBlob);
 	
 	let file = new File([inputBlob], 'test.png');
 	console.log('Appended file',file);
 
-	let photo = document.getElementById("fileOutput").files[0];
+	let photo = document.getElementById("fileInput").files[0];
 	let formData = new FormData();
 
-	formData.append("fileOutput", file, 'test');
-	fetch('/uploadImage2', {method: "POST", body: formData});
-	
+	formData.append("fileInput", file, image_name);
+	fetch('/uploadImage', {method: "POST", body: formData}).then(function(response)  {
+		  if(response.status == 200){
+			  location.replace("https://www.cronoweb.ro//menu/upload"); console.log('Image Saved')
+		  }else{
+			  location.replace("https://www.cronoweb.ro//menu/upload"); console.log('Image Saved failed')
+		  }
+	} )
 }
 
 function main_resize(){
@@ -100,4 +107,16 @@ function main_resize(){
 	append_data(blob);
 
 }
+/*
+window.OUTPUT = document.createElement("INPUT");
+*/
 
+/*
+function SET_OUTPUT_ATTRIBUTES(){
+	OUTPUT.setAttribute("type", "file");
+	OUTPUT.setAttribute("name", "fileOutput");
+	OUTPUT.setAttribute("id", "fileOutput");
+	OUTPUT.setAttribute("form", "form_upload");
+	document.getElementById("form_upload").appendChild(OUTPUT);
+}
+*/

@@ -2,18 +2,16 @@ package com.myproject.entity;
 
 public class ImageEntity {
 
-	private Long id;
+	private String id;
 	
 	private String name;
 	
-	private byte[] data;
-	
 	private String posted;
 	
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -22,17 +20,17 @@ public class ImageEntity {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public byte[] getData() {
-		return data;
-	}
-	public void setData(byte[] data) {
-		this.data = data;
-	}
+
 	public String getPosted() {
 		return posted;
 	}
 	public void setPosted(String posted) {
 		this.posted = posted;
 	}
-
+	
+	@Override
+	public String toString() {
+		return "ImageEntity [id= " + id + ", name= " + name + ", posted= " + posted + "]";
+	}
+	
 }
