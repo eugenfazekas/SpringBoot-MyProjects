@@ -63,15 +63,14 @@
 													</div>				
 													<p class="clear_both"></p>							
 												<br>
-													<img class="ml-3 border" th:src="@{/img/upload/} + ${image.id}+ '.png'"  height="auto" width="500"/>
+													<img class="ml-3 border" th:src="@{/img/imageUpload/} + ${image.id}+ '.png'"  height="auto" width="500"/>
 												<br>
 													<p th:text="#{image_article_date}" class="float-left pr-2 mt-2"></p>
 													<p th:text="${image.posted}" class="mt-2"></p>
 													<p class="clear_both"></p>	
 											</div>	
-							</article>				
-		<!-- 					<img id="" src="../../static/img/upload/472aa5eb-029e-4d75-90fd-5fa4e4ac4348.png" th:src="@{/img/upload/2704af35-03cf-4577-905d-32bffa35aa16.png}"  > -->
-					</div>
+							</article>		
+							</div>
 				</div>	<br>
 			<div th:replace="fragment/fragment :: footer"></div>
 		</div>

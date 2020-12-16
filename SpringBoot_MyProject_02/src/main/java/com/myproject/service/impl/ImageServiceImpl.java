@@ -48,7 +48,7 @@ public class ImageServiceImpl implements ImageService{
 		
 	    InputStream bis = file.getInputStream();
 	    BufferedImage bImage2 = ImageIO.read(bis);
-	    ImageIO.write(bImage2, "png", new File("src/main/resources/static/img/upload/"+ uuid+".png") );
+	    ImageIO.write(bImage2, "png", new File("src/main/resources/static/img/imageUpload/"+ uuid+".png") );
 
 
 		log.debug("Image Created: "+image.toString());
@@ -89,7 +89,7 @@ public class ImageServiceImpl implements ImageService{
 	@Override
 	public void deleteImage(String id) {
 		
-		String imageUrl = "src/main/resources/static/img/upload/"+ id +".png";
+		String imageUrl = "src/main/resources/static/img/imageUpload/"+ id +".png";
 
 		File image = new File(imageUrl); 
 		
@@ -98,7 +98,7 @@ public class ImageServiceImpl implements ImageService{
 			imageRepository.deleteImage(id);
 		}
 		catch(Error e){
-			System.out.println("Failed to delete file: "+e);
+			log.debug("Failed to delete file: "+e);
 		}
 	}
 
