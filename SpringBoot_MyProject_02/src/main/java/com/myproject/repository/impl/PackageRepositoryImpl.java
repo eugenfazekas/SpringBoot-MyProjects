@@ -29,22 +29,19 @@ public class PackageRepositoryImpl implements PackageRepository{
 			PackageEntity n = new PackageEntity();
 			
 			n.setTitle(rs.getString("title"));
-			n.setDescription1(rs.getString("description1"));
-			n.setDescription2(rs.getString("description2"));
-			n.setDescription3(rs.getString("description3"));
-			n.setDescription4(rs.getString("description4"));
-			n.setDescription5(rs.getString("description5"));
-			n.setDescription6(rs.getString("description6"));
-			n.setDescription7(rs.getString("description7"));
-			n.setDescription8(rs.getString("description8"));
-			n.setDescription9(rs.getString("description9"));
-			n.setDescription10(rs.getString("description10"));
-			n.setDescription11(rs.getString("description11"));
-			n.setDescription12(rs.getString("description12"));
-			n.setDescription13(rs.getString("description13"));
-			n.setDescription14(rs.getString("description14"));
-			n.setDescription15(rs.getString("description15"));
-			n.setPrice(rs.getString("price"));
+			n.setNumber_of_pages(rs.getInt("number_of_pages"));
+			n.setNumber_of_page_elements(rs.getInt("number_of_page_elements"));
+			n.setSsl(rs.getBoolean("ssl"));
+			n.setMessage_sending(rs.getBoolean("message_sending"));
+			n.setDatabase_type(rs.getString("database_type"));
+			n.setMulti_language(rs.getBoolean("multi_language"));
+			n.setSite_search(rs.getBoolean("site_search"));
+			n.setBlogging(rs.getBoolean("blogging"));
+			n.setAnimations(rs.getBoolean("animations"));
+			n.setUser_authentication(rs.getBoolean("user_authentication"));
+			n.setNewsletter_service(rs.getBoolean("newsletter_service"));
+			n.setPagination(rs.getBoolean("pagination"));
+			n.setPrice(rs.getInt("price"));
 			
 			return n;
 		}

@@ -1,3 +1,18 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
 function Scrolldown() {
      window.scroll(0,document.getElementById("height1").innerHTML); 
 }
@@ -42,3 +57,5 @@ function height_measure() {
 		var y = window.scrollY;
 	   document.getElementById("height").value = y
 }
+
+*/

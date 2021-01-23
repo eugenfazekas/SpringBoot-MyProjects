@@ -11,7 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.myproject.entity.ServiceEntity;
+import com.google.gson.Gson;
 import com.myproject.service.ImageService;
 import com.myproject.service.PackageService;
 
@@ -21,11 +21,13 @@ public class main_Controller {
 	private PackageService packageService;
 	private ImageService imageService;
 	private int counter;
+	private Gson gson;
 	
 	@Autowired
-	public main_Controller(PackageService packageService, ImageService imageService) {
+	public main_Controller(PackageService packageService, ImageService imageService, Gson gson) {
 		this.packageService = packageService;
 		this.imageService = imageService;
+		this.gson = gson;
 	}
 
 	@GetMapping("/")
@@ -42,7 +44,7 @@ public class main_Controller {
 	        System.out.println("IpAddress: "+ipAddress+",\nVisitators: "+ counter+" Date: "+ new Date());
 	        }
 		
-		model.addAttribute("packages", packageService.findPackages());
+		model.addAttribute("json_packages", gson.toJson(packageService.findPackages()));
 		
 		return "menu/index";
 	}
@@ -92,9 +94,6 @@ public class main_Controller {
 	@GetMapping("menu/services")
 	public String services (Model model) {
 		
-		ServiceEntity serviceEntity = new ServiceEntity("packages_page_htmlone","packages_page_elementsone","n","","","","","","0");
-		model.addAttribute("packages", packageService.findPackagesBySpec("packages_page_htmlone","packages_page_elementsone","n","n","n","n","n","n")); 
-		model.addAttribute("serviceEntity", serviceEntity);
 		return "menu/services";
 	}
 	

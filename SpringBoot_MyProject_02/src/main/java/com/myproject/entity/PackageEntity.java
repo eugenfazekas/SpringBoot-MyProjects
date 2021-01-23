@@ -1,40 +1,12 @@
 package com.myproject.entity;
 
 public class PackageEntity {
+
+	private int number_of_pages, number_of_page_elements, price;
 	
-	private String title;
+	private boolean  ssl, message_sending,  multi_language, site_search, blogging, animations, user_authentication, newsletter_service, pagination;
 	
-	private String description1;
-	
-	private String description2;
-	
-	private String description3;
-	
-	private String description4;
-	
-	private String description5;
-	
-	private String description6;
-	
-	private String description7;
-	
-	private String description8;
-	
-	private String description9;
-	
-	private String description10;
-	
-	private String description11;
-	
-	private String description12;
-	
-	private String description13;
-	
-	private String description14;
-	
-	private String description15;
-	
-	private String price;
+	private String database_type,title;
 
 	public String getTitle() {
 		return title;
@@ -44,142 +16,118 @@ public class PackageEntity {
 		this.title = title;
 	}
 
-	public String getDescription1() {
-		return description1;
+	public int getNumber_of_pages() {
+		return number_of_pages;
 	}
 
-	public void setDescription1(String description1) {
-		this.description1 = description1;
+	public void setNumber_of_pages(int number_of_pages) {
+		this.number_of_pages = number_of_pages;
 	}
 
-	public String getDescription2() {
-		return description2;
+	public int getNumber_of_page_elements() {
+		return number_of_page_elements;
 	}
 
-	public void setDescription2(String description2) {
-		this.description2 = description2;
+	public void setNumber_of_page_elements(int number_of_page_elements) {
+		this.number_of_page_elements = number_of_page_elements;
 	}
 
-	public String getDescription3() {
-		return description3;
+	public boolean isSsl() {
+		return ssl;
 	}
 
-	public void setDescription3(String description3) {
-		this.description3 = description3;
+	public void setSsl(boolean ssl) {
+		this.ssl = ssl;
 	}
 
-	public String getDescription4() {
-		return description4;
+	public boolean isMessage_sending() {
+		return message_sending;
 	}
 
-	public void setDescription4(String description4) {
-		this.description4 = description4;
+	public void setMessage_sending(boolean message_sending) {
+		this.message_sending = message_sending;
 	}
 
-	public String getDescription5() {
-		return description5;
+	public boolean isMulti_language() {
+		return multi_language;
 	}
 
-	public void setDescription5(String description5) {
-		this.description5 = description5;
+	public void setMulti_language(boolean multi_language) {
+		this.multi_language = multi_language;
 	}
 
-	public String getDescription6() {
-		return description6;
+	public boolean isSite_search() {
+		return site_search;
 	}
 
-	public void setDescription6(String description6) {
-		this.description6 = description6;
+	public void setSite_search(boolean site_search) {
+		this.site_search = site_search;
 	}
 
-	public String getDescription7() {
-		return description7;
+	public boolean isBlogging() {
+		return blogging;
 	}
 
-	public void setDescription7(String description7) {
-		this.description7 = description7;
+	public void setBlogging(boolean blogging) {
+		this.blogging = blogging;
 	}
 
-	public String getDescription8() {
-		return description8;
+	public boolean isAnimations() {
+		return animations;
 	}
 
-	public void setDescription8(String description8) {
-		this.description8 = description8;
+	public void setAnimations(boolean animations) {
+		this.animations = animations;
 	}
 
-	public String getDescription9() {
-		return description9;
+	public boolean isUser_authentication() {
+		return user_authentication;
 	}
 
-	public void setDescription9(String description9) {
-		this.description9 = description9;
+	public void setUser_authentication(boolean user_authentication) {
+		this.user_authentication = user_authentication;
 	}
 
-	public String getDescription10() {
-		return description10;
+	public boolean isNewsletter_service() {
+		return newsletter_service;
 	}
 
-	public void setDescription10(String description10) {
-		this.description10 = description10;
+	public void setNewsletter_service(boolean newsletter_service) {
+		this.newsletter_service = newsletter_service;
 	}
 
-	public String getDescription11() {
-		return description11;
+	public boolean isPagination() {
+		return pagination;
 	}
 
-	public void setDescription11(String description11) {
-		this.description11 = description11;
+	public void setPagination(boolean pagination) {
+		this.pagination = pagination;
 	}
 
-	public String getDescription12() {
-		return description12;
-	}
-
-	public void setDescription12(String description12) {
-		this.description12 = description12;
-	}
-
-	public String getDescription13() {
-		return description13;
-	}
-
-	public void setDescription13(String description13) {
-		this.description13 = description13;
-	}
-
-	public String getDescription14() {
-		return description14;
-	}
-
-	public void setDescription14(String description14) {
-		this.description14 = description14;
-	}
-
-	public String getDescription15() {
-		return description15;
-	}
-
-	public void setDescription15(String description15) {
-		this.description15 = description15;
-	}
-
-	public String getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(int price) {
 		this.price = price;
+	}
+
+	public String getDatabase_type() {
+		return database_type;
+	}
+
+	public void setDatabase_type(String database_type) {
+		this.database_type = database_type;
 	}
 
 	@Override
 	public String toString() {
-		return "packageEntity [title=" + title + ", description1=" + description1 + ", description2=" + description2
-				+ ", description3=" + description3 + ", description4=" + description4 + ", description5=" + description5
-				+ ", description6=" + description6 + ", description7=" + description7 + ", description8=" + description8
-				+ ", description9=" + description9 + ", description10=" + description10 + ", description11="
-				+ description11 + ", description12=" + description12 + ", description13=" + description13
-				+ ", description14=" + description14 + ", description15=" + description15 + ", price=" + price + "]";
+		return "PackageEntity [number_of_pages=" + number_of_pages + ", number_of_page_elements="
+				+ number_of_page_elements + ", price=" + price + ", ssl=" + ssl + ", message_sending=" + message_sending
+				+ ", multi_language=" + multi_language + ", site_search=" + site_search + ", blogging=" + blogging
+				+ ", animations=" + animations + ", user_authentication=" + user_authentication
+				+ ", newsletter_service=" + newsletter_service + ", pagination=" + pagination + ", database_type="
+				+ database_type + ", title=" + title + "]";
 	}
 	
 }

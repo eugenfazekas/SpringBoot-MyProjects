@@ -38,37 +38,53 @@
 				
 					<div th:replace="fragment/fragment :: top"></div>
 							<div id="article_main_container" class="mt-250">
-											<article id="article_index" th:each="package : ${packages}">
-															<header>
-																<h2 th:text="#{${package.title}}" align="center">Blog cim</h2> 
-															</header>
-																<section>
-																  <p th:utext="#{${package.description1}}"></p>
-																  <p th:utext="#{${package.description2}}"></p>
-																  <p th:utext="#{${package.description3}}"></p>
-																  <p th:utext="#{${package.description4}}"></p> 
-																  <p th:utext="#{${package.description5}}"></p>
-																  <p th:utext="#{${package.description6}}"></p>
-																  <p th:utext="#{${package.description7}}"></p>
-																  <p th:utext="#{${package.description8}}"></p>
-																  <p th:utext="#{${package.description9}}"></p>
-																  <p th:utext="#{${package.description10}}"></p>
-																  <p th:utext="#{${package.description11}}"></p>
-																  <p th:utext="#{${package.description12}}"></p>
-																  <p th:utext="#{${package.description13}}"></p>
-																  <p th:utext="#{${package.description14}}"></p>
-																  <p th:utext="#{${package.description15}}"></p>
-																</section>
-															<footer>
-																<h4 class="ml-3"><b th:text="#{index_price} + ' ' + ${package.price}+ ' ' + #{index_price_euro}"></b></h4>
-															</footer>
-												</article>
+<!-- 											<article id="article_index" th:each="package : ${packages}"> -->
+<!-- 															<header> -->
+<!-- 																<h2 th:text="#{${package.title}}" align="center">Blog cim</h2>  -->
+<!-- 															</header> -->
+<!-- 																<section> -->
+																  
+<!-- 																</section> -->
+<!-- 															<footer> -->
+<!-- 																<h4 class="ml-3"><b th:text="#{index_price} + ' ' + ${package.price}+ ' ' + #{index_price_euro}"></b></h4> -->
+<!-- 															</footer> -->
+<!-- 												</article> -->
 							</div>		
 								
 						<div class="clear_both"></div>
 						<br>
 							<br>	
-					<div th:replace="fragment/fragment :: footer" class="cborder"></div>						
+					<div th:replace="fragment/fragment :: footer" class="cborder"></div>	
+					<div style="display:block" id="packages_json" th:text="${json_packages}"></div>		
+					<div style="display:none">
+																  <p th:text="#{packages}"></p>
+																  <p id="basic" th:utext="#{packages_basic_page}"></p>
+																  <p id="start" th:utext="#{packages_start_page}"></p>
+																  <p id="dynamic" th:utext="#{packages_dynamic_page}"></p> 
+																  <p id="premium" th:utext="#{packages_premium_page}"></p>
+																  <p id="webshop" th:utext="#{packages_webshop_page}"></p>
+																  <p id="domain" th:utext="#{packages_page_domain}"></p>
+																  <p id="domainspace" th:utext="#{packages_page_domainspace}"></p>
+																  <p id="emailaddress" th:utext="#{packages_page_emailaddress}"></p>
+																  <p id="number_of_pages" th:utext="#{packages_page_html}"></p>
+																  <p id="number_of_page_elements" th:utext="#{packages_page_elements}"></p>
+																  <p id="multi_language" th:utext="#{packages_page_multilanguage}"></p>
+																  <p id="none" th:utext="#{n}"></p>
+																  <p id="embededdatabase" th:utext="#{packages_page_embededdatabase}"></p>
+																  <p id="PostGRESqldb" th:utext="#{packages_page_PostGRESqldb}"></p>
+																  <p id="site_search" th:utext="#{packages_page_search}"></p>
+																  <p id="ssl" th:utext="#{packages_page_ssl}"></p>
+																  <p id="blogging" th:utext="#{packages_page_blogging}"></p>
+																  <p id="animations"  th:utext="#{packages_page_animations}"></p>
+																  <p id="message_sending"  th:utext="#{packages_page_emailsend}"></p>
+																  <p id="newsletter_service" th:utext="#{packages_page_emailsend_newsletter}"></p>
+																  <p id="user_authentication" th:utext="#{packages_page_userauth}"></p>
+																  <p id="pagination" th:utext="#{packages_page_pagination}"></p>
+																  <p id="price" th:text="#{packages_page_price}"></p>
+																  <p id="price_vat" th:utext="#{packages_page_price_vat}"></p>
+					</div>			
 			</div>
+			
+			<script th:src="@{/js/cronoweb_packages.js}" src="../../static/js/cronoweb_packages.js"></script>
 </body>
 </html>

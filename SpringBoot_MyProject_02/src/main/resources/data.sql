@@ -1,30 +1,22 @@
-INSERT INTO PACKAGES (title,description1, description2, description3, description4, description5, description6, description7, description8, description9, description10,
-description11, description12, description13, description14, description15, price) 
-VALUES('packages_basic_page','packages_page_domain','packages_page_domainspace','packages_page_emailaddress',
-'packages_page_htmlone','packages_page_elementsone','packages_page_ssl','packages_page_emailsend','n','n','n','n','n','n','n','n',100);
+INSERT INTO PACKAGES (title, number_of_pages, number_of_page_elements, ssl,
+	 message_sending, database_type, multi_language, site_search, blogging, animations, user_authentication, newsletter_service, pagination, price) 
+VALUES('basic',5,10,false,true,'none',false,false,false,false,false,false,false,100);
 
-INSERT INTO PACKAGES (title,description1, description2, description3, description4, description5, description6, description7, description8, description9, description10,
-description11, description12, description13, description14, description15, price) 
-VALUES('packages_start_page','packages_page_domain','packages_page_domainspace','packages_page_emailaddress',
-'packages_page_htmltwo','packages_page_elementstwo','packages_page_ssl','packages_page_emailsend','packages_page_embededdatabase','packages_page_multilanguage','n','n','n','n','n','n',200);
+INSERT INTO PACKAGES(title, number_of_pages, number_of_page_elements, ssl,
+	 message_sending, database_type, multi_language, site_search, blogging, animations, user_authentication, newsletter_service, pagination, price) 
+VALUES('start',10,15,false,true,'embededdatabase',true,false,false,false,false,false,false,200);
 
-INSERT INTO PACKAGES (title,description1, description2, description3, description4, description5, description6, description7, description8, description9, description10,
-description11, description12, description13, description14, description15, price) 
-VALUES('packages_dynamic_page','packages_page_domain','packages_page_domainspace','packages_page_emailaddress',
-'packages_page_htmlthree','packages_page_elementsthree','packages_page_ssl','packages_page_emailsend','packages_page_PostGRESqldb','packages_page_multilanguage','packages_page_search','packages_page_blogging',
-'packages_page_animations','n','n','n',300);
+INSERT INTO PACKAGES (title, number_of_pages, number_of_page_elements, ssl,
+	 message_sending, database_type, multi_language, site_search, blogging, animations, user_authentication, newsletter_service, pagination, price) 
+VALUES('dynamic',20,25,true,true,'PostGRESqldb',true,true,true,true,false,false,false,300);
 
-INSERT INTO PACKAGES (title,description1, description2, description3, description4, description5, description6, description7, description8, description9, description10,
-description11, description12, description13, description14, description15, price) 
-VALUES('packages_premium_page','packages_page_domain','packages_page_domainspace','packages_page_emailaddress',
-'packages_page_htmlfour','packages_page_elementsfour','packages_page_ssl','packages_page_emailsend','packages_page_PostGRESqldb','packages_page_multilanguage','packages_page_search','packages_page_blogging',
-'packages_page_animations','packages_page_userauth','packages_page_emailsend_newsletter','n',400);
+INSERT INTO PACKAGES (title, number_of_pages, number_of_page_elements, ssl,
+	 message_sending, database_type, multi_language, site_search, blogging, animations, user_authentication, newsletter_service, pagination, price) 
+VALUES('premium',30,35,true,true,'PostGRESqldb',true,true,true,true,true,true,false,400);
 
-INSERT INTO PACKAGES (title,description1, description2, description3, description4, description5, description6, description7, description8, description9, description10,
-description11, description12, description13, description14, description15, price) 
-VALUES('webshop_title','packages_page_domain','packages_page_domainspace','packages_page_emailaddress',
-'packages_page_htmlfour','packages_page_elementsfour','packages_page_ssl','packages_page_emailsend','packages_page_PostGRESqldb','packages_page_multilanguage','packages_page_search','packages_page_blogging',
-'packages_page_animations','packages_page_userauth','packages_page_emailsend_newsletter','packages_page_pagination',500);
+INSERT INTO PACKAGES (title, number_of_pages, number_of_page_elements, ssl,
+	 message_sending, database_type, multi_language, site_search, blogging, animations, user_authentication, newsletter_service, pagination, price) 
+VALUES('webshop',30,35,true,true,'PostGRESqldb',true,true,true,true,true,true,true,500);
 
 
 INSERT INTO BLOGS ( title, blog, posted) VALUES ('England','Test Message 1','2020.10.11 17:48:40');
