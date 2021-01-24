@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Cronoweb Webdesign Servici Szolgaltatasok</title>
+	<title>Cronoweb Webdesign Servicii Szolgaltatasok</title>
 	<meta name="description" th:attr="content=#{index_description_content}"/>
     <meta name="keywords" th:attr="content=#{index_keywords_content}" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -40,11 +40,11 @@
 							<div class="form-group">
 								<div>
 									  <label th:text="#{services_select_htmlpage_label}" class="float-left" style="margin-right:10px;" for="html_page"></label>
-									  <select id="html_page" class="form-control" style="width:30%;" onChange="height_measure(); this.form.submit()" name="html_page">
-										  <option  value='packages_page_htmlone'>5</option>
-									      <option  value='packages_page_htmltwo'>10</option>
-									      <option  value='packages_page_htmlthree'>20</option>
-									      <option  value='packages_page_htmlfour'>30</option>
+									  <select id="html_page" class="form-control" style="width:30%;" onChange="setNumber_of_pages()" name="html_page">
+										  <option  value=5>5</option>
+									      <option  value=10>10</option>
+									      <option  value=20>20</option>
+									      <option  value=30>30</option>
 									  </select>
 								</div>		  
 									   <br>
@@ -52,46 +52,46 @@
 									   <br>
 									   <br>
 									   <label th:text="#{services_select_htmlpage_element_label}" style="margin-right:10px;" class="float-left" for="html_element"></label>
-									  <select id="html_element" class="form-control" style="width:30%; margin-left:20px;"  onChange="height_measure(); this.form.submit()" name="html_element">
-										  <option  value='packages_page_elementsone'>10</option>
-									      <option  value='packages_page_elementstwo'>15</option>
-									      <option  value='packages_page_elementsthree'>25</option>
-									      <option  value='packages_page_elementsfour'>35</option>
+									  <select id="html_element" class="form-control" style="width:30%; margin-left:20px;"  onChange="setNumber_of_page_elements()" name="html_element">
+										  <option  value=10>10</option>
+									      <option  value=15>15</option>
+									      <option  value=25>25</option>
+									      <option  value=35>35</option>
 									  </select>
 									   <br>
 									   <br>
 									   <br>
 									   <br>
 									   <label th:text="#{services_select_database_label}" class="float-left" style="margin-right:10px;" for="service_db"></label>
-									  <select id="service_db" class="form-control form-control-sm" onChange="height_measure(); this.form.submit()" style="width:58%; margin-left:20px;" name="service_db">
-									      <option  th:text="#{services_select_database_option0}" value="n"></option>
-										  <option  th:text="#{services_select_database_option1}" value="packages_page_embededdatabase">Volvo</option>
-									      <option  th:text="#{services_select_database_option2}" value="packages_page_PostGRESqldb">Saab</option>
+									  <select id="service_db" class="form-control form-control-sm" onChange="setDatabase_type()" style="width:58%; margin-left:20px;" name="service_db">
+									      <option  th:text="#{services_select_database_option0}" value="none"></option>
+										  <option  th:text="#{services_select_database_option1}" value="embededdatabase"></option>
+									      <option  th:text="#{services_select_database_option2}" value="PostGRESqldb"></option>
 									  </select>
 										  <br>
 										  <br>
 										  <div class="border mr-3">
-											<input id="search" style="margin-right:10px;" onChange="height_measure(); this.form.submit()" type="checkbox" class="ml-2 float-left form-check-input" name="search" value="packages_page_search">
+											<input id="search" style="margin-right:10px;" onChange="setSite_search()" type="checkbox" class="ml-2 float-left form-check-input" name="search">
 				  							<label for="search" class="ml-50"style="width:80%;margin-top:-4px;" th:text="#{services_checkbox_searching_label}"></label>
 			  							</div>
 			  							<br>
 			  							<div class="border mr-3">
-				  							<input id="multilanguage" style="margin-top:5px; margin-right:10px;" onChange="height_measure(); this.form.submit()" type="checkbox" class="float-left ml-2  form-check-input" name="multilanguage" value="packages_page_multilanguage">
+				  							<input id="multilanguage" style="margin-top:5px; margin-right:10px;" onChange="setMulti_language()" type="checkbox" class="float-left ml-2  form-check-input" name="multilanguage" >
 				  							<label for="multilanguage"  class="ml-50" style="width:80%;  margin-top:-5px;" th:text="#{services_checkbox_multilanguage_label}"></label>
 			  							</div>
 			  							<br>
 			  							<div class="border mr-3">
-				  							<input id="animation" style="margin-right:10px; margin-top:5px;" type="checkbox" onChange="height_measure(); this.form.submit()" class="float-left ml-2  form-check-input" name="animation" value="packages_page_animations">
+				  							<input id="animation" style="margin-right:10px; margin-top:5px;" type="checkbox" onChange="setAnimations()" class="float-left ml-2  form-check-input" name="animation" >
 				  							<label for="animation" class="ml-50" style="width:80%; margin-top:-5px;" th:text="#{services_checkbox_animation_label}"></label>
 			  							</div>
 			  							<br>
 			  							<div class="border mr-3">
-				  							<input id="auth" style="margin-right:10px; margin-top:10px;"  type="checkbox" onChange="height_measure();this.form.submit()" class="float-left ml-2  form-check-input" name="auth" value="packages_page_userauth">
+				  							<input id="auth" style="margin-right:10px; margin-top:10px;"  type="checkbox" onChange="setUser_authentication()" class="float-left ml-2  form-check-input" name="auth" >
 				  							<label for="auth" class="ml-50" style="width:80%;margin-top:5px;" th:text="#{services_checkbox_auth_label}"></label>
 			  							</div>
 			  							<br>
 			  							<div class="border mr-3">
-				  							<input id="newsletter" style="margin-right:10px; margin-top:10px;" type="checkbox" onChange="height_measure(); this.form.submit()"class="float-left ml-2  form-check-input" name="newsletter" value="packages_page_emailsend_newsletter">
+				  							<input id="newsletter" style="margin-right:10px; margin-top:10px;" type="checkbox" onChange="setNewsletter_service()" class="float-left ml-2  form-check-input" name="newsletter" >
 				  							<label for="newsletter" class="ml-50 mt-1" style="width:80%;" th:text="#{services_checkbox_newsletter_label}"></label>
 			  							</div>
 			  							<input id="height" style="margin-right:10px; display:none; margin-top:10px;"  type="text" name="height">
@@ -100,32 +100,8 @@
 						</form>
 					</div>
 					<div id="service_article_main_container" class="border">
-									<article id="article_service" th:each="package : ${packages}">
-													<header>
-														<h2 th:text="#{${package.title}}" align="center"></h2> 
-													</header>
-														<section>
-														  <p th:utext="#{${package.description1}}"></p>
-														  <p th:utext="#{${package.description2}}"></p>
-														  <p th:utext="#{${package.description3}}"></p>
-														  <p th:utext="#{${package.description4}}"></p> 
-														  <p th:utext="#{${package.description5}}"></p>
-														  <p th:utext="#{${package.description6}}"></p>
-														  <p th:utext="#{${package.description7}}"></p>
-														  <p th:utext="#{${package.description8}}"></p>
-														  <p th:utext="#{${package.description9}}"></p>
-														  <p th:utext="#{${package.description10}}"></p>
-														  <p th:utext="#{${package.description11}}"></p>
-														  <p th:utext="#{${package.description12}}"></p>
-														  <p th:utext="#{${package.description13}}"></p>
-														  <p th:utext="#{${package.description14}}"></p>
-														  <p th:utext="#{${package.description15}}"></p>
-														</section>
-													<footer>
-														<h5><b th:text="#{index_price} + ' ' + ${package.price}+ ' ' + #{index_price_euro}"></b></h5>
-													</footer>
-										</article>
-								</div>
+
+					</div>
 				</div>					
 			<br>
 			<br>
@@ -133,16 +109,33 @@
 		<br>
 	</div>
 					<div style="display:none">
-										<p id="html_page1"  th:text="${serviceEntity.html_page}">test</p>
-										<p id="html_element1" th:text="${serviceEntity.html_element}"></p>
-										<p id="service_db1" th:text="${serviceEntity.service_db}"></p>
-										<p id="search1" th:text="${serviceEntity.search}"></p>
-										<p id="multilanguage1" th:text="${serviceEntity.multilanguage}"></p>
-										<p id="animation1" th:text="${serviceEntity.animation}"></p>
-										<p id="auth1" th:text="${serviceEntity.auth}"></p>
-										<p id="newsletter1" th:text="${serviceEntity.newsletter}"></p>
-										<p id="height1" th:text="${serviceEntity.height}"></p>
-					</div>					
+										  <p th:text="#{packages}"></p>
+										  <p id="basic" th:utext="#{packages_basic_page}"></p>
+										  <p id="start" th:utext="#{packages_start_page}"></p>
+										  <p id="dynamic" th:utext="#{packages_dynamic_page}"></p> 
+										  <p id="premium" th:utext="#{packages_premium_page}"></p>
+										  <p id="webshop" th:utext="#{packages_webshop_page}"></p>
+										  <p id="domain" th:utext="#{packages_page_domain}"></p>
+										  <p id="domainspace" th:utext="#{packages_page_domainspace}"></p>
+										  <p id="emailaddress" th:utext="#{packages_page_emailaddress}"></p>
+										  <p id="number_of_pages" th:utext="#{packages_page_html}"></p>
+										  <p id="number_of_page_elements" th:utext="#{packages_page_elements}"></p>
+										  <p id="multi_language" th:utext="#{packages_page_multilanguage}"></p>
+										  <p id="none" th:utext="#{n}"></p>
+										  <p id="embededdatabase" th:utext="#{packages_page_embededdatabase}"></p>
+										  <p id="PostGRESqldb" th:utext="#{packages_page_PostGRESqldb}"></p>
+										  <p id="site_search" th:utext="#{packages_page_search}"></p>
+										  <p id="ssl" th:utext="#{packages_page_ssl}"></p>
+										  <p id="blogging" th:utext="#{packages_page_blogging}"></p>
+										  <p id="animations"  th:utext="#{packages_page_animations}"></p>
+										  <p id="message_sending"  th:utext="#{packages_page_emailsend}"></p>
+										  <p id="newsletter_service" th:utext="#{packages_page_emailsend_newsletter}"></p>
+										  <p id="user_authentication" th:utext="#{packages_page_userauth}"></p>
+										  <p id="pagination" th:utext="#{packages_page_pagination}"></p>
+										  <p id="price" th:text="#{packages_page_price}"></p>
+										  <p id="price_vat" th:utext="#{packages_page_price_vat}"></p>
+				</div>	
+	<div style="display:none" id="packages_json" th:text="${json_packages}"></div>				
 	<script th:src="@{/js/cronoweb_service.js}" src="../../static/js/cronoweb_service.js"></script>
 </body>
 </html>

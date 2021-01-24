@@ -94,6 +94,8 @@ public class main_Controller {
 	@GetMapping("menu/services")
 	public String services (Model model) {
 		
+		model.addAttribute("json_packages", gson.toJson(packageService.findPackages()));
+		
 		return "menu/services";
 	}
 	
