@@ -1,0 +1,9 @@
+spring:
+  data:
+    mongodb:
+      authentication-database : db_nx
+      username : John_Woo
+      password : 2hJ$lDS#nA&8
+      database : db_nx
+      port : 27017
+      host : localhost

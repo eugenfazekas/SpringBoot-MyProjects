@@ -6,7 +6,6 @@ import java.util.UUID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -16,7 +15,6 @@ import org.springframework.stereotype.Service;
 import com.myproject.entity.RegistrationForm;
 import com.myproject.entity.User;
 import com.myproject.repository.UserRepository;
-import com.myproject.repository.Impl.UserRepositoryImpl;
 import com.myproject.service.EmailService;
 import com.myproject.service.UserService;
 

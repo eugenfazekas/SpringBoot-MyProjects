@@ -55,9 +55,9 @@ public class SpringBootMyProject01Application  extends SpringBootServletInitiali
 	private Connector httpToHttpsRedirectConnector() {
 		Connector connector = new Connector(TomcatServletWebServerFactory.DEFAULT_PROTOCOL);
 		connector.setScheme("https");
-		connector.setPort(444);
+		connector.setPort(844);
 		connector.setSecure(true);
-		connector.setRedirectPort(443);
+		connector.setRedirectPort(843);
 		return connector;
 	}
 }
