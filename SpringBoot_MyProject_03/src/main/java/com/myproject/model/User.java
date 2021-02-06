@@ -1,6 +1,7 @@
 package com.myproject.model;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class User {
 	
@@ -10,8 +11,10 @@ public class User {
 	private String fullName;
 	private String email;
 	private String password;
+	private String date_registered;
 	private boolean active;
-	private String[] articlesId;
+	private List<String> authorities = new ArrayList<String>();
+	private List<String> articlesId;
 
 	public String getId() {
 		return id;
@@ -49,22 +52,36 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public String getDate_registered() {
+		return date_registered;
+	}
+	public void setDate_registered(String date_registered) {
+		this.date_registered = date_registered;
+	}
 	public boolean isActive() {
 		return active;
 	}
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-	public String[] getArticlesId() {
+	public List<String> getAuthorities() {
+		return authorities;
+	}
+	public void setAuthorities(List<String> authorities) {
+		this.authorities = authorities;
+	}
+	public List<String> getArticlesId() {
 		return articlesId;
 	}
-	public void setArticlesId(String[] articlesId) {
+	public void setArticlesId(List<String> articlesId) {
 		this.articlesId = articlesId;
 	}
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", fullName=" + fullName
-				+ ", email=" + email + ", password=" + password + ", active=" + active + ", articles="
-				+ Arrays.toString(articlesId) + "]";
+				+ ", email=" + email + ", password=" + password + ", date_registered=" + date_registered + ", active="
+				+ active + ", authorities=" + authorities + ", articlesId=" + articlesId + "]";
 	}
+	
 }

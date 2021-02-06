@@ -9,5 +9,9 @@ public interface UserRepository {
 	public void dropCollectionUsers();
 	
 	public void registerUser(User user);
+	
+	public boolean userExistCheck(String email);
+	
+	public User findUserByEmail(String email) throws Exception;
 
 }

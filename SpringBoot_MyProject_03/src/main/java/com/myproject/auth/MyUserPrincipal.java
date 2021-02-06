@@ -1,44 +1,44 @@
-package com.myproject.service.Impl;
+package com.myproject.auth;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import com.myproject.model.User;
 
+public class MyUserPrincipal implements UserDetails {
 
-import com.myproject.entity.User;
-
-
-
-public class UserDetailsImpl implements UserDetails {
+	private static final long serialVersionUID = -4431604447591571076L;
 	
-	private static final long serialVersionUID = 3185970362329652822L;
-
 	private User user;
-	
-	public UserDetailsImpl(User user) {
+ 
+	public MyUserPrincipal(User user) {
 		this.user = user;
 	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		Collection<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
-			authorities.add(new SimpleGrantedAuthority(user.getAuthority()));
+		
+		for (String authority : user.getAuthorities()) {
+		
+			authorities.add(new SimpleGrantedAuthority(authority));
+		}
 		return authorities;
 	}
 
 	@Override
 	public String getPassword() {
-		return user.getPassword();
 		
+		return user.getPassword();
 	}
 
 	@Override
 	public String getUsername() {
-		return user.getFullName();
+		
+		return user.getEmail();
 	}
 
 	@Override
@@ -49,7 +49,7 @@ public class UserDetailsImpl implements UserDetails {
 
 	@Override
 	public boolean isAccountNonLocked() {
-		
+		// TODO Auto-generated method stub
 		return true;
 	}
 
@@ -61,8 +61,7 @@ public class UserDetailsImpl implements UserDetails {
 
 	@Override
 	public boolean isEnabled() {
-	
-		return user.getEnabled();
-	}
 
+		return user.isActive();
+	}
 }
