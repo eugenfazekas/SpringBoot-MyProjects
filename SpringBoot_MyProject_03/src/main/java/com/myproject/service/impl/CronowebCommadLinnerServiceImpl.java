@@ -4,6 +4,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import com.myproject.service.ArticleService;
+import com.myproject.service.CategoriesService;
 import com.myproject.service.CronowebCommadLinnerService;
 import com.myproject.service.UserService;
 
@@ -12,10 +13,14 @@ public class CronowebCommadLinnerServiceImpl implements CommandLineRunner, Crono
 
 	private UserService userservice;
 	private ArticleService articleService;
-
-	public CronowebCommadLinnerServiceImpl(UserService userservice, ArticleService articleService) {
+	private CategoriesService categoriesService;
+	
+	public CronowebCommadLinnerServiceImpl(UserService userservice, ArticleService articleService,
+			CategoriesService categoriesService) {
+		
 		this.userservice = userservice;
 		this.articleService = articleService;
+		this.categoriesService = categoriesService;
 	}
 
 	@Override
@@ -23,8 +28,11 @@ public class CronowebCommadLinnerServiceImpl implements CommandLineRunner, Crono
 
 		dropCollectionArticles();
 		dropCollectionUsers();
+		dropCollectionCategories();
 		createCollectionArticles();
 		createCollectionUsers();
+		createCollectionCategories();
+		createCategory();
 	}
 
 	@Override
@@ -49,5 +57,23 @@ public class CronowebCommadLinnerServiceImpl implements CommandLineRunner, Crono
 	public void dropCollectionArticles() {
 
 		articleService.dropArticleCollection();
+	}
+
+	@Override
+	public void createCollectionCategories() {
+		
+		categoriesService.createCategoriesCollection();
+	}
+
+	@Override
+	public void dropCollectionCategories() {
+		
+		categoriesService.dropCategoriesCollection();
+	}
+
+	@Override
+	public void createCategory() {
+		
+		categoriesService.createCategory();	
 	}
 }

@@ -3,6 +3,7 @@ package com.myproject.model;
 public class Article {
 
 	private String id;
+	private String category;
 	private String title;
 	private String owner;
 	private String published_date;
@@ -23,6 +24,14 @@ public class Article {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	public String getOwner() {
@@ -57,9 +66,4 @@ public class Article {
 		this.image_title = image_title;
 	}
 
-	@Override
-	public String toString() {
-		return "Article [id=" + id + ", title=" + title + ", owner=" + owner + ", published_date=" + published_date
-				+ ", content=" + content + ", image_title=" + image_title + "]";
-	}
 }

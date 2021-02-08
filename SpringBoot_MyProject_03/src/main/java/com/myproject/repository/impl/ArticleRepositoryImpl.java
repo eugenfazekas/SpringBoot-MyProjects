@@ -25,6 +25,7 @@ public class ArticleRepositoryImpl implements ArticleRepository {
 				    .properties(
 				    		JsonSchemaProperty.string("id"),         
 				    		JsonSchemaProperty.string("title").minLength(3).maxLength(20),
+				    		JsonSchemaProperty.string("category").minLength(3).maxLength(20),
 				    		JsonSchemaProperty.string("owner").minLength(3).maxLength(30), 
 				    		JsonSchemaProperty.string("published_date").minLength(3).maxLength(20),
 				    		JsonSchemaProperty.string("content").minLength(5).maxLength(1000), 
