@@ -1,7 +1,5 @@
 package com.myproject.repository.impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.CollectionOptions;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -60,14 +58,15 @@ public class CategoriesRepositoryImpl implements CategoriesRepository{
 		public void deleteCategory(String category) {
 			
 			Query query = new Query();
-			query.addCriteria(Criteria.where("categories").is(category));
-			mongoTemplate.remove(query,Category.class, CATEGORIES_COLLECTION);
-			
+			query.addCriteria(Criteria.where("category").is("category"));
+			mongoTemplate.updateFirst(query, new Update().pull("categories", category), Category.class, CATEGORIES_COLLECTION);
 		}
 
 		@Override
-		public List<Category> findAllCategories() {
+		public Category findCategories() {
 			
-			return mongoTemplate.findAll(Category.class, CATEGORIES_COLLECTION);
+					Query query = new Query();
+					query.addCriteria(Criteria.where("category").is("category"));
+			return mongoTemplate.findOne(query, Category.class, CATEGORIES_COLLECTION);
 		}
 }

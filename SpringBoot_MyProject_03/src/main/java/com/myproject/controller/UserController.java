@@ -17,7 +17,6 @@ import com.myproject.service.UserService;
 public class UserController {
 	
 	private UserService userService;
-
 	public UserController(UserService userService) {
 		this.userService = userService;
 	}
@@ -26,12 +25,6 @@ public class UserController {
 	public boolean userExistCheck(@RequestParam String email) {
 		
 		return userService.userExistCheck(email);
-	}
-
-	@RequestMapping(value = "login", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public String user_login(@RequestParam String username, String password) {
-	
-		return "ok";
 	}
 	
 	@RequestMapping(value = "registerUser", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)

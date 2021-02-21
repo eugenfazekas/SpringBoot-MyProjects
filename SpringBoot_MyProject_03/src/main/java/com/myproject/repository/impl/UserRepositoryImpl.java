@@ -5,10 +5,12 @@ import org.springframework.data.mongodb.core.CollectionOptions;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.data.mongodb.core.schema.JsonSchemaProperty;
 import org.springframework.data.mongodb.core.schema.MongoJsonSchema;
 import org.springframework.stereotype.Repository;
 
+import com.myproject.model.Category;
 import com.myproject.model.User;
 import com.myproject.repository.UserRepository;
 
@@ -76,4 +78,32 @@ public class UserRepositoryImpl implements UserRepository{
 		User user = mongoTemplate.findOne(query,User.class, USERS_COLLECTION);
 		return user;
 	}
+
+	@Override
+	public void addArticle(String userFullName, String article) {
+
+		Query query = new Query();
+		query.addCriteria(Criteria.where("fullName").is(userFullName));
+		mongoTemplate.updateFirst(query, new Update().push("articles", article), Category.class, USERS_COLLECTION);
+	}
+
+	@Override
+	public void deleteArticle(String userFullName, String article) {
+
+		Query query = new Query();
+		query.addCriteria(Criteria.where("fullName").is(userFullName));
+		mongoTemplate.updateFirst(query, new Update().pull("articles", article), Category.class, USERS_COLLECTION);
+		
+	}
+
+	@Override
+		public User findUserById(String id) {
+		
+		Query query = new Query();
+		query.addCriteria(Criteria.where("id").is(id));
+		User user = mongoTemplate.findOne(query,User.class, USERS_COLLECTION);
+		return user;
+		
+	}
+		
 }

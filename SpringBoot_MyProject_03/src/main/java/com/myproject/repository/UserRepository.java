@@ -13,5 +13,10 @@ public interface UserRepository {
 	public boolean userExistCheck(String email);
 	
 	public User findUserByEmail(String email) throws Exception;
-
+	
+	public void addArticle(String userFullName, String article);
+	
+	public void deleteArticle(String userFullName, String article);
+	
+	public User findUserById(String id);
 }

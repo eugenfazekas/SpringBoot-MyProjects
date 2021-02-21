@@ -16,6 +16,21 @@ public class User {
 	private List<String> authorities = new ArrayList<String>();
 	private List<String> articlesId;
 
+	public User() {
+	}
+	
+	public User(String firstName, String lastName, String fullName, String email, String password,
+			String date_registered, boolean active, List<String> authorities) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.fullName = fullName;
+		this.email = email;
+		this.password = password;
+		this.date_registered = date_registered;
+		this.active = active;
+		this.authorities = authorities;
+	}
+	
 	public String getId() {
 		return id;
 	}

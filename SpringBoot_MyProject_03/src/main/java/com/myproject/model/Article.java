@@ -66,4 +66,10 @@ public class Article {
 		this.image_title = image_title;
 	}
 
+	@Override
+	public String toString() {
+		return "Article [id=" + id + ", category=" + category + ", title=" + title + ", owner=" + owner
+				+ ", published_date=" + published_date + ", content=" + content + ", image_title=" + image_title + "]";
+	}
+
 }

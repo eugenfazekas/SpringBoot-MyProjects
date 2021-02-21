@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.myproject.model.Category;
 import com.myproject.repository.CategoriesRepository;
 import com.myproject.service.CategoriesService;
 
@@ -43,9 +42,10 @@ public class CategoriesServiceImpl implements CategoriesService {
 	}
 
 	@Override
-	public List<Category> findAllCategories() {
+	public List<String> findAllCategories() {
 	
-		return categoriesRepository.findAllCategories();
+		
+		return categoriesRepository.findCategories().getCategories();
 	}
 
 	@Override

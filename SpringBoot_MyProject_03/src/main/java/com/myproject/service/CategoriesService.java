@@ -2,8 +2,6 @@ package com.myproject.service;
 
 import java.util.List;
 
-import com.myproject.model.Category;
-
 public interface CategoriesService {
 	
 	public void createCategoriesCollection();
@@ -16,6 +14,6 @@ public interface CategoriesService {
 	
 	public void deleteCategory(String category);
 	
-	public List<Category> findAllCategories();
+	public List<String> findAllCategories();
 
 }

@@ -13,4 +13,9 @@ public interface UserService {
 	public boolean userExistCheck(String email);
 	
 	public User findUserByEmail(String email);
+	
+	public String getDate();
+	
+	public void createUserDirPath(String userId);
+		
 }

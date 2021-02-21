@@ -15,5 +15,10 @@ public interface CronowebCommadLinnerService {
 	public void dropCollectionCategories();
 	
 	public void createCategory();
-
+	
+	public void insertDummyCategories();
+	
+	public void insertDummyUsers();
+	
+	public void importDummyJsonArticles();
 }

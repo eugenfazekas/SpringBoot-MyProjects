@@ -13,5 +13,11 @@ public interface ArticleRepository {
 	public void saveArticle(Article article);
 	
 	public List<Article> findAllArticles();
+
+	public void insertAllArticles(List<Article> articles);
+	
+	public Article findArticleById(String articleId);
+	
+	public void deleteArticle(String articleId);
 	
 }

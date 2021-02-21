@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -17,7 +16,6 @@ import com.myproject.auth.JwtRequestFilter;
 import com.myproject.auth.MyUserDetailsService;
 
 @Configuration
-@EnableGlobalMethodSecurity(securedEnabled = true)
 @EnableWebSecurity
 public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 		
@@ -44,11 +42,12 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 		
 		 http.csrf().disable().authorizeRequests().antMatchers("/user/**").permitAll()
 									.antMatchers("/authenticate").permitAll()
+									.antMatchers("/admin/**").hasAuthority("admin")
 									.anyRequest().authenticated()
 									.and().sessionManagement()
 									.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		 http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
-									
+		 http.cors();						
 		}	
 }
 

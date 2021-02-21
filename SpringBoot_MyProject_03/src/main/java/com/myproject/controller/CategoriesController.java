@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.myproject.model.Category;
 import com.myproject.service.CategoriesService;
 
 @RestController
@@ -24,8 +23,9 @@ public class CategoriesController {
 		this.categoriesService = categoriesService;
 	}
 
-	@RequestMapping(value = "findAllCategories", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Category> findAllCategories() {
+	@RequestMapping(value = "findCategories", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<String> findCategories() {
+	
 	
 		return categoriesService.findAllCategories();
 	}
