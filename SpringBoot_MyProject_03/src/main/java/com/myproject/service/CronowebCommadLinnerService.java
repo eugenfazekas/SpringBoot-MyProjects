@@ -21,4 +21,8 @@ public interface CronowebCommadLinnerService {
 	public void insertDummyUsers();
 	
 	public void importDummyJsonArticles();
+	
+	public void createCollectionAccountType();
+	
+	public void dropCollectionAccountType();
 }

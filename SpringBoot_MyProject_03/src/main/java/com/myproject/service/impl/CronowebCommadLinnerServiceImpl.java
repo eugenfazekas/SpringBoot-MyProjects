@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.myproject.model.Article;
 import com.myproject.model.User;
 import com.myproject.repository.UserRepository;
+import com.myproject.service.AccountKeyService;
 import com.myproject.service.ArticleService;
 import com.myproject.service.CategoriesService;
 import com.myproject.service.CronowebCommadLinnerService;
@@ -25,15 +26,7 @@ public class CronowebCommadLinnerServiceImpl implements CommandLineRunner, Crono
 	private ArticleService articleService;
 	private CategoriesService categoriesService;
 	private UserRepository userRepository;
-
-	public CronowebCommadLinnerServiceImpl(UserService userservice, ArticleService articleService,
-			CategoriesService categoriesService, UserRepository userRepository) {
-
-		this.userservice = userservice;
-		this.articleService = articleService;
-		this.categoriesService = categoriesService;
-		this.userRepository = userRepository;
-	}
+	private AccountKeyService accountKeyService;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -48,6 +41,19 @@ public class CronowebCommadLinnerServiceImpl implements CommandLineRunner, Crono
 		insertDummyCategories();
 		insertDummyUsers();
 		importDummyJsonArticles();
+		dropCollectionAccountType();
+		createCollectionAccountType();
+	}
+
+	
+	public CronowebCommadLinnerServiceImpl(UserService userservice, ArticleService articleService,
+			CategoriesService categoriesService, UserRepository userRepository, AccountKeyService accountKeyService) {
+
+		this.userservice = userservice;
+		this.articleService = articleService;
+		this.categoriesService = categoriesService;
+		this.userRepository = userRepository;
+		this.accountKeyService = accountKeyService;
 	}
 
 	@Override
@@ -128,5 +134,17 @@ public class CronowebCommadLinnerServiceImpl implements CommandLineRunner, Crono
 			System.out.println(e);
 		}
 	
+	}
+
+	@Override
+	public void createCollectionAccountType() {
+		
+		accountKeyService.createAccountKeyCollection();	
+	}
+
+	@Override
+	public void dropCollectionAccountType() {
+		
+		accountKeyService.dropAccountKeyCollection();
 	}
 }

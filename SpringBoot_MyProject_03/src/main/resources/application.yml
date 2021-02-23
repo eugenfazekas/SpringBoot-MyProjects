@@ -1,3 +1,10 @@
+emailservice:
+  subjecten : Demo Project account activation
+  text1en : Dear
+  text2en : "Thanks for you're registration to our website, and you can sign is with the followed username: "
+  text3en : You can activate you're account by the followed link    
+  validationLink: http://127.0.0.1:4800/user/userKeyCheck/  
+
 spring:
   data:
     mongodb:
@@ -7,3 +14,5 @@ spring:
       database : db_nx
       port : 27017
       host : localhost
+      
+

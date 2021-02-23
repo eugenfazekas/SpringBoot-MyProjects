@@ -13,7 +13,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.myproject.model.Article;
 import com.myproject.service.ArticleService;
-import com.myproject.service.UserService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -22,7 +21,7 @@ public class ArticleController {
 	
 	private ArticleService articleService;
 
-	public ArticleController(ArticleService articleService, UserService userService) {
+	public ArticleController(ArticleService articleService) {
 		this.articleService = articleService;
 	}
 
