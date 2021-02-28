@@ -9,4 +9,10 @@ public interface AccountKeyRepository {
 	void dropAccountKeyCollection();
 
 	void createAccountKey(AccountKey account);
+	
+	boolean keyCheck(String key);
+	
+	AccountKey accountKey(String key);
+	
+	void removeKey(String key);
 }

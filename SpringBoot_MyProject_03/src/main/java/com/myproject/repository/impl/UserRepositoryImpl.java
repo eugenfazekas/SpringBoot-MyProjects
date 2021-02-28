@@ -101,9 +101,18 @@ public class UserRepositoryImpl implements UserRepository{
 		
 		Query query = new Query();
 		query.addCriteria(Criteria.where("id").is(id));
-		User user = mongoTemplate.findOne(query,User.class, USERS_COLLECTION);
+		User user = mongoTemplate.findOne(query, User.class, USERS_COLLECTION);
 		return user;
 		
 	}
-		
+
+	@Override
+	public void setActiveUser(String email) {
+	
+		Query query = new Query();
+		query.addCriteria(Criteria.where("email").is(email));
+		Update update = new Update();
+		update.set("active", true);
+		mongoTemplate.updateFirst(query, update, USERS_COLLECTION);
+	}		
 }

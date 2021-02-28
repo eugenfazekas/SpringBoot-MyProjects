@@ -30,7 +30,25 @@ public class AccountKeyServiceImpl implements AccountKeyService {
 	@Override
 	public void createAccountKey(AccountKey account) {
 
-		
+		accountKeyRepository.createAccountKey(account);
+	}
+
+	@Override
+	public boolean keyCheck(String key) {
+	
+		return accountKeyRepository.keyCheck(key);
+	}
+
+	@Override
+	public void removeKey(String key) {
+
+		accountKeyRepository.removeKey(key);
+	}
+
+	@Override
+	public AccountKey accountKey(String key) {
+	
+		return accountKeyRepository.accountKey(key);
 	}
 
 }

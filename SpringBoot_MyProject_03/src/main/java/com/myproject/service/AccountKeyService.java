@@ -9,5 +9,10 @@ public interface AccountKeyService {
 	void dropAccountKeyCollection();
 
 	void createAccountKey(AccountKey account);
-
+	
+	boolean keyCheck(String key);
+	
+	void removeKey(String key);
+	
+	AccountKey accountKey(String key);
 }

@@ -19,4 +19,6 @@ public interface UserRepository {
 	public void deleteArticle(String userFullName, String article);
 	
 	public User findUserById(String id);
+	
+	void setActiveUser(String email);
 }

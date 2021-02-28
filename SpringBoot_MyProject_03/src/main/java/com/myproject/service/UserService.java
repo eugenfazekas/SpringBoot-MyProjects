@@ -17,5 +17,6 @@ public interface UserService {
 	public String getDate();
 	
 	public void createUserDirPath(String userId);
-		
+	
+	public String userActivation(String key);		
 }

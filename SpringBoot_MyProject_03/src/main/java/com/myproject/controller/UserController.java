@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.myproject.model.User;
 import com.myproject.service.UserService;
@@ -21,10 +22,12 @@ import com.myproject.service.UserService;
 public class UserController {
 	
 	private UserService userService;
+
 	public UserController(UserService userService) {
+
 		this.userService = userService;
 	}
-	
+
 	@RequestMapping(value = "userExistCheck", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public boolean userExistCheck(@RequestParam String email) {
 		
@@ -46,8 +49,12 @@ public class UserController {
 	}
 	
 	@RequestMapping(path = "userKeyCheck/{code}", method = RequestMethod.GET)
-    public String codeCheckAdmin(@PathVariable("code") String code, HttpServletResponse response,Model model) {
+    public RedirectView codeCheckUser(@PathVariable("code") String code, HttpServletResponse response,Model model) {
+		 userService.userActivation(code);
+		 RedirectView redirectView = new RedirectView();
+		 redirectView.setUrl("http://localhost:4200");
 	
-			return "main/index";
+		 return redirectView;
  }
+
 }

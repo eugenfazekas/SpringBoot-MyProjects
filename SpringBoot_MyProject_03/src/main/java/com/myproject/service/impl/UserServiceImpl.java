@@ -65,7 +65,7 @@ public class UserServiceImpl implements UserService{
 		authority.add("user");
 		user.setAuthorities(authority);
 		userRepository.registerUser(user);
-		accountKeyService.createAccountKey(new AccountKey("user",uuid.toString()));
+		accountKeyService.createAccountKey(new AccountKey("user",uuid.toString(),user.getEmail()));
 		try {
 			emailService.sendMessageen(user.getEmail(), user.getFullName(), uuid.toString());
 		} catch (MessagingException e) {
@@ -77,6 +77,7 @@ public class UserServiceImpl implements UserService{
 		}
 		createUserDirPath(uuid.toString());
 	}
+
 
 	@Override
 	public boolean userExistCheck(String email) {
@@ -118,5 +119,18 @@ public class UserServiceImpl implements UserService{
 
 	    log.debug("Directory is created!");
 		
+	}
+
+	@Override
+	public String userActivation(String key) {
+	
+		boolean userExist = accountKeyService.keyCheck(key);
+		String activated = userExist == true ? "userActivated" : "notActivated";
+		if(activated == "userActivated") {
+			AccountKey account = accountKeyService.accountKey(key);
+			userRepository.setActiveUser(account.getEmail());
+			accountKeyService.removeKey(key);
+		}
+		return activated;
 	}
 }
