@@ -47,10 +47,5 @@ public class AuthController {
 		
 		return ResponseEntity.ok(new AuthenticationResponse(jwt));
 	}
-	
-	@RequestMapping(value = "/hello", method = RequestMethod.GET)
-	public String hello() {
-		
-		return "auth ok";
-	}
+
 }

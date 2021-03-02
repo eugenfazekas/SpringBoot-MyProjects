@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.myproject.model.Address;
 import com.myproject.model.Article;
 import com.myproject.model.User;
 import com.myproject.repository.UserRepository;
@@ -113,11 +114,13 @@ public class CronowebCommadLinnerServiceImpl implements CommandLineRunner, Crono
 		
 		List<String> auhtorities = new ArrayList<String>(); auhtorities.add("user");
 		
-		userRepository.registerUser(new User("John","Skybolt","John Skybolt","eu@fa.hu"   ,new BCryptPasswordEncoder().encode("myPassword"),"2020.01.10 20:20:40",true,auhtorities));
+		userRepository.registerUser(new User("John","Skybolt","John Skybolt","eu@fa.hu"   ,new BCryptPasswordEncoder().encode("myPassword"),"2020.01.10 20:20:40",true,auhtorities,
+				new Address("Romania","Oradea","Sovata","8")));
 		
 		auhtorities.add("admin");
 		
-		userRepository.registerUser(new User("John","Admin",  "John Admin",  "admin@fa.hu",new BCryptPasswordEncoder().encode("myAdmin"),   "2020.01.10 20:20:40",true,auhtorities));
+		userRepository.registerUser(new User("John","Admin",  "John Admin", "admin@fa.hu",new BCryptPasswordEncoder().encode("myAdmin"),   "2020.01.10 20:20:40",true,auhtorities,
+				new Address("Hungary","Debrecen","Arany Janos","2")));
 	}
 
 	@Override

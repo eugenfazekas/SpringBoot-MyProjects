@@ -15,6 +15,7 @@ public class User {
 	private boolean active;
 	private List<String> authorities = new ArrayList<String>();
 	private List<String> articlesId;
+	private Address address;
 
 	public User() {
 	}
@@ -31,6 +32,19 @@ public class User {
 		this.authorities = authorities;
 	}
 	
+	public User(String firstName, String lastName, String fullName, String email, String password,
+			String date_registered, boolean active, List<String> authorities, Address address) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.fullName = fullName;
+		this.email = email;
+		this.password = password;
+		this.date_registered = date_registered;
+		this.active = active;
+		this.authorities = authorities;
+		this.address = address;
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -92,11 +106,19 @@ public class User {
 	public void setArticlesId(List<String> articlesId) {
 		this.articlesId = articlesId;
 	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", fullName=" + fullName
 				+ ", email=" + email + ", password=" + password + ", date_registered=" + date_registered + ", active="
-				+ active + ", authorities=" + authorities + ", articlesId=" + articlesId + "]";
+				+ active + ", authorities=" + authorities + ", articlesId=" + articlesId + ", address=" + address + "]";
 	}
-	
 }

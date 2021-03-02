@@ -38,6 +38,12 @@ public class UserRepositoryImpl implements UserRepository{
 			    		JsonSchemaProperty.string("date_registered"),
 			    		JsonSchemaProperty.bool("active"),
 			    		JsonSchemaProperty.array("authorities").items(JsonSchemaProperty.string("items")),
+			    		JsonSchemaProperty.object("Address").properties(
+			    														JsonSchemaProperty.string("country").possibleValues("Romania","Hungary","UK"),
+			    														JsonSchemaProperty.string("city").minLength(3).maxLength(20), 
+			    														JsonSchemaProperty.string("street").minLength(3).maxLength(25), 
+			    														JsonSchemaProperty.string("number").minLength(3).maxLength(5) 
+			    									),
 			    		JsonSchemaProperty.array("articles").items(JsonSchemaProperty.string("items")))
 			    	    .build();
 		
