@@ -42,7 +42,7 @@ public class UserRepositoryImpl implements UserRepository{
 			    														JsonSchemaProperty.string("country").possibleValues("Romania","Hungary","UK"),
 			    														JsonSchemaProperty.string("city").minLength(3).maxLength(20), 
 			    														JsonSchemaProperty.string("street").minLength(3).maxLength(25), 
-			    														JsonSchemaProperty.string("number").minLength(3).maxLength(5) 
+			    														JsonSchemaProperty.string("number").minLength(3).maxLength(1) 
 			    									),
 			    		JsonSchemaProperty.array("articles").items(JsonSchemaProperty.string("items")))
 			    	    .build();
@@ -120,5 +120,20 @@ public class UserRepositoryImpl implements UserRepository{
 		Update update = new Update();
 		update.set("active", true);
 		mongoTemplate.updateFirst(query, update, USERS_COLLECTION);
+	}
+
+	@Override
+	public User updateUser(User user) {
+			Query query = new Query();
+			query.addCriteria(Criteria.where("id").is(user.getId()));
+			Update update = new Update();
+			update.set("firstName", user.getFirstName());
+			update.set("lastName", user.getLastName());
+			update.set("fullName", user.getFullName());
+			update.set("email", user.getEmail());
+			update.set("password", user.getPassword());
+			update.set("address", user.getAddress());
+			mongoTemplate.updateMulti(query, update, User.class, USERS_COLLECTION);
+		return user;
 	}		
 }

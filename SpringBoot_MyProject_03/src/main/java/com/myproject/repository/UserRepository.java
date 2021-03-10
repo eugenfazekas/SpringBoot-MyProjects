@@ -21,4 +21,6 @@ public interface UserRepository {
 	public User findUserById(String id);
 	
 	void setActiveUser(String email);
+
+	public User updateUser(User user);
 }

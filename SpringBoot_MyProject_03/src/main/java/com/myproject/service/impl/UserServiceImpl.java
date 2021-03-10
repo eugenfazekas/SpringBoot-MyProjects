@@ -133,4 +133,12 @@ public class UserServiceImpl implements UserService{
 		}
 		return activated;
 	}
+
+	@Override
+	public User updateUser(User user) {	
+		String userPassword = user.getPassword() == "" ? userRepository.findUserById(user.getId()).getPassword() : new BCryptPasswordEncoder().encode(user.getPassword());
+			user.setFullName();
+			user.setPassword(userPassword);
+		return userRepository.updateUser(user);
+	}
 }
