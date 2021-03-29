@@ -1,6 +1,5 @@
 package com.myproject.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class User {
@@ -13,8 +12,10 @@ public class User {
 	private String password;
 	private String date_registered;
 	private boolean active;
-	private List<String> authorities = new ArrayList<String>();
+	private String activeProfilePhoto;
+	private List<String> authorities;
 	private List<String> articlesId;
+	private List<String> profilePhotos;
 	private Address address;
 
 	public User() {
@@ -115,10 +116,27 @@ public class User {
 		this.address = address;
 	}
 
+	public String getActiveProfilePhoto() {
+		return activeProfilePhoto;
+	}
+
+	public void setActiveProfilePhoto(String activeProfilePhoto) {
+		this.activeProfilePhoto = activeProfilePhoto;
+	}
+
+	public List<String> getProfilePhotos() {
+		return profilePhotos;
+	}
+
+	public void setProfilePhotos(List<String> profilePhotos) {
+		this.profilePhotos = profilePhotos;
+	}
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", fullName=" + fullName
 				+ ", email=" + email + ", password=" + password + ", date_registered=" + date_registered + ", active="
-				+ active + ", authorities=" + authorities + ", articlesId=" + articlesId + ", address=" + address + "]";
-	}
+				+ active + ", activeProfilePhoto=" + activeProfilePhoto + ", authorities=" + authorities
+				+ ", articlesId=" + articlesId + ", profilePhotos=" + profilePhotos + ", address=" + address + "]";
+	}	
 }

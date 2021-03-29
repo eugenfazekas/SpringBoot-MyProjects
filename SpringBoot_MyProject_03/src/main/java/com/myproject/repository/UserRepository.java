@@ -23,4 +23,10 @@ public interface UserRepository {
 	void setActiveUser(String email);
 
 	public User updateUser(User user);
+	
+	public void uploadProfilePhoto(String userId, String photoName);
+	
+	public void deleteProfilePhoto(String userId, String photoName);
+	
+	public void setActiveProfilePhoto(String userId, String photoName);
 }

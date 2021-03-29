@@ -1,5 +1,7 @@
 package com.myproject.service;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.myproject.model.User;
 
 public interface UserService {
@@ -20,5 +22,11 @@ public interface UserService {
 	
 	public String userActivation(String key);
 
-	public User updateUser(User user);		
+	public User updateUser(User user);	
+	
+	public void uploadProfilePhoto(MultipartFile fileInput);
+	
+	public String deleteProfilePhoto(String userId, String photoName);
+	
+	public void setActiveProfilePhoto(String userId, String photoName);
 }

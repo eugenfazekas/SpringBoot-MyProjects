@@ -37,6 +37,7 @@ public class UserRepositoryImpl implements UserRepository{
 			    		JsonSchemaProperty.string("password").minLength(5).maxLength(70), 
 			    		JsonSchemaProperty.string("date_registered"),
 			    		JsonSchemaProperty.bool("active"),
+			    		JsonSchemaProperty.string("activeProfilePhoto").minLength(5).maxLength(70), 
 			    		JsonSchemaProperty.array("authorities").items(JsonSchemaProperty.string("items")),
 			    		JsonSchemaProperty.object("Address").properties(
 			    														JsonSchemaProperty.string("country").possibleValues("Romania","Hungary","UK"),
@@ -44,6 +45,7 @@ public class UserRepositoryImpl implements UserRepository{
 			    														JsonSchemaProperty.string("street").minLength(3).maxLength(25), 
 			    														JsonSchemaProperty.string("number").minLength(3).maxLength(1) 
 			    									),
+			    		JsonSchemaProperty.array("profilePhotos").items(JsonSchemaProperty.string("items")),
 			    		JsonSchemaProperty.array("articles").items(JsonSchemaProperty.string("items")))
 			    	    .build();
 		
@@ -135,5 +137,29 @@ public class UserRepositoryImpl implements UserRepository{
 			update.set("address", user.getAddress());
 			mongoTemplate.updateMulti(query, update, User.class, USERS_COLLECTION);
 		return user;
+	}
+
+	@Override
+	public void uploadProfilePhoto(String userId, String photoName) {
+		Query query = new Query();
+		query.addCriteria(Criteria.where("id").is(userId));
+		mongoTemplate.updateFirst(query, new Update().push("profilePhotos", photoName), User.class, USERS_COLLECTION);	
+	}
+
+	@Override
+	public void deleteProfilePhoto(String userId, String photoName) {
+		Query query = new Query();
+		query.addCriteria(Criteria.where("id").is(userId));
+		mongoTemplate.updateFirst(query, new Update().pull("profilePhotos", photoName), User.class, USERS_COLLECTION);	
+	}
+
+	@Override
+	public void setActiveProfilePhoto(String userId, String photoName) {
+		
+		Query query = new Query();
+		query.addCriteria(Criteria.where("id").is(userId));
+		Update update = new Update();
+		update.set("activeProfilePhoto", photoName);
+		mongoTemplate.updateFirst(query, update, User.class, USERS_COLLECTION);	
 	}		
 }

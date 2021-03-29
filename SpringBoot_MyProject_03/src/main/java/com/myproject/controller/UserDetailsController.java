@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.myproject.model.User;
 import com.myproject.service.UserService;
@@ -33,6 +34,29 @@ public class UserDetailsController {
 	public User updateUser(@RequestBody User user) {
 
 		return userService.updateUser(user);
+
+	}
+	
+	@RequestMapping(value = "saveProfileImage", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public String saveProfileImage(@RequestParam MultipartFile fileInput) {
+
+		userService.uploadProfilePhoto(fileInput);
+		return "Image saved";
+
+	}
+	
+	@RequestMapping(value = "deleteProfileImage", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public String deleteProfileImage(@RequestParam String id, String imageName) {
+		
+		userService.deleteProfilePhoto(id, imageName);
+		return "Image deleted";
+	}
+	
+	@RequestMapping(value = "setActiveProfilePhoto", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public String setActiveProfilePhoto(@RequestParam String id, String imageName) {
+
+		 userService.setActiveProfilePhoto(id, imageName);
+		 return imageName;
 
 	}
 }
