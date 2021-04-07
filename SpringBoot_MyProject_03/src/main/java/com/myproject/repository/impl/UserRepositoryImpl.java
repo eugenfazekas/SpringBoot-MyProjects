@@ -37,7 +37,7 @@ public class UserRepositoryImpl implements UserRepository{
 			    		JsonSchemaProperty.string("password").minLength(5).maxLength(70), 
 			    		JsonSchemaProperty.string("date_registered"),
 			    		JsonSchemaProperty.bool("active"),
-			    		JsonSchemaProperty.string("activeProfilePhoto").minLength(5).maxLength(70), 
+			    		JsonSchemaProperty.string("activeProfilePhoto").maxLength(70), 
 			    		JsonSchemaProperty.array("authorities").items(JsonSchemaProperty.string("items")),
 			    		JsonSchemaProperty.object("Address").properties(
 			    														JsonSchemaProperty.string("country").possibleValues("Romania","Hungary","UK"),

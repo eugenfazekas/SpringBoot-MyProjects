@@ -24,7 +24,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.myproject.config.EmailService;
 import com.myproject.model.AccountKey;
-import com.myproject.model.Article;
 import com.myproject.model.User;
 import com.myproject.repository.UserRepository;
 import com.myproject.service.AccountKeyService;
@@ -168,9 +167,14 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public String deleteProfilePhoto(String userId, String imageName) {
+	public String deleteProfilePhoto(String userId, String imageName, boolean imageNameActive) {
 
 		userRepository.deleteProfilePhoto(userId, imageName);
+		
+		if(imageNameActive == true) {
+			userRepository.setActiveProfilePhoto(userId, "");
+		}
+		
 		String response = null;
 		 File myObj = new File("src/main/resources/static/user/" + userId + "/" + imageName + ".png"); 
 		    if (myObj.delete()) { 

@@ -46,9 +46,9 @@ public class UserDetailsController {
 	}
 	
 	@RequestMapping(value = "deleteProfileImage", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public String deleteProfileImage(@RequestParam String id, String imageName) {
+	public String deleteProfileImage(@RequestParam String id, String imageName, String imageNameActive) {
 		
-		userService.deleteProfilePhoto(id, imageName);
+		userService.deleteProfilePhoto(id, imageName, Boolean.valueOf(imageNameActive));
 		return "Image deleted";
 	}
 	
